@@ -6,22 +6,39 @@
 		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 	</head>
 	<body>
-		<form>
-			Name:<br>
-			<input type="text" name="name"><br>
-			Contact Number:<br>
-			<input type="text" name="number"><br>
-			Film Name:<br>
-			<!-- Add film name from cookies -->
-			Ticket Type:<br>
-			<input type="text" name="filmname"><br>
-			Location:<br>
-			<!-- Add location from cookies -->
-			Date:<br>
-			<!-- Add date from cookies -->
-			Time:<br>
-			<!-- Add time from cookies -->
-			</select><br>
+		<h1>Booking Form</h1>
+		<form method="post" id="booking-form">
+			<div>
+				<label for="name">Name: </label>
+				<input type="text" id="name" name="name" maxlength="100">
+			</div>
+			<div>
+				<label for="contactno">Contact Number: </label>
+				<input type="tel" id="contactno" name="contactno">
+			</div>
+			<div>
+				<label for="filmname">Film Name: </label>
+				<!-- Add film name from cookies -->
+			</div>
+			<div>
+				<label for="tickettype">Ticket Type: </label>
+				<input type="text" id="tickettype" name="tickettype">
+			</div>
+			<div>
+				<label for="contactno">Location: </label>
+				<!-- Add location from cookies -->
+			</div>
+			<div>
+				<label for="contactno">Date: </label>
+				<!-- Add date from cookies -->
+			</div>
+			<div>
+				<label for="contactno">Time: </label>
+				<!-- Add time from cookies -->
+			</div>
+			<div>
+				<input type="submit" name="submitbutton">
+			</div>	
 		</form>
 	</body>
 </html>
