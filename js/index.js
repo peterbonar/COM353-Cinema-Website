@@ -1,6 +1,10 @@
-$('select#locations').change(function() {
+$(document.body).change(function() {
 
-    locationSelect = $(this).children(':selected').text();
+    var locationSelect = $(this).children(':selected').val();
+    
+    document.setCookie = locationSelect;
+    console.log(locationSelect);
+    console.log(document.cookie);
 
     $('').each(function() {
         if ($(this).text() == locationSelect) {
