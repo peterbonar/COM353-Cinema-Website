@@ -8,37 +8,33 @@
    </head>
    <body>
       <h1>Contact Us</h1>
-      <form method="post" id="form">
-         <p>
-            <label for="firstname">First Name: </label>
+      <form method="post" id="contact-form">
+         <div>
+            <label for="first-name">First Name: </label>
             <input type="text" id="firstname" name="firstName" maxlength="30">
-         </p>
-         <p>
-            <label for="secondname">Second Name: </label>
+         </div>
+         <div>
+            <label for="surname">Surname: </label>
             <input type="text" id="secondname" name="secondName" maxlength="30">
-         </p>
-         <p>
+         </div>
+         <div>
             <label for="email">Email Address: </label>
             <input type="text" id="email" name="email">
-         </p>
-         <p>
+         </div>
+         <div>
             <label for="phone">Phone Number: </label>
             <input type="tel" id="phone" name="phone">
-         </p>
-         <p>
+         </div>
+         <div>
             <label for="preference">Preferred Contact Method: </label>
-            <input list="preferences" id="preference" name="preferences">
-            <datalist id="preferences">
-               <option value="Email">
-               <option value="Phone">
-               <option value="Either">
-            </datalist>
-         </p>
+            <input type="checkbox" name="phone" value="Phone">Phone<br>
+            <input type="checkbox" name="email" value="Email">Email<br>
+         </div>
          <label for="enquiry">Enquiry: </label>
          <textarea id="enquiry" rows="4" cols="50" placeholder="Please type enquiry here..."></textarea>
       </form>
-      <button type="submit" form="form" formmethod="post">Submit Enquiry</button>
-      <button type="reset" form="form">Reset Form</button>
+      <button type="submit" form="contact-form" formmethod="post">Submit Enquiry</button>
+      <button type="reset" form="contact-form">Reset Form</button>
       <br>
       <br>
       <h1>Main Office</h1>
