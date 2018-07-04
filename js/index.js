@@ -18,5 +18,3 @@ window.onload = setCookie;
 $(document).ready(function() {
 	$('#locations').on('change', setCookie);
 });
-
-
