@@ -1,11 +1,11 @@
 function setLocationCookie() {
 	//Determine the location from the option currently selected.
- 	var location = 'location=' + $('#locations option:selected').text()  + ';', d = new Date();
- 	//Set an expiry time of 24 hours from the cookie's creation.
-    d.setTime(d.getTime() + (24*60*60*1000));
-    var expires = "expires=" + d.toUTCString() + ';';
-    //Set the location and expiry keys and values.
- 	document.cookie = location + expires;
+	var location = 'location=' + $('#locations option:selected').text()  + ';', d = new Date();
+	//Set an expiry time of 24 hours from the cookie's creation.
+	d.setTime(d.getTime() + (24*60*60*1000));
+	var expires = "expires=" + d.toUTCString() + ';';
+	//Set the location and expiry keys and values.
+	document.cookie = location + expires;
 };
 
 function getCookie(cookieKey) {
