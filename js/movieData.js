@@ -1,4 +1,4 @@
-{
+var jsonData = {
   movies: [
     {
       title: "Adrift",
