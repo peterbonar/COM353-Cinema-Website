@@ -52,36 +52,25 @@ $(document).ready(function() {
 	//Update the location cookie everytime the #locations select value changes.
 	$('#locations').on('change', setLocationCookie);
 
-  console.log('start');
-  var json = (function () {
-    var json2 = null;
-    console.log('1');
-    console.log(json2);
-    $.ajax({
-      'async': false,
-      'global': false,
-      'url': ./movies.json,
-      'dataType': "json",
-      'success': function (data) {
-        json2 = data;
-        console.log('2');
-        console.log(json2);
-      }
-    });
-    console.log('3');
-    console.log(json2);
-    return json2;
-  })();
-
   $(function() {
     var data = [];
-    $(json).map(function(i, movie) {
-      console.log('4');
-      console.log(json);
-      console.log('5');
-      console.log(movie);
-      data.push('<li>'+movie.title+'</li>');
+    $(jsonData).map(function(i, movies) {
+      //Map each json movie into an individual object
+      jQuery.each(jsonData.movies, function(index, movie) {
+        //Format each movie object to HTML
+        data.push('<div>');
+        data.push('<img src="'+movie.poster+'"></img>');
+        data.push('<h3>'+movie.title+'</h3>');
+        data.push('<h5>'+movie.tagline+'</h5>');
+        data.push('<p>Description: '+movie.description+'</p>');
+        data.push('<p>Cast: '+movie.cast+'</p>');
+        data.push('<p>Director: '+movie.director+'</p>');
+        data.push('<p>Genre: '+movie.genre+'</p>');
+        data.push('<p>Locations: '+movie.locations+'</p>');
+        data.push('</div>');
+      });
     });
+    //Push the array of HTML formatted movies to the 'movieList' Div in index.html
     $('#movieList').append(data);
   })
 });
