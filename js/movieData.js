@@ -30,7 +30,7 @@ var jsonData = {
       director: "Gerard McMurray",
       genre: "Action, Horror, Sci-Fi",
       rating: "15",
-      poster: "Media/Movie covers/The first purge.jpg",
+      poster: "Media/Movie covers/The First Purge.jpg",
       locations: ["Belfast", "Lisburn"]
     },
     {
