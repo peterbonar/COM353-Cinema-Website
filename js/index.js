@@ -76,6 +76,7 @@ function populateHTMLMovieData() {
         data.push('<p>Cast: '+movie.cast+'</p>');
         data.push('<p>Director: '+movie.director+'</p>');
         data.push('<p>Genre: '+movie.genre+'</p>');
+        data.push('<p>Rating: '+movie.rating+'</p>');
         data.push('<p>Locations: '+movie.locations+'</p>');
         data.push('</div>');
       }
