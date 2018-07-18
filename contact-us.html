@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
    <head>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js" async></script>
+      <script src="js/contact-us.js" async></script>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
       <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
       <link rel="stylesheet" type="text/css" href="css/contact-us-styles.css">
@@ -33,7 +36,7 @@
          </div>
          <div>
             <label for="email">Email Address: </label>
-            <input type="email" id="email" name="email" placeholder="example@email.com" required>
+            <input type="text" id="email" name="email" placeholder="example@email.com" required>
          </div>
          <div>
             <label for="phone">Phone Number: </label>
@@ -43,8 +46,8 @@
          </div>
          <div id="preferred-contact-method-checkboxes">
             <label for="preferred-contact-method">Preferred Contact Method: </label>
-            <input type="checkbox" name="preferred-contact-method" value="Phone">Phone
-            <input type="checkbox" name="preferred-contact-method" value="Email">Email
+            <input type="checkbox" name="preferred-contact-method" value="Phone" id="phone-checkbox"><label for="phone-checkbox">Phone</label>
+            <input type="checkbox" name="preferred-contact-method" value="Email" id="email-checkbox"><label for="email-checkbox">Email</label>
          </div>
          <label for="enquiry">Enquiry: </label>
          <textarea id="enquiry" rows="4" cols="50" placeholder="Please type enquiry here..." required></textarea>
@@ -64,7 +67,5 @@
       <b>Telephone Enquiries: </b>028 9367 1321
       <br>
       <b>Email Enquiries: </b>enquiries@allstarcinemas.com
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-      <script src="js/contact-us.js"></script>
    </body>
 </html>
