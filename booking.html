@@ -6,6 +6,16 @@
 		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 	</head>
 	<body>
+		<a href="index.html" class="navbar-brand">All-Star Cinemas</a>
+		<nav class="navbar navbar-expand-lg">
+			<div class="container-fluid">
+				<ul class="nav navbar-nav">
+					<li><a href="index.html">Movies</a></li>
+					<li><a href="prices.html">Prices</a></li>
+					<li><a href="contact-us.html">Contact Us</a></li>
+				</ul>
+			</div>
+		</nav>
 		<h1>Booking Form</h1>
 		<form method="post" id="booking-form">
 			<div>
@@ -23,7 +33,11 @@
 			</div>
 			<div>
 				<label for="ticket-type">Ticket Type: </label>
-				<input type="text" id="ticket-type" name="ticket-type">
+				<select id="location" name="location">
+					<option value="adult">Adult</option>
+		  			<option value="student">Student</option>
+		  			<option value="child">Child</option>
+				</select>
 			</div>
 			<div>
 				<label for="location">Location: </label>
