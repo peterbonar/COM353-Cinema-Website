@@ -1,3 +1,5 @@
+var isChrome = navigator.userAgent.toLowerCase().indexOf('chrome') > -1;
+
 function setLocationCookie() {
 	//Determine the location from the option currently selected.
 	var location = 'location=' + $('#locations option:selected').text()  + ';', d = new Date();
@@ -66,7 +68,7 @@ function populateHTMLMovieData() {
     //Map each json movie into an individual object
     jQuery.each(jsonData.movies, function(index, movie) {
       //Only display movie if it plays at the location selected by the user
-      if (jQuery.inArray(getCookie('location'), movie.locations) !== -1) {
+      if (jQuery.inArray(getCookie('location'), movie.locations) !== -1 || isChrome) {
         //Format each movie object to HTML
         data.push('<div>');
         data.push('<img src="'+movie.poster+'"></img>');
@@ -76,6 +78,7 @@ function populateHTMLMovieData() {
         data.push('<p>Cast: '+movie.cast+'</p>');
         data.push('<p>Director: '+movie.director+'</p>');
         data.push('<p>Genre: '+movie.genre+'</p>');
+        data.push('<p>Rating: '+movie.rating+'</p>');
         data.push('<p>Locations: '+movie.locations+'</p>');
         data.push('</div>');
       }
