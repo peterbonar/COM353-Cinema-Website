@@ -70,7 +70,8 @@ function populateHTMLMovieData() {
       //Only display movie if it plays at the location selected by the user
       if (jQuery.inArray(getCookie('location'), movie.locations) !== -1 || isChrome) {
         //Format each movie object to HTML
-        data.push('<tr><th class="movie-poster-container">' +
+        data.push('<tr>' +
+				'<th class="movie-poster-container">' +
 				'<img src="' + movie.poster + '" class="movie-poster"></img>' +
 				'</th>' +
 				'<th class="movie-data">' +
