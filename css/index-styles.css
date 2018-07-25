@@ -1,0 +1,15 @@
+.movie-poster {
+  width: 15vw;
+  height: auto;
+  max-width: 500px;
+}
+
+.movie-poster-container {
+  width: 20vw;
+  float: left;
+}
+
+.movie-data {
+  width: 55vw;
+  display: inline-block;
+}
