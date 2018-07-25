@@ -70,17 +70,20 @@ function populateHTMLMovieData() {
       //Only display movie if it plays at the location selected by the user
       if (jQuery.inArray(getCookie('location'), movie.locations) !== -1 || isChrome) {
         //Format each movie object to HTML
-        data.push('<div>');
-        data.push('<img src="'+movie.poster+'"></img>');
-        data.push('<h3>'+movie.title+'</h3>');
-        data.push('<h5>'+movie.tagline+'</h5>');
-        data.push('<p>Description: '+movie.description+'</p>');
-        data.push('<p>Cast: '+movie.cast+'</p>');
-        data.push('<p>Director: '+movie.director+'</p>');
-        data.push('<p>Genre: '+movie.genre+'</p>');
-        data.push('<p>Rating: '+movie.rating+'</p>');
-        data.push('<p>Locations: '+movie.locations+'</p>');
-        data.push('</div>');
+        data.push('<tr><th class="movie-poster-container">' +
+				'<img src="' + movie.poster + '" class="movie-poster"></img>' +
+				'</th>' +
+				'<th class="movie-data">' +
+				'<h3>' + movie.title + '</h3>' +
+				'<h5>' + movie.tagline + '</h5>' +
+				'<p>Description: ' + movie.description + '</p>' +
+				'<p>Cast: ' + movie.cast + '</p>' +
+				'<p>Director: ' + movie.director + '</p>' +
+				'<p>Genre: ' + movie.genre + '</p>' +
+				'<p>Rating: ' + movie.rating + '</p>' +
+				'<p>Locations: ' + movie.locations + '</p>' +
+				'</th>' +
+				'</tr>');
       }
     });
   });
