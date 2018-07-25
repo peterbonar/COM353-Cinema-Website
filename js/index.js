@@ -1,3 +1,4 @@
+window.onload = function() {
 var isChrome = navigator.userAgent.toLowerCase().indexOf('chrome') > -1;
 
 function setLocationCookie() {
@@ -92,3 +93,4 @@ function populateHTMLMovieData() {
   //Push the array of HTML formatted movies to the 'movieList' Div in index.html
   $('#movie-list').append(data);
 }
+};
