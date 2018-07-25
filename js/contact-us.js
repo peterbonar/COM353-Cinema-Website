@@ -16,10 +16,10 @@ window.onload = function() {
         //This ensures that a '.' is present at least one symbole after the '@'.
         var dotLoc = emailValue.indexOf(".", atLoc + 2);
         //Ensure that there are also at least 2 characters following the '.'
-        if ((atLoc > 0) && (docLoc > 0) && (emailValue.length > docLoc + 2)) {
+        if ((atLoc > 0) && (dotLoc > 0) && (emailValue.length > dotLoc + 2)) {
             return true;
         } else {
-        	//NOTE: Using alert at the minute, this will be replaced with something like Bootstrap pop-over.
+            //NOTE: Using alert at the minute, this will be replaced with something like Bootstrap pop-over.
             alert('Please enter your e-mail address in a valid format');
             return false;
         }
