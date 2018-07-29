@@ -1,91 +1,82 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js" async></script>
-		<script src="js/booking.js"></script>
-		<script src="js/movieData.js"></script>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
-		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-	</head>
-	<body>
-		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-			<a class="navbar-brand" href="./index.html">All-Star Cinemas</a>
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<div class="collapse navbar-collapse" id="navbarSupportedContent">
-				<ul class="navbar-nav mr-auto">
-					<li class="nav-item">
-						<a class="nav-link" href="./index.html">Movies</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="./prices.html">Prices</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="./contact-us.html">Contact Us</a>
-					</li>
-					<li class="nav-item active">
-						<a class="nav-link" href="./booking.html">Booking</a>
-					</li>
-				</ul>
-			</div>
-		</nav>
-		<h1>Booking Form</h1>
-		<form method="post" id="booking-form">
-			<div>
-				<label for="name">Name: </label>
-				<input type="text" id="name" name="name" maxlength="100">
-			</div>
-			<div>
-				<label for="contact-number">Contact Number: </label>
-				<input type="tel" id="contact-number" name="contact-number">
-			</div>
-			<div>
-				<label for="film-name">Film Name: </label>
-				<select>
-					<option value="adrift">Adrift</option>
-					<option value="deadpool2">Deadpool 2</option>
-					<option value="theFirstPurge">The First Purge</option>
-					<option value="hereditary">Hereditary</option>
-					<option value="incredibles2">Incredibles 2</option>
-					<option value="jurrassicWorld">Jurassic World: Fallen Kingdom</option>
-					<option value="oceans8">Ocean's 8</option>
-					<option value="sicario2">Sicario 2: Soldado</option>
-					<option value="skyscraper">Skyscraper</option>
-					<option value="tag">Tag</option>
-				</select>
-			</div>
-			<div id="movie-list"></div>
-			<div>
-				<label for="ticket-type">Ticket Type: </label>
-				<select id="location" name="location">
-					<option value="adult">Adult</option>
-					<option value="student">Student</option>
-					<option value="child">Child</option>
-				</select>
-			</div>
-			<div>
-				<label for="location">Location: </label>
-				<select id="location" name="location">
-					<option value="belfast">Belfast</option>
-					<option value="antrim">Antrim</option>
-					<option value="lisburn">Lisburn</option>
-				</select>
-			</div>
-			<div>
-				<label for="date">Date: </label>
-				<select id="date" name="date">
-				</select>
-			</div>
-			<div>
-				<label for="time">Time: </label>
-				<select id="time" name="time">
-				</select>
-			</div>
-			<div>
-				<button type="submit" form="booking-form" formmethod="post">Book</button>
-			</div>	
-		</form>
-	</body>
-</html>
+
+<head>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js" async></script>
+    <script type="text/javascript" src="js/movieData.js" async></script>
+    <script type="text/javascript" src="js/cookieFunctions.js" async></script>
+    <script type="text/javascript" src="js/booking.js" async></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="./index.html">All-Star Cinemas</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="./index.html">Movies</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./prices.html">Prices</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./contact-us.html">Contact Us</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="./booking.html">Booking</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <h1>Booking Form</h1>
+    <form method="post" id="booking-form">
+        <div>
+            <label for="name">Name: </label>
+            <input type="text" id="name" name="name" maxlength="100">
+        </div>
+        <div>
+            <label for="contact-number">Contact Number: </label>
+            <input type="tel" id="contact-number" name="contact-number">
+        </div>
+        <div>
+            <label for="movie-title">Movie: </label>
+            <select id="movie-title" name="movie-title">
+            </select>
+        </div>
+        <div>
+            <label for="ticket-type">Ticket Type: </label>
+            <select id="ticket-type" name="ticket-type">
+                <option value="adult">Adult</option>
+                <option value="student">Student</option>
+                <option value="child">Child</option>
+            </select>
+        </div>
+        <div>
+            <label for="locations">Location: </label>
+            <select id="locations" name="locations">
+                <option value="belfast">Belfast</option>
+                <option value="antrim">Antrim</option>
+                <option value="lisburn">Lisburn</option>
+            </select>
+        </div>
+        <div>
+            <label for="date">Date: </label>
+            <select id="date" name="date">
+            </select>
+        </div>
+        <div>
+            <label for="time">Time: </label>
+            <select id="time" name="time">
+            </select>
+        </div>
+        <div>
+            <button type="submit" form="booking-form" formmethod="post">Book</button>
+        </div>
+    </form>
+</body>
