@@ -11,6 +11,11 @@ window.onload = function() {
         setLocationCookie();
         updateBookingFields();
     });
+    //Provie the user with a reference number upon submitting the form.
+    //NOTE: alert used at the minute but this will be changed to use Bootstrap features when styling
+    $('#booking-form').submit(function() {
+        alert("Thank you, your booking has been processed. Your reference number is " + generateBookingNumber() +".");
+    });
 }
 
 function updateBookingFields() {
@@ -30,4 +35,9 @@ function updateBookingFields() {
         });
     });
     $('#movie-title').append(data);
+}
+
+function generateBookingNumber() {
+    //Generate a random 5 digit booking number
+    return Math.floor(Math.random()*90000) + 10000;
 }
