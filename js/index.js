@@ -16,31 +16,35 @@ window.onload = function() {
 }
 
 function populateHTMLMovieData() {
-    var data = [];
-    //Clear the div before updating movies so the movie list is replaced with new movies rather than continually added to
-    data.push('<div id="movie-list"></div>');
-    $('#movie-list').replaceWith(data);
-    data = [];
-    $(jsonData).map(function(i, movies) {
-        //Map each json movie into an individual object
-        jQuery.each(jsonData.movies, function(index, movie) {
-            //Only display movie if it plays at the location selected by the user
-            if (jQuery.inArray(getCookie('location'), movie.locations) !== -1 || isChrome) {
-                //Format each movie object to HTML
-                data.push('<div>');
-                data.push('<img src="' + movie.poster + '"></img>');
-                data.push('<h3>' + movie.title + '</h3>');
-                data.push('<h5>' + movie.tagline + '</h5>');
-                data.push('<p>Description: ' + movie.description + '</p>');
-                data.push('<p>Cast: ' + movie.cast + '</p>');
-                data.push('<p>Director: ' + movie.director + '</p>');
-                data.push('<p>Genre: ' + movie.genre + '</p>');
-                data.push('<p>Rating: ' + movie.rating + '</p>');
-                data.push('<p>Locations: ' + movie.locations + '</p>');
-                data.push('</div>');
-            }
-        });
+  var data = [];
+  //Clear the div before updating movies so the movie list is replaced with new movies rather than continually added to
+  data.push('<div id="movie-list"></div>');
+  $('#movie-list').replaceWith(data);
+  data = [];
+  $(jsonData).map(function(i, movies) {
+    //Map each json movie into an individual object
+    jQuery.each(jsonData.movies, function(index, movie) {
+      //Only display movie if it plays at the location selected by the user
+      if (jQuery.inArray(getCookie('location'), movie.locations) !== -1 || isChrome) {
+        //Format each movie object to HTML
+        data.push('<tr>' +
+          '<th class="movie-poster-container">' +
+          '<img src="' + movie.poster + '" class="movie-poster"></img>' +
+          '</th>' +
+          '<th class="movie-data">' +
+          '<h3>' + movie.title + '</h3>' +
+          '<h5>' + movie.tagline + '</h5>' +
+          '<p>Description: ' + movie.description + '</p>' +
+          '<p>Cast: ' + movie.cast + '</p>' +
+          '<p>Director: ' + movie.director + '</p>' +
+          '<p>Genre: ' + movie.genre + '</p>' +
+          '<p>Rating: ' + movie.rating + '</p>' +
+          '<p>Locations: ' + movie.locations + '</p>' +
+          '</th>' +
+          '</tr>');
+      }
     });
-    //Push the array of HTML formatted movies to the 'movieList' Div in index.html
-    $('#movie-list').append(data);
+  });
+  //Push the array of HTML formatted movies to the 'movieList' Div in index.html
+  $('#movie-list').append(data);
 }
