@@ -73,7 +73,7 @@ function updateBookingFields() {
 
 function generateBookingNumber() {
    //Generate a random 5 digit booking number
-   return Math.floor(Math.random()*90000) + 10000;
+   return Math.floor(Math.random() * 90000) + 10000;
 }
 
 function calcuateSubTotalAdult() {
