@@ -9,3 +9,12 @@ label {
 input {
   display: table-cell;
 }
+
+.contact-info {
+  float: left;
+  padding-right: 10vw;
+}
+
+.map-container {
+  display: inline-block;
+}

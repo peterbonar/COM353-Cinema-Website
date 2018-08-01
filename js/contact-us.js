@@ -13,7 +13,7 @@ window.onload = function() {
         var emailValue = $('#email').val();
         //This ensures that an '@' is present and has at least one symbol before it.
         var atLoc = emailValue.indexOf("@", 1);
-        //This ensures that a '.' is present at least one symbole after the '@'.
+        //This ensures that a '.' is present at least one symbol after the '@'.
         var dotLoc = emailValue.indexOf(".", atLoc + 2);
         //Ensure that there are also at least 2 characters following the '.'
         if ((atLoc > 0) && (dotLoc > 0) && (emailValue.length > dotLoc + 2)) {
