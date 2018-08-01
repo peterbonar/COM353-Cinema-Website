@@ -26,22 +26,45 @@ window.onload = function() {
     })
 
     var fieldLimit = 500;
-    $('#characters-used').val(fieldLimit - $('#enquiry').val().length);
-    $('#characters-used').css("color","green");
-    $('#textarea-limit').css("color","green");
+    var htmlString = ' characters remaining';
+    var charactersLeft = fieldLimit - $('#enquiry').val().length;
+    $('#characters-remaining').hide();
+    $('#characters-remaining').val(charactersLeft + htmlString);
+    $('#characters-remaining').css("color","green");
+    $(':input[type="submit"]').prop('disabled', true);
 
     $('#enquiry').keyup(function(){
-        $('#characters-used').val(fieldLimit - $('#enquiry').val().length);
+        var charactersLeft = fieldLimit - $('#enquiry').val().length;
+        $('#characters-remaining').val(charactersLeft + htmlString);
+        if ($('#enquiry').val().length == 0){
+          $('#characters-remaining').hide();
+        }else{
+          $('#characters-remaining').show();
+        }
         if ( $('#enquiry').val().length >= fieldLimit * 0.9) {
-          $('#characters-used').css("color","orange");
-          $('#textarea-limit').css("color","orange");
+          $('#characters-remaining').css("color","orange");
           if ( $('#enquiry').val().length >= fieldLimit * 0.95) {
-            $('#characters-used').css("color","red");
-            $('#textarea-limit').css("color","red");
+            $('#characters-remaining').css("color","red");
           }
         }else {
-          $('#characters-used').css("color","green");
-          $('#textarea-limit').css("color","green");
+          $('#characters-remaining').css("color","green");
         }
+    })
+
+    $('#contact-form *').keyup(function(){
+      var allInputs = $('#contact-form *');
+      var counterForEmptyFields = 0;
+      for(var i = 0; i < allInputs.length; i++){
+        if(allInputs[i].value == ""){
+          if(allInputs[i].required == true){
+            counterForEmptyFields++;
+          }
+        }
+      }
+      if(counterForEmptyFields > 0){
+        $(':input[type="submit"]').prop('disabled', true);
+      }else{
+        $(':input[type="submit"]').prop('disabled', false);
+      }
     })
 };
