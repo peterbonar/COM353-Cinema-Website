@@ -9,23 +9,6 @@ window.onload = function() {
          return false;
       }
 
-<<<<<<< HEAD
-        //Email validation in case 'email' input type isn't supported in the user's browser.
-        var emailValue = $('#email').val();
-        //This ensures that an '@' is present and has at least one symbol before it.
-        var atLoc = emailValue.indexOf("@", 1);
-        //This ensures that a '.' is present at least one symbol after the '@'.
-        var dotLoc = emailValue.indexOf(".", atLoc + 2);
-        //Ensure that there are also at least 2 characters following the '.'
-        if ((atLoc > 0) && (dotLoc > 0) && (emailValue.length > dotLoc + 2)) {
-            return true;
-        } else {
-            //NOTE: Using alert at the minute, this will be replaced with something like Bootstrap pop-over.
-            alert('Please enter your e-mail address in a valid format');
-            return false;
-        }
-    })
-=======
       //Email validation in case 'email' input type isn't supported in the user's browser.
       var emailValue = $('#email').val();
       //This ensures that an '@' is present and has at least one symbol before it.
@@ -82,5 +65,4 @@ window.onload = function() {
          $(':input[type="submit"]').prop('disabled', false);
       }
    })
->>>>>>> 988b99a8201f424ad0533bbe0dffa909a439dbef
 };
