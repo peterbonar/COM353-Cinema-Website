@@ -24,4 +24,24 @@ window.onload = function() {
             return false;
         }
     })
+
+    var fieldLimit = 500;
+    $('#characters-used').val(fieldLimit - $('#enquiry').val().length);
+    $('#characters-used').css("color","green");
+    $('#textarea-limit').css("color","green");
+
+    $('#enquiry').keyup(function(){
+        $('#characters-used').val(fieldLimit - $('#enquiry').val().length);
+        if ( $('#enquiry').val().length >= fieldLimit * 0.9) {
+          $('#characters-used').css("color","orange");
+          $('#textarea-limit').css("color","orange");
+          if ( $('#enquiry').val().length >= fieldLimit * 0.95) {
+            $('#characters-used').css("color","red");
+            $('#textarea-limit').css("color","red");
+          }
+        }else {
+          $('#characters-used').css("color","green");
+          $('#textarea-limit').css("color","green");
+        }
+    })
 };

@@ -62,7 +62,8 @@
             <input type="checkbox" name="preferred-contact-method" value="Email" id="email-checkbox"><label for="email-checkbox">Email</label>
          </div>
          <label for="enquiry">Enquiry: </label>
-         <textarea id="enquiry" rows="4" cols="50" placeholder="Please type enquiry here..." required></textarea>
+         <textarea id="enquiry" rows="4" cols="50" placeholder="Please type enquiry here..." maxlength="500" required></textarea>
+				 <output id="characters-used"></output><span id="textarea-limit"> characters remaining</span>
          <br><br>
          <button type="submit" form="contact-form" formmethod="post">Submit Enquiry</button>
          <button type="reset" form="contact-form">Reset Form</button>
