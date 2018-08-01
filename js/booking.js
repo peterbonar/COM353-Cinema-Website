@@ -78,7 +78,7 @@ function generateBookingNumber() {
 
 function calcuateSubTotalAdult() {
    var x = document.getElementById("adult-quantity").value;
-   var y = 6.5;
+   var y = 5;
    adultSubTotal = x * y;
    document.getElementById("adult-subtotal").innerHTML = "£" + adultSubTotal;
    calculateTotal();
@@ -86,7 +86,7 @@ function calcuateSubTotalAdult() {
 
 function calcuateSubTotalStudent() {
    var x = document.getElementById("student-quantity").value;
-   var y = 5;
+   var y = 4;
    studentSubTotal = x * y;
    document.getElementById("student-subtotal").innerHTML = "£" + studentSubTotal;
    calculateTotal();
@@ -94,7 +94,7 @@ function calcuateSubTotalStudent() {
 
 function calcuateSubTotalChild() {
    var x = document.getElementById("child-quantity").value;
-   var y = 4;
+   var y = 2.5;
    childSubTotal = x * y;
    document.getElementById("child-subtotal").innerHTML = "£" + childSubTotal;
    calculateTotal();
