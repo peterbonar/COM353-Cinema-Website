@@ -28,9 +28,7 @@ window.onload = function() {
    var fieldLimit = 500;
    var htmlString = ' characters remaining';
    var charactersLeft = fieldLimit - $('#enquiry').val().length;
-   $('#characters-remaining').hide();
-   $('#characters-remaining').val(charactersLeft + htmlString);
-   $('#characters-remaining').css("color", "green");
+   $('#characters-remaining').hide().val(charactersLeft + htmlString).css("color", "green");
    $(':input[type="submit"]').prop('disabled', true);
 
    $('#enquiry').keyup(function() {
