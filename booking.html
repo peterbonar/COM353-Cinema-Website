@@ -37,9 +37,13 @@
     <h1>Booking Form</h1>
     <form method="post" id="booking-form">
         <div>
-            <label for="name">Name: </label>
-            <input type="text" id="name" name="name" maxlength="100">
+            <label for="forename">Forename: </label>
+            <input type="text" id="forename" name="forename" maxlength="50" placeholder="forename" required>
         </div>
+				<div>
+						<label for="surname">Surname: </label>
+						<input type="text" id="surname" name="surname" maxlength="50" placeholder="surename" required>
+				</div>
         <div>
             <label for="contact-number">Contact Number: </label>
             <input type="tel" id="contact-number" name="contact-number">
