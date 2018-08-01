@@ -72,35 +72,35 @@ function updateBookingFields() {
 }
 
 function generateBookingNumber() {
-    //Generate a random 5 digit booking number
-    return Math.floor(Math.random()*90000) + 10000;
+   //Generate a random 5 digit booking number
+   return Math.floor(Math.random()*90000) + 10000;
 }
 
 function calcuateSubTotalAdult() {
-    var x = document.getElementById("adult-quantity").value;
-    var y = 6.5;
-    adultSubTotal = x * y;
-    document.getElementById("adult-subtotal").innerHTML = "£" + adultSubTotal;
-    calculateTotal();
+   var x = document.getElementById("adult-quantity").value;
+   var y = 6.5;
+   adultSubTotal = x * y;
+   document.getElementById("adult-subtotal").innerHTML = "£" + adultSubTotal;
+   calculateTotal();
 }
 
 function calcuateSubTotalStudent() {
-    var x = document.getElementById("student-quantity").value;
-    var y = 5;
-    studentSubTotal = x * y;
-    document.getElementById("student-subtotal").innerHTML = "£" + studentSubTotal;
-    calculateTotal();
+   var x = document.getElementById("student-quantity").value;
+   var y = 5;
+   studentSubTotal = x * y;
+   document.getElementById("student-subtotal").innerHTML = "£" + studentSubTotal;
+   calculateTotal();
 }
 
 function calcuateSubTotalChild() {
-    var x = document.getElementById("child-quantity").value;
-    var y = 4;
-    childSubTotal = x * y;
-    document.getElementById("child-subtotal").innerHTML = "£" + childSubTotal;
-    calculateTotal();
+   var x = document.getElementById("child-quantity").value;
+   var y = 4;
+   childSubTotal = x * y;
+   document.getElementById("child-subtotal").innerHTML = "£" + childSubTotal;
+   calculateTotal();
 }
 
 function calculateTotal(){
-  var total = adultSubTotal + studentSubTotal + childSubTotal;
-  document.getElementById("total-price").innerHTML = "£" + total;
+   var total = adultSubTotal + studentSubTotal + childSubTotal;
+   document.getElementById("total-price").innerHTML = "£" + total;
 }
