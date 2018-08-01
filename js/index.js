@@ -39,6 +39,7 @@ function populateHTMLMovieData() {
           '<p>Director: ' + movie.director + '</p>' +
           '<p>Genre: ' + movie.genre + '</p>' +
           '<p>Rating: ' + movie.rating + '</p>' +
+          '<p><a href="' + movie.trailer + '" target="_blank">Trailer: ' + movie.title + '</a></p>' +
           '<p>Locations: ' + movie.locations + '</p>' +
           '</th>' +
           '</tr>');

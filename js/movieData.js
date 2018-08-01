@@ -9,6 +9,7 @@ var jsonData = {
       genre: "Action, Adventure, Drama",
       rating: "12A",
       poster: "Media/Movie covers/Adrift.jpg",
+      trailer: "https://www.youtube.com/watch?v=HdMP4sWc71M",
       locations: ["Belfast", "Antrim"]
     },
     {
@@ -20,6 +21,7 @@ var jsonData = {
       genre: "Action, Adventure, Comedy",
       rating: "15",
       poster: "Media/Movie covers/Deadpool 2.jpg",
+      trailer: "https://www.youtube.com/watch?v=20bpjtCbCz0",
       locations: ["Belfast", "Antrim", "Lisburn"]
     },
     {
@@ -31,6 +33,7 @@ var jsonData = {
       genre: "Action, Horror, Sci-Fi",
       rating: "15",
       poster: "Media/Movie covers/The First Purge.jpg",
+      trailer: "https://www.youtube.com/watch?v=UL29y0ah92w",
       locations: ["Belfast", "Lisburn"]
     },
     {
@@ -42,6 +45,7 @@ var jsonData = {
       genre: "Drama, Horror, Mystery",
       rating: "15",
       poster: "Media/Movie covers/Hereditary.jpg",
+      trailer: "https://www.youtube.com/watch?v=V6wWKNij_1M",
       locations: ["Belfast", "Lisburn"]
     },
     {
@@ -53,6 +57,7 @@ var jsonData = {
       genre: "Animation, Action, Adventure",
       rating: "PG",
       poster: "Media/Movie covers/Incredibles 2.jpg",
+      trailer: "https://www.youtube.com/watch?v=i5qOzqD9Rms",
       locations: ["Belfast", "Antrim", "Lisburn"]
     },
     {
@@ -64,6 +69,7 @@ var jsonData = {
       genre: "Action, Adventure, Sci-Fi",
       rating: "12A",
       poster: "Media/Movie covers/Jurassic World Fallen Kingdom.jpg",
+      trailer: "https://www.youtube.com/watch?v=1FJD7jZqZEk",
       locations: ["Belfast", "Lisburn"]
     },
     {
@@ -75,6 +81,7 @@ var jsonData = {
       genre: "Action, Crime, Thriller",
       rating: "12A",
       poster: "Media/Movie covers/Oceans 8.jpg",
+      trailer: "https://www.youtube.com/watch?v=MFWF9dU5Zc0",
       locations: ["Belfast", "Antrim", "Lisburn"]
     },
     {
@@ -86,6 +93,7 @@ var jsonData = {
       genre: "Action, Crime, Drama",
       rating: "15",
       poster: "Media/Movie covers/Sicario 2- Soldado.jpg",
+      trailer: "https://www.youtube.com/watch?v=i02bxFc88b4",
       locations: ["Antrim"]
     },
     {
@@ -97,6 +105,7 @@ var jsonData = {
       genre: "Action, Crime, Drama",
       rating: "12A",
       poster: "Media/Movie covers/Skyscraper.jpg",
+      trailer: "https://www.youtube.com/watch?v=t9QePUT-Yt8",
       locations: ["Antrim", "Lisburn"]
     },
     {
@@ -108,6 +117,7 @@ var jsonData = {
       genre: "Comedy",
       rating: "15",
       poster: "Media/Movie covers/Tag.jpg",
+      trailer: "https://www.youtube.com/watch?v=kjC1zmZo30U",
       locations: ["Belfast", "Antrim"]
     }
   ]
