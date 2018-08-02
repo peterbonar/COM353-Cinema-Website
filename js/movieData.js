@@ -9,7 +9,50 @@ var jsonData = {
       genre: "Action, Adventure, Drama",
       rating: "12A",
       poster: "Media/Movie covers/Adrift.jpg",
-      locations: ["Belfast", "Antrim"]
+      locationShowTimes: [
+      {
+        location: "Belfast",
+        showing: [
+          {
+            date: "01/08/2018",
+            time: ["14:30", "16:00", "19:30", "20:00"]
+          },
+          {
+            date: "02/08/2018",
+            time: ["14:30", "16:00", "19:30", "20:00"]
+          },
+          {
+            date: "03/08/2018",
+            time: ["14:30", "16:00", "19:30", "20:00"]
+          },
+          {
+            date: "04/08/2018",
+            time: ["19:30", "20:00"]
+          }
+        ]
+      },
+      {
+        location: "Antrim",
+        showing: [
+          {
+            date: "01/08/2018",
+            time: ["11:00", "13:00", "14:30", "16:00", "19:30", "20:00"]
+          },
+          {
+            date: "02/08/2018",
+            time: ["16:00", "19:30", "20:00"]
+          },
+          {
+            date: "03/08/2018",
+            time: ["16:00", "19:30", "20:00"]
+          },
+          {
+            date: "04/08/2018",
+            time: ["19:30", "20:00"]
+          },
+        ]
+      }
+      ] 
     },
     {
       title: "Deadpool 2",
@@ -20,7 +63,63 @@ var jsonData = {
       genre: "Action, Adventure, Comedy",
       rating: "15",
       poster: "Media/Movie covers/Deadpool 2.jpg",
-      locations: ["Belfast", "Antrim", "Lisburn"]
+      locationShowTimes: [
+      {
+        location: "Belfast",
+        showing: [
+          {
+            date: "01/08/2018",
+            time: ["14:30", "16:00", "19:30", "20:00"]
+          },
+          {
+            date: "02/08/2018",
+            time: ["14:30", "16:00", "19:30", "20:00"]
+          },
+          {
+            date: "03/08/2018",
+            time: ["14:30", "16:00", "19:30", "20:00"]
+          },
+          {
+            date: "04/08/2018",
+            time: ["16:00", "19:30", "20:00"]
+          },
+          {
+            date: "05/08/2018",
+            time: ["16:00", "19:30", "20:00"]
+          },
+        ]
+      },
+      {
+        location: "Antrim",
+        showing: [
+          {
+            date: "02/08/2018",
+            time: ["16:00", "19:30", "20:00"]
+          },
+          {
+            date: "03/08/2018",
+            time: ["16:00", "19:30", "20:00"]
+          },
+          {
+            date: "04/08/2018",
+            time: ["19:30", "20:00"]
+          },
+        ]
+      },
+      {
+       location: "Lisburn",
+        showing: [
+           {
+            date: "03/08/2018",
+            time: ["14:30", "16:00", "19:30", "20:00"]
+          },
+          {
+            date: "04/08/2018",
+            time: ["19:30", "20:00"]
+          }
+        ]
+      }
+      ]
     },
     {
       title: "The First Purge",
@@ -31,7 +130,50 @@ var jsonData = {
       genre: "Action, Horror, Sci-Fi",
       rating: "15",
       poster: "Media/Movie covers/The First Purge.jpg",
-      locations: ["Belfast", "Lisburn"]
+      locationShowTimes: [
+      {
+        location: "Belfast",
+        showing: [
+          {
+            date: "01/08/2018",
+            time: ["14:30", "16:00", "19:30", "20:00"]
+          },
+          {
+            date: "02/08/2018",
+            time: ["14:30", "16:00", "19:30", "20:00"]
+          },
+          {
+            date: "03/08/2018",
+            time: ["14:30", "16:00", "19:30", "20:00"]
+          },
+          {
+            date: "04/08/2018",
+            time: ["16:00", "19:30", "20:00"]
+          },
+          {
+            date: "05/08/2018",
+            time: ["16:00", "19:30", "20:00"]
+          },
+        ]
+      },
+      {
+        location: "Antrim",
+        showing: [
+          {
+            date: "02/08/2018",
+            time: ["16:00", "19:30", "20:00"]
+          },
+          {
+            date: "03/08/2018",
+            time: ["16:00", "19:30", "20:00"]
+          },
+          {
+            date: "04/08/2018",
+            time: ["19:30", "20:00"]
+          },
+        ]
+      }
+      ]
     },
     {
       title: "Hereditary",
@@ -42,7 +184,54 @@ var jsonData = {
       genre: "Drama, Horror, Mystery",
       rating: "15",
       poster: "Media/Movie covers/Hereditary.jpg",
-      locations: ["Belfast", "Lisburn"]
+      locationShowTimes: [
+      {
+        location: "Belfast",
+        showing: [
+          {
+            date: "01/08/2018",
+            time: ["14:30", "16:00", "19:30", "20:00"]
+          },
+          {
+            date: "02/08/2018",
+            time: ["14:30", "16:00", "19:30", "20:00"]
+          },
+          {
+            date: "03/08/2018",
+            time: ["14:30", "16:00", "19:30", "20:00"]
+          },
+          {
+            date: "04/08/2018",
+            time: ["16:00", "19:30", "20:00"]
+          },
+          {
+            date: "05/08/2018",
+            time: ["16:00", "19:30", "20:00"]
+          },
+        ]
+      },
+      {
+        location: "Lisburn",
+        showing: [
+          {
+            date: "01/08/2018",
+            time: ["14:30", "16:00", "19:30", "20:00"]
+          },
+          {
+            date: "02/08/2018",
+            time: ["16:00", "19:30", "20:00"]
+          },
+          {
+            date: "03/08/2018",
+            time: ["16:00", "19:30", "20:00"]
+          },
+          {
+            date: "04/08/2018",
+            time: ["19:30", "20:00"]
+          },
+        ]
+      }
+      ]
     },
     {
       title: "Incredibles 2",
@@ -53,7 +242,68 @@ var jsonData = {
       genre: "Animation, Action, Adventure",
       rating: "PG",
       poster: "Media/Movie covers/Incredibles 2.jpg",
-      locations: ["Belfast", "Antrim", "Lisburn"]
+      locationShowTimes: [
+      {
+        location: "Belfast",
+        showing: [
+          {
+            date: "01/08/2018",
+            time: ["14:30", "16:00", "19:30", "20:00"]
+          },
+          {
+            date: "02/08/2018",
+            time: ["14:30", "16:00", "19:30", "20:00"]
+          },
+          {
+            date: "03/08/2018",
+            time: ["14:30", "16:00", "19:30", "20:00"]
+          },
+          {
+            date: "04/08/2018",
+            time: ["16:00", "19:30", "20:00"]
+          },
+          {
+            date: "05/08/2018",
+            time: ["16:00", "19:30", "20:00"]
+          },
+        ]
+      },
+      {
+        location: "Antrim",
+        showing: [
+          {
+            date: "02/08/2018",
+            time: ["16:00", "19:30", "20:00"]
+          },
+          {
+            date: "03/08/2018",
+            time: ["16:00", "19:30", "20:00"]
+          },
+          {
+            date: "04/08/2018",
+            time: ["19:30", "20:00"]
+          },
+        ]
+      },
+      {
+       location: "Lisburn",
+        showing: [
+           {
+            date: "03/08/2018",
+            time: ["14:30", "16:00", "19:30", "20:00"]
+          },
+          {
+            date: "04/08/2018",
+            time: ["19:30", "20:00"]
+          },
+          {
+            date: "05/08/2018",
+            time: ["19:30", "20:00"]
+          }
+
+        ]
+      }
+      ]
     },
     {
       title: "Jurassic World: Fallen Kingdom",
@@ -64,18 +314,54 @@ var jsonData = {
       genre: "Action, Adventure, Sci-Fi",
       rating: "12A",
       poster: "Media/Movie covers/Jurassic World Fallen Kingdom.jpg",
-      locations: ["Belfast", "Lisburn"]
-    },
-    {
-      title: "Ocean's 8",
-      tagline: "'Every Con Has Its Pros'",
-      description: "Danny Ocean's estranged sister Debbie attempts to pull off the heist of the century at New York City's star-studded annual Met Gala. Her first stop is to assemble the perfect crew: Lou, Rose, Daphne Kluger, Nine Ball, Tammy, Amita, and Constance.",
-      cast: "Olivia Munn, Cate Blanchett, Matt Damon, Dakota Fanning",
-      director: "Gary Ross",
-      genre: "Action, Crime, Thriller",
-      rating: "12A",
-      poster: "Media/Movie covers/Oceans 8.jpg",
-      locations: ["Belfast", "Antrim", "Lisburn"]
+      locationShowTimes: [
+      {
+        location: "Belfast",
+        showing: [
+          {
+            date: "01/08/2018",
+            time: ["14:30", "16:00", "19:30", "20:00"]
+          },
+          {
+            date: "02/08/2018",
+            time: ["14:30", "16:00", "19:30", "20:00"]
+          },
+          {
+            date: "03/08/2018",
+            time: ["14:30", "16:00", "19:30", "20:00"]
+          },
+          {
+            date: "04/08/2018",
+            time: ["16:00", "19:30", "20:00"]
+          },
+          {
+            date: "05/08/2018",
+            time: ["16:00", "19:30", "20:00"]
+          },
+        ]
+      },
+      {
+        location: "Lisburn",
+        showing: [
+          {
+            date: "01/08/2018",
+            time: ["14:30", "16:00", "19:30", "20:00"]
+          },
+          {
+            date: "02/08/2018",
+            time: ["16:00", "19:30", "20:00"]
+          },
+          {
+            date: "03/08/2018",
+            time: ["16:00", "19:30", "20:00"]
+          },
+          {
+            date: "04/08/2018",
+            time: ["19:30", "20:00"]
+          },
+        ]
+      }
+      ]
     },
     {
       title: "Sicario 2: Soldado",
@@ -86,7 +372,25 @@ var jsonData = {
       genre: "Action, Crime, Drama",
       rating: "15",
       poster: "Media/Movie covers/Sicario 2- Soldado.jpg",
-      locations: ["Antrim"]
+      locationShowTimes: [
+      {
+        location: "Antrim",
+        showing: [
+          {
+            date: "02/08/2018",
+            time: ["16:00", "19:30", "20:00"]
+          },
+          {
+            date: "03/08/2018",
+            time: ["16:00", "19:30", "20:00"]
+          },
+          {
+            date: "04/08/2018",
+            time: ["19:30", "20:00"]
+          },
+        ]
+      }
+        ]
     },
     {
       title: "Skyscraper",
@@ -97,7 +401,46 @@ var jsonData = {
       genre: "Action, Crime, Drama",
       rating: "12A",
       poster: "Media/Movie covers/Skyscraper.jpg",
-      locations: ["Antrim", "Lisburn"]
+      locationShowTimes: [
+      {
+        location: "Antrim",
+        showing: [
+          {
+            date: "02/08/2018",
+            time: ["16:00", "19:30", "20:00"]
+          },
+          {
+            date: "03/08/2018",
+            time: ["16:00", "19:30", "20:00"]
+          },
+          {
+            date: "04/08/2018",
+            time: ["19:30", "20:00"]
+          },
+          {
+            date: "05/08/2018",
+            time: ["19:30", "20:00"]
+          }
+        ]
+      },
+      {
+       location: "Lisburn",
+        showing: [
+           {
+            date: "03/08/2018",
+            time: ["14:30", "16:00", "19:30", "20:00"]
+          },
+          {
+            date: "04/08/2018",
+            time: ["19:30", "20:00"]
+          },
+          {
+            date: "05/08/2018",
+            time: ["19:30", "20:00"]
+          }
+        ]
+      }
+      ]
     },
     {
       title: "Tag",
@@ -108,7 +451,50 @@ var jsonData = {
       genre: "Comedy",
       rating: "15",
       poster: "Media/Movie covers/Tag.jpg",
-      locations: ["Belfast", "Antrim"]
+      locationShowTimes: [
+      {
+        location: "Belfast",
+        showing: [
+          {
+            date: "01/08/2018",
+            time: ["14:30", "16:00", "19:30", "20:00"]
+          },
+          {
+            date: "02/08/2018",
+            time: ["14:30", "16:00", "19:30", "20:00"]
+          },
+          {
+            date: "03/08/2018",
+            time: ["14:30", "16:00", "19:30", "20:00"]
+          },
+          {
+            date: "04/08/2018",
+            time: ["16:00", "19:30", "20:00"]
+          },
+          {
+            date: "05/08/2018",
+            time: ["16:00", "19:30", "20:00"]
+          },
+        ]
+      },
+      {
+        location: "Antrim",
+        showing: [
+          {
+            date: "02/08/2018",
+            time: ["16:00", "19:30", "20:00"]
+          },
+          {
+            date: "03/08/2018",
+            time: ["16:00", "19:30", "20:00"]
+          },
+          {
+            date: "04/08/2018",
+            time: ["19:30", "20:00"]
+          },
+        ]
+      }
+      ]
     }
   ]
 }
