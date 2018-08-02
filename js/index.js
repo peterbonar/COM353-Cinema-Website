@@ -51,7 +51,8 @@ function populateHTMLMovieData() {
                             '<p>Cast: ' + movie.cast + '</p>' +
                             '<p>Director: ' + movie.director + '</p>' +
                             '<p>Genre: ' + movie.genre + '</p>' +
-                            '<p>Rating: ' + movie.rating + '</p>');
+                            '<p>Rating: ' + movie.rating + '</p>' +
+                            '<p><a href="' + movie.trailer + '" target="_blank">Trailer: ' + movie.title + '</a></p>');
                         //Set this flag to true to ensure that no movie details are duplicated
                         movieDisplayed = true;
                     }
