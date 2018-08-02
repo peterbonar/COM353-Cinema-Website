@@ -12,7 +12,7 @@ window.onload = function() {
       setLocationCookie();
       updateBookingFields();
    });
-   //Populate the quantity dropwdown with vaues from 0 to 20
+   //Populate the quantity dropdown with values from 0 to 20
    //If a user wants to book any more than 20 of any ticket type they have to call up to book
    populateQuantityDropdown();
    //Calculate the subtotal of tickets when the relevant quatity dropdown is changed
@@ -95,9 +95,9 @@ function calcuateSubTotalAdult() {
    //Get the value of the adult-price label and remove the £ symbol
    var y = ($('#adult-price').text()).replace('£', '');
    //Calculate the subtotal of the adult price
-   adultSubtotal = x * y;
+   adultSubTotal = x * y;
    //Set the adult-subtotal as £ plus the value of the subtotal
-   $('#adult-subtotal').text("£" + (adultSubtotal).toFixed(2));
+   $('#adult-subtotal').text("£" + (adultSubTotal).toFixed(2));
    //Update the total price label
    calculateTotal();
 }
@@ -110,6 +110,7 @@ function calcuateSubTotalStudent() {
    //Calculate the subtotal of the student price
    studentSubTotal = x * y;
    //Set the student-subtotal as £ plus the value of the subtotal
+   // $('#student-subtotal').text("£" + (studentSubTotal).toFixed(2));
    $('#student-subtotal').text("£" + (studentSubTotal).toFixed(2));
    //Update the total price label
    calculateTotal();
@@ -130,7 +131,7 @@ function calcuateSubTotalChild() {
 
 function calculateTotal(){
    //Calculate the total price of all types of tickets
-   var total = adultSubtotal + studentSubTotal + childSubTotal;
+   var total = adultSubTotal + studentSubTotal + childSubTotal;
    //Set the value of the total-price label to the total price of tickets
    $('#total-price').text("£" + (total).toFixed(2));
 }
