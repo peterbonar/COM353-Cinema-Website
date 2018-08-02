@@ -12,6 +12,19 @@ window.onload = function() {
       setLocationCookie();
       updateBookingFields();
    });
+   //Populate the quantity dropwdown with vaues from 0 to 20
+   //If a user wants to book any more than 20 of any ticket type they have to call up to book
+   populateQuantityDropdown();
+   //Calculate the subtotal of tickets when the relevant quatity dropdown is changed
+   $('#adult-quantity').on('change', function() {
+       calcuateSubTotalAdult();
+   });
+   $('#student-quantity').on('change', function() {
+       calcuateSubTotalStudent();
+   });
+   $('#child-quantity').on('change', function() {
+       calcuateSubTotalChild();
+   });
    //Provie the user with a reference number upon submitting the form.
    //NOTE: alert used at the minute but this will be changed to use Bootstrap features when styling
    $('#booking-form').submit(function() {
@@ -77,30 +90,59 @@ function generateBookingNumber() {
 }
 
 function calcuateSubTotalAdult() {
-   var x = document.getElementById("adult-quantity").value;
-   var y = 5;
-   adultSubTotal = x * y;
-   document.getElementById("adult-subtotal").innerHTML = "£" + adultSubTotal;
+   //Get the value of the adult-quatity dropdown
+   var x = $('#adult-quantity').val();
+   //Get the value of the adult-price label and remove the £ symbol
+   var y = ($('#adult-price').text()).replace('£', '');
+   //Calculate the subtotal of the adult price
+   adultSubtotal = x * y;
+   //Set the adult-subtotal as £ plus the value of the subtotal
+   $('#adult-subtotal').text("£" + (adultSubtotal).toFixed(2));
+   //Update the total price label
    calculateTotal();
 }
 
 function calcuateSubTotalStudent() {
-   var x = document.getElementById("student-quantity").value;
-   var y = 4;
+   //Get the value of the student-quatity dropdown
+   var x = $('#student-quantity').val();
+   //Get the value of the student-price label and remove the £ symbol
+   var y = ($('#student-price').text()).replace('£', '');
+   //Calculate the subtotal of the student price
    studentSubTotal = x * y;
-   document.getElementById("student-subtotal").innerHTML = "£" + studentSubTotal;
+   //Set the student-subtotal as £ plus the value of the subtotal
+   $('#student-subtotal').text("£" + (studentSubTotal).toFixed(2));
+   //Update the total price label
    calculateTotal();
 }
 
 function calcuateSubTotalChild() {
-   var x = document.getElementById("child-quantity").value;
-   var y = 2.5;
+   //Get the value of the child-quatity dropdown
+   var x = $('#child-quantity').val();
+   //Get the value of the child-price label and remove the £ symbol
+   var y = ($('#child-price').text()).replace('£', '');
+   //Calculate the subtotal of the child price
    childSubTotal = x * y;
-   document.getElementById("child-subtotal").innerHTML = "£" + childSubTotal;
+   //Set the child-subtotal as £ plus the value of the subtotal
+   $('#child-subtotal').text("£" + (childSubTotal).toFixed(2));
+   //Update the total price label
    calculateTotal();
 }
 
 function calculateTotal(){
-   var total = adultSubTotal + studentSubTotal + childSubTotal;
-   document.getElementById("total-price").innerHTML = "£" + total;
+   //Calculate the total price of all types of tickets
+   var total = adultSubtotal + studentSubTotal + childSubTotal;
+   //Set the value of the total-price label to the total price of tickets
+   $('#total-price').text("£" + (total).toFixed(2));
+}
+
+function populateQuantityDropdown() {
+   var select = '';
+   for (i=0;i<=20;i++){
+      //Add the 'option' value to the 'select' from 0 to 20
+      select += '<option value=' + i + '>' + i + '</option>';
+   }
+   //Populate each of the quatity drop downs with the select from 0 to 20
+   $('#adult-quantity').html(select);
+   $('#student-quantity').html(select);
+   $('#child-quantity').html(select);
 }
