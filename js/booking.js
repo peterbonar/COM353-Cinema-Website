@@ -30,6 +30,7 @@ window.onload = function() {
       adultSubTotal = calculatePrice('adult-quantity', 5);
       $('#adult-subtotal').text("£" + (adultSubTotal).toFixed(2));
       displayTotalPrice();
+      checkDiscountCodeField();
    });
    $('#student-quantity').on('change', function() {
       if (discountApplied) {
@@ -44,6 +45,7 @@ window.onload = function() {
       studentSubTotal = calculatePrice('student-quantity', 4);
       $('#student-subtotal').text("£" + (studentSubTotal).toFixed(2));
       displayTotalPrice();
+      checkDiscountCodeField();
    });
    $('#teen-quantity').on('change', function() {
      if (discountApplied) {
@@ -58,6 +60,7 @@ window.onload = function() {
      teenSubTotal = calculatePrice('teen-quantity', 3.5);
      $('#teen-subtotal').text("£" + (teenSubTotal).toFixed(2));
      displayTotalPrice();
+     checkDiscountCodeField();
    });
    $('#child-quantity').on('change', function() {
       if (discountApplied) {
@@ -245,7 +248,7 @@ function updateBookingFields() {
    //Check discount code field and if there is nothing present, disable button
    function checkDiscountCodeField() {
       var discountCodeFieldLength = $('#discount-code').val().length;
-      if (discountCodeFieldLength > 0) {
+      if (discountCodeFieldLength > 0 && getTotalPrice() > 0) {
          $('#apply-discount').prop('disabled', false);
       } else {
          $('#apply-discount').prop('disabled', true);
