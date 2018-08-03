@@ -1,5 +1,5 @@
 var isChrome = navigator.userAgent.toLowerCase().indexOf('chrome') > -1;
-var adultSubTotal = 0, studentSubTotal = 0, childSubTotal = 0;
+var adultSubTotal = 0, studentSubTotal = 0, teenSubTotal = 0, childSubTotal = 0;
 
 /*
 	As the page loads set the value in the #locations select equal to the value stored in the location cookie (as it has already been determined by the user).
@@ -21,6 +21,9 @@ window.onload = function() {
    });
    $('#student-quantity').on('change', function() {
        calcuateSubTotalStudent();
+   });
+   $('#teen-quantity').on('change', function() {
+       calcuateSubTotalTeen();
    });
    $('#child-quantity').on('change', function() {
        calcuateSubTotalChild();
@@ -116,6 +119,19 @@ function calcuateSubTotalStudent() {
    calculateTotal();
 }
 
+function calcuateSubTotalTeen() {
+   //Get the value of the child-quatity dropdown
+   var x = $('#teen-quantity').val();
+   //Get the value of the child-price label and remove the £ symbol
+   var y = ($('#teen-price').text()).replace('£', '');
+   //Calculate the subtotal of the child price
+   teenSubTotal = x * y;
+   //Set the child-subtotal as £ plus the value of the subtotal
+   $('#teen-subtotal').text("£" + (teenSubTotal).toFixed(2));
+   //Update the total price label
+   calculateTotal();
+}
+
 function calcuateSubTotalChild() {
    //Get the value of the child-quatity dropdown
    var x = $('#child-quantity').val();
@@ -131,7 +147,7 @@ function calcuateSubTotalChild() {
 
 function calculateTotal(){
    //Calculate the total price of all types of tickets
-   var total = adultSubTotal + studentSubTotal + childSubTotal;
+   var total = adultSubTotal + studentSubTotal + teenSubTotal + childSubTotal;
    //Set the value of the total-price label to the total price of tickets
    $('#total-price').text("£" + (total).toFixed(2));
 }
@@ -145,5 +161,6 @@ function populateQuantityDropdown() {
    //Populate each of the quatity drop downs with the select from 0 to 20
    $('#adult-quantity').html(select);
    $('#student-quantity').html(select);
+   $('#teen-quantity').html(select);
    $('#child-quantity').html(select);
 }
