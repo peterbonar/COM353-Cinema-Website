@@ -71,13 +71,13 @@ function populateHTMLMovieData() {
             if (locations.includes(getCookie('location'))) {
                 data.push('<p>Location: ' + locations + '</p>');
                 //Output screening dates to the user
-            data.push('<ul class="' + movie.title + '-screening-dates">' + getDatesForFilmAsString(movie, dates) + '</ul>');
-            //Output screening times to the user
-            data.push(getTimesForDateAsString(movie, dates, times));
-            //Output available screening locations to the user
-            data.push(
-                '</th>' +
-                '</tr>');
+                data.push('<ul class="' + movie.title + '-screening-dates">' + getDatesForFilmAsString(movie, dates) + '</ul>');
+                //Output screening times to the user
+                data.push(getTimesForDateAsString(movie, dates, times));
+                //Output available screening locations to the user
+                data.push(
+                    '</th>' +
+                    '</tr>');
             }
         });
     });
@@ -92,8 +92,8 @@ function getDatesForFilmAsString(movie, dates) {
     //For each date on which the film is shown add a list and anchor tag to the screen. The id for the anchor tag is comprised of the movie name and the date on which it is shown, thus making it unique.
     //When the anchor tag (shown as a date to the user) is clicked it will call the displayTimesForDate() function
     for (var i = 0; i < dates.length; i++) {
-            datesToDisplay += '<li><a class="date-selector" href="javascript:;" id="' + movie.title + '-' + dates[i] + '" onclick="displayTimesForDate(\'' + movie.title + '\', \'' + dates[i] + '\')">' + dates[i] + '</a></li>';
-        }
+        datesToDisplay += '<li><a class="date-selector" href="javascript:;" id="' + movie.title + '-' + dates[i] + '" onclick="displayTimesForDate(\'' + movie.title + '\', \'' + dates[i] + '\')">' + dates[i] + '</a></li>';
+    }
     return datesToDisplay
 }
 
@@ -110,7 +110,7 @@ function getTimesForDateAsString(movie, dates, times) {
             //If the time corresponds to the earliest date on which the film is shown then ensure it is displayed upon page load
             if (i == 0) {
                 timesToDisplay += ('<input type="button" style="display: inline" class="show-times" value="' + timesForDate[j] + '"></input>');
-            //Otherwise hide the times from the user initially. (These times will be displayed if the user selects their corresponding date on the page).    
+                //Otherwise hide the times from the user initially. (These times will be displayed if the user selects their corresponding date on the page).    
             } else {
                 timesToDisplay += ('<input type="button" class="show-times" value="' + timesForDate[j] + '"></input>');
             }
