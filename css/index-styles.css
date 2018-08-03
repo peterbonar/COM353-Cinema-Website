@@ -13,3 +13,7 @@
   width: 55vw;
   display: inline-block;
 }
+
+.show-times {
+  display: none;
+}

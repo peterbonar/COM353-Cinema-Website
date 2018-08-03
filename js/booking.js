@@ -16,7 +16,7 @@ window.onload = function() {
    //Populate the quantity dropdown with values from 0 to 20
    //If a user wants to book any more than 20 of any ticket type they have to call up to book
    populateQuantityDropdown();
-   //Calculate the subtotal of tickets when the relevant quatity dropdown is changed
+   //Calculate the subtotal of tickets when the relevant quantity dropdown is changed
    $('#adult-quantity').on('change', function() {
       if (discountApplied) {
          var reapplyDiscount = confirm('Do you want to reapply discount?');
@@ -44,6 +44,20 @@ window.onload = function() {
       studentSubTotal = calculatePrice('student-quantity', 4);
       $('#student-subtotal').text("£" + (studentSubTotal).toFixed(2));
       displayTotalPrice();
+   });
+   $('#teen-quantity').on('change', function() {
+     if (discountApplied) {
+        var reapplyDiscount = confirm('Do you want to reapply discount?');
+        if (reapplyDiscount) {
+           discountCheck();
+        } else {
+           displayTotalPrice();
+           hideDiscountDetails();
+        }
+     }
+     teenSubTotal = calculatePrice('teen-quantity', 3.5);
+     $('#teen-subtotal').text("£" + (teenSubTotal).toFixed(2));
+     displayTotalPrice();
    });
    $('#child-quantity').on('change', function() {
       if (discountApplied) {
@@ -78,7 +92,7 @@ window.onload = function() {
       }
       alert("Thank you, your booking has been processed. Your reference number is " + generateBookingNumber() + ".");
    });
-   
+
    $(':input[type="submit"]').prop('disabled', true);
    //When the booking form has data entered, continually check if all required fields have data
    $('#booking-form *').keyup(function() {
@@ -119,9 +133,7 @@ function updateBookingFields() {
                //Only display the film-name if it plays at the location selected by the user
                if (jQuery.inArray(getCookie('location'), movie.locations) !== -1 || isChrome) {
                   //Format each movie object to HTML and append to the film-name select as an option
-                  data.push(' <
-                     option value = "' + movie.title.toLowerCase + '" > ' + movie.title + ' < /option>
-                     ');
+                  data.push('<option value="' + movie.title.toLowerCase + '"> ' + movie.title + '</option>');
                   }
                });
          }); $('#movie-title').append(data);
@@ -172,7 +184,8 @@ function updateBookingFields() {
       var adultSubTotal = calculateAdultSubtotal();
       var childSubTotal = calculateChildSubtotal();
       var studentSubTotal = calculateStudentSubtotal();
-      var total = adultSubTotal + childSubTotal + studentSubTotal;
+      var teenSubTotal = calculateTeenSubtotal();
+      var total = adultSubTotal + childSubTotal + studentSubTotal + teenSubTotal;
       $('#total-price').text("£" + ((total).toFixed(2)));
    }
 
@@ -181,7 +194,8 @@ function updateBookingFields() {
       var adultSubTotal = calculateAdultSubtotal();
       var childSubTotal = calculateChildSubtotal();
       var studentSubTotal = calculateStudentSubtotal();
-      var total = adultSubTotal + childSubTotal + studentSubTotal;
+      var teenSubTotal = calculateTeenSubtotal();
+      var total = adultSubTotal + childSubTotal + studentSubTotal + teenSubTotal;
       return total;
    }
    //Function to calulcate subtotal based on quantity and ticket price
@@ -209,18 +223,22 @@ function updateBookingFields() {
       return childSubTotal;
    }
 
+   function calculateTeenSubtotal(){
+     var teenSubTotal = calculatePrice('teen-quantity',3.5);
+     return teenSubTotal;
+   }
+
    //Populate quatity dropdown from 1 to 20
    function populateQuantityDropdown() {
       var select = '';
-      for (i = 0; i <= 20; i++) {
+      for (i=0;i<=20;i++){
          //Add the 'option' value to the 'select' from 0 to 20
-         select += ' <
-            option value = ' + i + ' > ' + i + ' < /option>
-         ';
+         select += '<option value=' + i + '>' + i + '</option>';
       }
-      //Populate each of the quatity drop downs with the select from 0 to 20
+      //Populate each of the quantity drop downs with the select from 0 to 20
       $('#adult-quantity').html(select);
       $('#student-quantity').html(select);
+      $('#teen-quantity').html(select);
       $('#child-quantity').html(select);
    }
 
