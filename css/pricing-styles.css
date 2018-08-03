@@ -11,9 +11,9 @@
 	color: #686868;
 }
 
-#pricing {
-	font-size: 50px;
-	padding-top: 20px;
+#price-list {
+	font-size: 35px;
+	padding-top: 25px;
 }
 
 #general-ticket-info {
@@ -26,7 +26,7 @@
     background-image: url("../Media/Cinema Seating.jpg");
 
     /* Full height */
-    height: 85%; 
+    height: 75%; 
 
     /* Create the parallax scrolling effect */
     background-attachment: fixed;
@@ -35,10 +35,32 @@
     background-size: cover;
 }
 
+#parallax-overlay {
+  height: 100%;
+  width: 40%;
+  margin: auto;
+  background: rgba(255,255,255, 0.6)
+  position: relative;
+}
+
+#prices-heading {
+	font-size: 150px;
+	text-align: center;
+	color: white;
+	margin: 0;
+	opacity: .85;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -150%);
+    font-family: 'Lato', sans-serif;
+}
+
 body {
-	height: 85%;
+	height: 75%;
+	font-family: 'Lato', sans-serif;
 }
 
 html {
-	height: 85%;
+	height: 75%;
 }
