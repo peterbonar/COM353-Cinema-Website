@@ -38,7 +38,6 @@ function populateHTMLMovieData() {
                 if (((getCookie('location') == locationShowTime.location) || isChrome)) {
                     //Only format and display the content below if the movie isn't already displayed on the page
                     if (!movieDisplayed) {
-                        console.log(locationShowTime);
                         //Format each movie object to HTML
                         data.push('<tr>' +
                             '<th class="movie-poster-container">' +
