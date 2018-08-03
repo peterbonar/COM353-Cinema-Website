@@ -1,95 +1,145 @@
 <!DOCTYPE html>
 <html>
-	<head>
-	   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js" async></script>
-	   <script src="js/contact-us.js" async></script>
-	   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
-	   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-	   <link rel="stylesheet" type="text/css" href="css/contact-us-styles.css">
- 		<title>Contact Us</title>
-	</head>
-	<body>
-	   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-	      <a class="navbar-brand" href="./index.html">All-Star Cinemas</a>
-	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-	         <span class="navbar-toggler-icon"></span>
-	      </button>
-	      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-	         <ul class="navbar-nav mr-auto">
-	            <li class="nav-item">
-	               <a class="nav-link" href="./index.html">Movies</a>
-	            </li>
-	            <li class="nav-item">
-	               <a class="nav-link" href="./prices.html">Prices</a>
-	            </li>
-	            <li class="nav-item active">
-	               <a class="nav-link" href="./contact-us.html">Contact Us</a>
-	            </li>
-	            <li class="nav-item">
-	               <a class="nav-link" href="./booking.html">Booking</a>
-	            </li>
-	         </ul>
-	      </div>
-	   </nav>
-	   <h1>Contact Us</h1>
-	   <!--All input elements of the form are required. However this attribute is not supported by all browsers.-->
-	   <!--Therefore fields will also be checked via javascript and error messages output to the user if required.-->
-	   <!--NOTE: This is to be added later using Bootstrap popover-->
-	   <form method="post" id="contact-form">
-	      <div>
-	         <label for="forename">Forename: </label>
-	         <!--Setting maximum length to 50 characters to accomodate extreme edge cases-->
-	         <input type="text" id="forename" name="forename" maxlength="50" placeholder="forename" required>
-	      </div>
-	      <div>
-	         <label for="surname">Surname: </label>
-	         <!--Setting maximum length to 50 characters to accomodate extreme edge cases-->
-	         <input type="text" id="surname" name="surname" maxlength="50" placeholder="surname" required>
-	      </div>
-	      <div>
-	         <label for="email">Email Address: </label>
-	         <input type="email" id="email" name="email" placeholder="example@email.com" required>
-	      </div>
-	      <div>
-	         <label for="phone">Phone Number: </label>
-	         <!--Decided not to use regex validation here as phone number formats can vary greatly e.g. +447812345, 021-212-1223, 0211234567, etc-->
-         <!--Setting maximum phone number length to 15 as suggested ITU-T in their recommendation E.164. In the recommendation that telephone numbers should not exceed 15 digits-->
-         <input type="tel" id="phone" name="phone" minlength="7" maxlength="15" required>
+   <head>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js" async></script>
+      <script src="js/contact-us.js" async></script>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+      <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+      <link rel="stylesheet" type="text/css" href="css/contact-us-styles.css">
+      <link rel="stylesheet" type="text/css" href="css/parallax-styles.css">
+   </head>
+   <body>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+         <a class="navbar-brand" href="./index.html">All-Star Cinemas</a>
+         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+         <span class="navbar-toggler-icon"></span>
+         </button>
+         <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+               <li class="nav-item">
+                  <a class="nav-link" href="./index.html">Movies</a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link" href="./prices.html">Prices</a>
+               </li>
+               <li class="nav-item active">
+                  <a class="nav-link" href="./contact-us.html">Contact Us</a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link" href="./booking.html">Booking</a>
+               </li>
+            </ul>
+         </div>
+      </nav>
+      <div class="parallax">
+         <div class="parallax-overlay">
+            <div class="page-header">
+               <h1 class="heading" id="contact-us-heading">Contact Us</h1>
+            </div>
+         </div>
       </div>
-      <div id="preferred-contact-method-checkboxes">
-         <label for="preferred-contact-method">Preferred Contact Method: </label>
-         <input type="checkbox" name="preferred-contact-method" value="Phone" id="phone-checkbox"><label for="phone-checkbox">Phone</label>
-         <input type="checkbox" name="preferred-contact-method" value="Email" id="email-checkbox"><label for="email-checkbox">Email</label>
+      <!--All input elements of the form are required. However this attribute is not supported by all browsers.-->
+      <!--Therefore fields will also be checked via javascript and error messages output to the user if required.-->
+      <!--NOTE: This is to be added later using Bootstrap popover-->
+      <div class="container">
+      <h2 class="sub-heading">Complete the form below to get in touch:</h2>
+      <hr>
+      <form method="post" id="contact-form">
+         <div class="row">
+            <div class="col-sm-6">
+               <label for="forename">Forename:</label>
+               <!--Setting maximum length to 50 characters to accomodate extreme edge cases-->
+               <input type="text" id="forename" name="forename" maxlength="50" placeholder="Forename" class="form-field" required>
+            </div>
+            <div class="col-sm-6">
+               <label for="surname">Surname:</label>
+               <!--Setting maximum length to 50 characters to accomodate extreme edge cases-->
+               <input type="text" id="surname" name="surname" maxlength="50" placeholder="Surname" class="form-field" required>
+            </div>
+         </div>
+         <div class="row">
+            <div class="col-sm-6">
+               <label for="email">Email Address:</label>
+               <input type="email" id="email" name="email" placeholder="example@email.com" class="form-field" required>
+            </div>
+            <div class="col-sm-6">
+               <label for="phone">Phone Number:</label>
+               <!--Decided not to use regex validation here as phone number formats can vary greatly e.g. +447812345, 021-212-1223, 0211234567, etc-->
+               <!--Setting maximum phone number length to 15 as suggested ITU-T in their recommendation E.164. In the recommendation that telephone numbers should not exceed 15 digits-->
+               <input type="tel" id="phone" name="phone" minlength="7" maxlength="15" placeholder="(+44)78-1234-5678"class="form-field" required>
+            </div>
+         </div>
+         <div class="row">
+            <div class="col-sm-12">
+               <div id="preferred-contact-method-checkboxes">
+                  <label for="preferred-contact-method">Preferred Contact Method(s):</label>
+                  <div class="col-sm-6">
+                     <input type="checkbox" name="preferred-contact-method" value="Phone" id="phone-checkbox" class="contact-us-checkbox"><label for="phone-checkbox">Phone</label>
+                  </div>
+                  <div class="col-sm-6">
+                     <input type="checkbox" name="preferred-contact-method" value="Email" id="email-checkbox" class="contact-us-checkbox"><label for="email-checkbox">Email</label>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="row">
+            <div class="col-sm-12">
+               <label for="enquiry">Enquiry: </label>
+               <textarea id="enquiry" rows="4" cols="50" placeholder="Please type enquiry here..." maxlength="500" class="form-field" required></textarea>
+               <output id="characters-remaining"></output>
+            </div>
+         </div>
+         <div class="row">
+            <div class="col-sm-6">
+               <input type="reset" id="reset" form="contact-form" value="Reset" class="form-button"></input>
+            </div>
+            <div class="col-sm-6">
+               <input type="submit" id="submit" form="contact-form" formmethod="post" value="Submit" class="form-button"></input>
+            </div>
+         </div>
+      </form>
+      <br>
+      <h2 class="sub-heading">Contact Information</h2>
+      <hr>
+      <div class="contact-info">
+         <h3 class="contact-information-headings">Main Office</h3>
+         <p class="contact-information">All Star Cinemas
+            <br>14 Dublin Rd,
+            <br>Belfast
+            <br>County Antrim
+            <br>BT2 7HN
+         </p>
+         <b>Telephone Enquiries: </b><a href="tel:028 9367 1321">028 9367 1321</a>
+         <br>
+         <b>Email Enquiries: </b><a href="mailto:enquiries@allstarcinemas.com?Subject=Enquiry" target="_top">enquiries@allstarcinemas.com</a>
+         <br>
+         <br>
+         <div class="row">
+            <div class="col-sm-12">
+               <h3 class="contact-information-headings">Cinema Locations</h3>
+               <h4 class="cinema-location">Belfast:</h4>
+               <p class="contact-information">
+                  No. 1 Victoria Square, BT1 4QG
+               </p>
+               <h4 class="cinema-location">Antrim:</h4>
+               <p class="contact-information">
+                  Junction One Retail Park, Antrim BT41 4LL
+               </p>
+               <h4 class="cinema-location">Lisburn:</h4>
+               <p class="contact-information">
+                  Multiplex Leisure, Governors Rd, Lisburn BT28 1PP
+               </p>
+            </div>
+         </div>
       </div>
-      <label for="enquiry">Enquiry: </label>
-      <textarea id="enquiry" rows="4" cols="50" placeholder="Please type enquiry here..." maxlength="500" required></textarea>
-      <output id="characters-remaining"></output>
-      <br><br>
-      <input type="submit" id="submit" form="contact-form" formmethod="post" value="Submit"></input>
-      <input type="reset" id="reset" form="contact-form" value="Reset"></input>
-   </form>
-   <br>
-   <br>
-	 <div class="contact-info">
-		 <h2>Main Office</h2>
-		 <p>All Star Cinemas</p>
-		 <p>32 Newtownards Avenue</p>
-		 <p>Belfast</p>
-		 <p>County Antrim</p>
-		 <p>BT5 6FG</p>
-		 <br>
-	   <b>Telephone Enquiries: </b><a href="tel:028 9367 1321">028 9367 1321</a>
-	   <br>
-	   <b>Email Enquiries: </b><a href="mailto:enquiries@allstarcinemas.com?Subject=Enquiry" target="_top">enquiries@allstarcinemas.com</a>
-	 </div>
-	 <div class="map-container">
-		 <iframe
-			 width="600"
-			 height="450"
-			 frameborder="0" style="border:0"
-			 src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAoEF379wGPpIzz0raN58plJSNy0J-ybck&q=Dublin+Road+Cinema,Belfast" allowfullscreen>
-		 </iframe>
-	 </div>
-</body>
+      <div class="map-container">
+         <iframe
+            width="590"
+            height="500"
+            frameborder="0" style="border:0"
+            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAoEF379wGPpIzz0raN58plJSNy0J-ybck&q=Dublin+Road+Cinema,Belfast" allowfullscreen>
+         </iframe>
+      </div>
+   </body>
 </html>

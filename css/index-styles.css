@@ -10,12 +10,6 @@
   display: inline-block;
 }
 
-.cinema-banner {
-  width: 100vw;
-  height: auto;
-  -webkit-filter: blur(4px);
-}
-
 .movie-heading {
   padding: 10px;
   font-size: 3em;
@@ -57,14 +51,14 @@ body {
   font-family: 'Lato', sans-serif;
 }
 
-#cinema-banner .btn {
+.page-header .btn {
   position: absolute;
-  top: 50%;
+  top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   color: white;
-  font-size: 3em;
+  font-size: 2em;
   padding: 12px 24px;
   border: none;
   cursor: pointer;
