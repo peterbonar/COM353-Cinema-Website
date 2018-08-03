@@ -21,6 +21,24 @@
 	padding-bottom: 20px;
 }
 
-#pricing-image {
-	width:100%
+#parallax {
+	/* The image used */
+    background-image: url("../Media/Cinema Seating.jpg");
+
+    /* Full height */
+    height: 85%; 
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+body {
+	height: 85%;
+}
+
+html {
+	height: 85%;
 }
