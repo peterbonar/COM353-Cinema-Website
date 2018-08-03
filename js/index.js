@@ -13,6 +13,10 @@ window.onload = function() {
         setLocationCookie();
         populateHTMLMovieData();
     });
+
+    $('.container').scroll(function() {
+        $('#location-selector').animate({top:$(this).scrollTop()});
+});
 }
 
 function populateHTMLMovieData() {
@@ -26,23 +30,29 @@ function populateHTMLMovieData() {
     jQuery.each(jsonData.movies, function(index, movie) {
       //Only display movie if it plays at the location selected by the user
       if (jQuery.inArray(getCookie('location'), movie.locations) !== -1 || isChrome) {
+        var locations = '';
+        for (i = 0; i < movie.locations.length; i++) {
+          locations += movie.locations[i]
+          if (i != movie.locations.length - 1) {
+            locations += ', ';
+          }
+        }
         //Format each movie object to HTML
-        data.push('<tr>' +
-          '<th class="movie-poster-container">' +
-          '<img src="' + movie.poster + '" class="movie-poster"></img>' +
-          '</th>' +
-          '<th class="movie-data">' +
-          '<h3>' + movie.title + '</h3>' +
+        data.push('<div class="col-md-4 mb-3 float-left">' +
+          '<img class="img-fluid rounded mb-3 movie-poster" src="' + movie.poster + '" alt="' + movie.title + ' movie poster"></img>' +
+          '</div>' +
+          '<div class="col-md-8 mb-3 inline-block">' +
+          '<h2>' + movie.title +
+          '<img class="rating" src="' + movie.rating + '"></img></h2>' +
           '<h5>' + movie.tagline + '</h5>' +
-          '<p>Description: ' + movie.description + '</p>' +
-          '<p>Cast: ' + movie.cast + '</p>' +
-          '<p>Director: ' + movie.director + '</p>' +
-          '<p>Genre: ' + movie.genre + '</p>' +
-          '<p>Rating: ' + movie.rating + '</p>' +
-          '<p><a href="' + movie.trailer + '" target="_blank">Trailer: ' + movie.title + '</a></p>' +
-          '<p>Locations: ' + movie.locations + '</p>' +
-          '</th>' +
-          '</tr>');
+          '<p><b>Synopsis:</b> ' + movie.description + '</p>' +
+          '<div><i class="float-left fas fa-users cast-padding"></i><p class="inline-block"> ' + movie.cast + '</p></div>' +
+          '<div><i class="float-left fas fa-user fa-padding"></i><p class="inline-block"> ' + movie.director + '</p></div>' +
+          '<div><i class="float-left fas fa-bars fa-padding"></i><p class="inline-block"> ' + movie.genre + '</p></div>' +
+          '<div><i class="float-left fab fa-youtube youtube-padding"></i><p><a href="' + movie.trailer + '" target="_blank">Trailer</a></p></div>' +
+          '<div><i class="float-left fas fa-globe-americas fa-padding"></i><p class="inline-block"> ' + locations + '</p></div>' +
+          '</div>' +
+          '<hr>');
       }
     });
   });

@@ -1,15 +1,58 @@
 .movie-poster {
+  padding-top: 12px;
   width: 15vw;
   height: auto;
   max-width: 500px;
+  max-height: 380px;
 }
 
-.movie-poster-container {
-  width: 20vw;
-  float: left;
-}
-
-.movie-data {
-  width: 55vw;
+.inline-block{
   display: inline-block;
+}
+
+.cinema-banner {
+  width: 100vw;
+  height: auto;
+  -webkit-filter: blur(4px);
+}
+
+.movie-heading {
+  padding: 10px;
+  font-size: 3em;
+}
+
+.rating {
+  min-width: 30px;
+  width: 3.5vw;
+  height: auto;
+  padding-left: 15px;
+  padding-bottom: 17px;
+}
+
+#location-selector {
+  background-color: white;
+  padding: 5px 5px 5px 20px;
+  position: fixed;
+  top: 55px;
+  z-index:1000;
+}
+
+.cast-padding {
+  padding-right: 10px;
+  padding-top: 4px;
+}
+
+.fa-padding {
+  padding-right: 16px;
+  padding-top: 4px;
+}
+
+.youtube-padding {
+  padding-right: 13px;
+  padding-top: 4px;
+}
+
+body {
+  font-size: 1em;
+  font-family: 'Lato', sans-serif;
 }

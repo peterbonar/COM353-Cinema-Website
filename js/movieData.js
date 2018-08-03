@@ -14,7 +14,7 @@ var jsonData = {
     },
     {
       title: "Deadpool 2",
-      tagline: "'Prepare for the second coming.'",
+      tagline: "'Prepare for the second coming'",
       description: "Wisecracking mercenary Deadpool meets Russell, an angry teenage mutant who lives at an orphanage. When Russell becomes the target of Cable -- a genetically enhanced soldier from the future -- Deadpool realizes that he'll need some help saving the boy from such a superior enemy.",
       cast: "Morena Baccarin, Ryan Reynolds, Josh Brolin, Brianna Hildebrand",
       director: "David Leitch",
@@ -74,7 +74,7 @@ var jsonData = {
     },
     {
       title: "Hotel Transylvania 3: Summer Vacation",
-      tagline: "'Family vacation. It will suck the life out of you.'",
+      tagline: "'Family vacation. It will suck the life out of you'",
       description: "Mavis surprises Dracula with a family voyage on a luxury Monster Cruise Ship so he can take a vacation from providing everyone else's vacation at the hotel. But the dream vacation turns into a nightmare when Mavis realizes Drac has fallen for the mysterious captain of the ship, Ericka, who hides a dangerous secret that could destroy all of monsterkind.",
       cast: "Adam Sandler, Kathryn Hahn, Andy Samberg",
       director: "Genndy Tartakovsky",
@@ -98,7 +98,7 @@ var jsonData = {
     },
     {
       title: "Skyscraper",
-      tagline: "'Skyscraper'",
+      tagline: "'The sky is the limit'",
       description: "FBI Hostage Rescue Team leader and U.S. war veteran Will Ford, who now assesses security for skyscrapers. On assignment in Hong Kong he finds the tallest, safest building in the world suddenly ablaze, and he's been framed for it.",
       cast: "Dwayne Johnson, Neve Campbell, Pablo Schreiber",
       director: "Rawson Marshall Thurber",
