@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html>
    <head>
@@ -45,84 +43,84 @@
       <!--Therefore fields will also be checked via javascript and error messages output to the user if required.-->
       <!--NOTE: This is to be added later using Bootstrap popover-->
       <div class="container">
-         <h2 class="sub-heading">Complete the form below to get in touch:</h2>
-         <hr>
-         <form method="post" id="contact-form">
-            <div class="row">
-               <div class="col-sm-6">
-                  <label for="forename">Forename:</label>
-                  <!--Setting maximum length to 50 characters to accomodate extreme edge cases-->
-                  <input type="text" id="forename" name="forename" maxlength="50" placeholder="Forename" class="form-field" required>
-               </div>
-               <div class="col-sm-6">
-                  <label for="surname">Surname:</label>
-                  <!--Setting maximum length to 50 characters to accomodate extreme edge cases-->
-                  <input type="text" id="surname" name="surname" maxlength="50" placeholder="Surname" class="form-field" required>
-               </div>
+      <h2 class="sub-heading">Complete the form below to get in touch:</h2>
+      <hr>
+      <form method="post" id="contact-form">
+         <div class="row">
+            <div class="col-sm-6">
+               <label for="forename">Forename:</label>
+               <!--Setting maximum length to 50 characters to accomodate extreme edge cases-->
+               <input type="text" id="forename" name="forename" maxlength="50" placeholder="Forename" class="form-field" required>
             </div>
-            <div class="row">
-               <div class="col-sm-6">
-                  <label for="email">Email Address:</label>
-                  <input type="email" id="email" name="email" placeholder="example@email.com" class="form-field" required>
-               </div>
-               <div class="col-sm-6">
-                  <label for="phone">Phone Number:</label>
-                  <!--Decided not to use regex validation here as phone number formats can vary greatly e.g. +447812345, 021-212-1223, 0211234567, etc-->
-                  <!--Setting maximum phone number length to 15 as suggested ITU-T in their recommendation E.164. In the recommendation that telephone numbers should not exceed 15 digits-->
-                  <input type="tel" id="phone" name="phone" minlength="7" maxlength="15" placeholder="(+44)78-1234-5678"class="form-field" required>
-               </div>
+            <div class="col-sm-6">
+               <label for="surname">Surname:</label>
+               <!--Setting maximum length to 50 characters to accomodate extreme edge cases-->
+               <input type="text" id="surname" name="surname" maxlength="50" placeholder="Surname" class="form-field" required>
             </div>
-            <div class="row">
-               <div class="col-sm-12">
-                  <div id="preferred-contact-method-checkboxes">
-                     <label for="preferred-contact-method">Preferred Contact Method(s):</label>
-                     <div class="col-sm-6">
-                        <input type="checkbox" name="preferred-contact-method" value="Phone" id="phone-checkbox" class="contact-us-checkbox"><label for="phone-checkbox">Phone</label>
-                     </div>
-                     <div class="col-sm-6">
-                        <input type="checkbox" name="preferred-contact-method" value="Email" id="email-checkbox" class="contact-us-checkbox"><label for="email-checkbox">Email</label>
-                     </div>
+         </div>
+         <div class="row">
+            <div class="col-sm-6">
+               <label for="email">Email Address:</label>
+               <input type="email" id="email" name="email" placeholder="example@email.com" class="form-field" required>
+            </div>
+            <div class="col-sm-6">
+               <label for="phone">Phone Number:</label>
+               <!--Decided not to use regex validation here as phone number formats can vary greatly e.g. +447812345, 021-212-1223, 0211234567, etc-->
+               <!--Setting maximum phone number length to 15 as suggested ITU-T in their recommendation E.164. In the recommendation that telephone numbers should not exceed 15 digits-->
+               <input type="tel" id="phone" name="phone" minlength="7" maxlength="15" placeholder="(+44)78-1234-5678"class="form-field" required>
+            </div>
+         </div>
+         <div class="row">
+            <div class="col-sm-12">
+               <div id="preferred-contact-method-checkboxes">
+                  <label for="preferred-contact-method">Preferred Contact Method(s):</label>
+                  <div class="col-sm-6">
+                     <input type="checkbox" name="preferred-contact-method" value="Phone" id="phone-checkbox" class="contact-us-checkbox"><label for="phone-checkbox">Phone</label>
+                  </div>
+                  <div class="col-sm-6">
+                     <input type="checkbox" name="preferred-contact-method" value="Email" id="email-checkbox" class="contact-us-checkbox"><label for="email-checkbox">Email</label>
                   </div>
                </div>
             </div>
-            <div class="row">
-               <div class="col-sm-12">
-                  <label for="enquiry">Enquiry: </label>
-                  <textarea id="enquiry" rows="4" cols="50" placeholder="Please type enquiry here..." maxlength="500" class="form-field" required></textarea>
-                  <output id="characters-remaining"></output>
-               </div>
+         </div>
+         <div class="row">
+            <div class="col-sm-12">
+               <label for="enquiry">Enquiry: </label>
+               <textarea id="enquiry" rows="4" cols="50" placeholder="Please type enquiry here..." maxlength="500" class="form-field" required></textarea>
+               <output id="characters-remaining"></output>
             </div>
-            <div class="row">
-               <div class="col-sm-6">
-                  <input type="reset" id="reset" form="contact-form" value="Reset" class="form-button"></input>
-               </div>
-               <div class="col-sm-6">
-                  <input type="submit" id="submit" form="contact-form" formmethod="post" value="Submit" class="form-button"></input>
-               </div>
+         </div>
+         <div class="row">
+            <div class="col-sm-6">
+               <input type="reset" id="reset" form="contact-form" value="Reset" class="form-button"></input>
             </div>
-         </form>
+            <div class="col-sm-6">
+               <input type="submit" id="submit" form="contact-form" formmethod="post" value="Submit" class="form-button"></input>
+            </div>
+         </div>
+      </form>
+      <br>
+      <h2 class="sub-heading">Contact Information</h2>
+      <hr>
+      <div class="contact-info">
+         <h3 class="contact-information-headings">Main Office</h3>
+         <p class="contact-information">All Star Cinemas
+            <br>14 Dublin Rd,
+            <br>Belfast
+            <br>County Antrim
+            <br>BT2 7HN
+         </p>
+         <b>Telephone Enquiries: </b><a href="tel:028 9367 1321">028 9367 1321</a>
          <br>
-         <h2 class="sub-heading">Contact Information</h2>
-         <hr>
-         <div class="contact-info">
-            <h3 class="contact-information-headings">Main Office</h3>
-            <p class="contact-information">All Star Cinemas
-               <br>14 Dublin Rd,
-               <br>Belfast
-               <br>County Antrim
-               <br>BT2 7HN
-            </p>
-            <b>Telephone Enquiries: </b><a href="tel:028 9367 1321">028 9367 1321</a>
-            <br>
-            <b>Email Enquiries: </b><a href="mailto:enquiries@allstarcinemas.com?Subject=Enquiry" target="_top">enquiries@allstarcinemas.com</a>
-            <br>
-            <br>
-            <div class="row">
-               <div class="col-sm-12">
-                  <h3 class="contact-information-headings">Cinema Locations</h3>
-                  <h4 class="cinema-location">Belfast:</h4>
+         <b>Email Enquiries: </b><a href="mailto:enquiries@allstarcinemas.com?Subject=Enquiry" target="_top">enquiries@allstarcinemas.com</a>
+         <br>
+         <br>
+         <div class="row">
+            <div class="col-sm-12">
+               <h3 class="contact-information-headings">Cinema Locations</h3>
+               <h4 class="cinema-location">Belfast:</h4>
                <p class="contact-information">
-               	No. 1 Victoria Square, BT1 4QG
+                  No. 1 Victoria Square, BT1 4QG
                </p>
                <h4 class="cinema-location">Antrim:</h4>
                <p class="contact-information">
@@ -132,9 +130,9 @@
                <p class="contact-information">
                   Multiplex Leisure, Governors Rd, Lisburn BT28 1PP
                </p>
-               </div>
             </div>
          </div>
+      </div>
       <div class="map-container">
          <iframe
             width="590"
@@ -145,4 +143,3 @@
       </div>
    </body>
 </html>
-
