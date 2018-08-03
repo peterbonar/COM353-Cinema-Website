@@ -14,9 +14,10 @@ window.onload = function() {
         populateHTMLMovieData();
     });
 
-    $('.container').scroll(function() {
-        $('#location-selector').animate({top:$(this).scrollTop()});
-});
+    $("#currently-showing").click(function() {
+      $('html,body').animate({
+        scrollTop: $(".container").offset().top},'slow');
+    });
 }
 
 function populateHTMLMovieData() {

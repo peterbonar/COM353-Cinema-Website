@@ -56,3 +56,17 @@ body {
   font-size: 1em;
   font-family: 'Lato', sans-serif;
 }
+
+#cinema-banner .btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  color: white;
+  font-size: 3em;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
