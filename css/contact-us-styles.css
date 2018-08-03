@@ -1,13 +1,9 @@
-div {
-  display: table-row;
+.form-row {
+	display: table-row;
 }
 
-label {
-  display: table-cell;
-}
-
-input {
-  display: table-cell;
+#contact-us-heading {
+	font-size: 145px;
 }
 
 .contact-info {
@@ -16,5 +12,42 @@ input {
 }
 
 .map-container {
-  display: inline-block;
+  display: inline block;
+}
+
+.form-field {
+	width:100%;
+}
+
+.sub-heading {
+	padding-top: 25px;
+	font-size: 35px;
+}
+
+.row {
+	padding-bottom: 15px;
+}
+
+.contact-information-headings {
+	font-weight: bold;
+}
+
+.form-button {
+	width: 100%;
+	font-size: 20px;
+}
+
+.contact-information {
+	color: #505050;
+	padding-bottom: 5px;
+}
+
+.contact-us-checkbox {
+	margin-right: 10px;
+}
+
+.cinema-location {
+	color: #484848;
+	font-weight: bold;
+	font-size: 18px;
 }
