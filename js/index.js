@@ -94,7 +94,7 @@ function getDatesForFilmAsString(movie, dates) {
     for (var i = 0; i < dates.length; i++) {
         datesToDisplay += '<li><a class="date-selector" href="javascript:;" id="' + movie.title + '-' + dates[i] + '" onclick="displayTimesForDate(\'' + movie.title + '\', \'' + dates[i] + '\')">' + dates[i] + '</a></li>';
     }
-    return datesToDisplay
+    return datesToDisplay;
 }
 
 function getTimesForDateAsString(movie, dates, times) {
