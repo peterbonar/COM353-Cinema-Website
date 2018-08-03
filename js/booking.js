@@ -1,9 +1,10 @@
 var isChrome = navigator.userAgent.toLowerCase().indexOf('chrome') > -1;
-var adultSubTotal = 0, studentSubTotal = 0, childSubTotal = 0;
-
+var tenPercentDiscountCode = "10",
+   twentyPercentDiscountCode = "20",
+   discountApplied = false;
 /*
-	As the page loads set the value in the #locations select equal to the value stored in the location cookie (as it has already been determined by the user).
-	Then update the appropriate booking fields to match the allowed dates, times, etc. for that location.
+As the page loads set the value in the #locations select equal to the value stored in the location cookie (as it has already been determined by the user).
+Then update the appropriate booking fields to match the allowed dates, times, etc. for that location.
 */
 window.onload = function() {
    checkLocationCookie();
@@ -17,13 +18,46 @@ window.onload = function() {
    populateQuantityDropdown();
    //Calculate the subtotal of tickets when the relevant quatity dropdown is changed
    $('#adult-quantity').on('change', function() {
-       calcuateSubTotalAdult();
+      if (discountApplied) {
+         var reapplyDiscount = confirm('Do you want to reapply discount?');
+         if (reapplyDiscount) {
+            discountCheck();
+         } else {
+            displayTotalPrice();
+            hideDiscountDetails();
+         }
+      }
+      adultSubTotal = calculatePrice('adult-quantity', 5);
+      $('#adult-subtotal').text("£" + (adultSubTotal).toFixed(2));
+      displayTotalPrice();
    });
    $('#student-quantity').on('change', function() {
-       calcuateSubTotalStudent();
+      if (discountApplied) {
+         var reapplyDiscount = confirm('Do you want to reapply discount?');
+         if (reapplyDiscount) {
+            discountCheck();
+         } else {
+            displayTotalPrice();
+            hideDiscountDetails();
+         }
+      }
+      studentSubTotal = calculatePrice('student-quantity', 4);
+      $('#student-subtotal').text("£" + (studentSubTotal).toFixed(2));
+      displayTotalPrice();
    });
    $('#child-quantity').on('change', function() {
-       calcuateSubTotalChild();
+      if (discountApplied) {
+         var reapplyDiscount = confirm('Do you want to reapply discount?');
+         if (reapplyDiscount) {
+            discountCheck();
+         } else {
+            displayTotalPrice();
+            hideDiscountDetails();
+         }
+      }
+      childSubTotal = calculatePrice('child-quantity', 2.5);
+      $('#child-subtotal').text("£" + (childSubTotal).toFixed(2));
+      displayTotalPrice();
    });
    //Provie the user with a reference number upon submitting the form.
    //NOTE: alert used at the minute but this will be changed to use Bootstrap features when styling
@@ -44,9 +78,9 @@ window.onload = function() {
       }
       alert("Thank you, your booking has been processed. Your reference number is " + generateBookingNumber() + ".");
    });
-
+   
    $(':input[type="submit"]').prop('disabled', true);
-
+   //When the booking form has data entered, continually check if all required fields have data
    $('#booking-form *').keyup(function() {
       var allInputs = $('#booking-form *');
       var counterForEmptyFields = 0;
@@ -63,6 +97,14 @@ window.onload = function() {
          $(':input[type="submit"]').prop('disabled', false);
       }
    })
+   disableApplyDiscountButton();
+   hideDiscountDetails();
+   $('#discount-code').keyup(function() {
+      checkDiscountCodeField();
+   })
+   $('#apply-discount').click(function() {
+      discountCheck();
+   })
 }
 
 function updateBookingFields() {
@@ -72,78 +114,161 @@ function updateBookingFields() {
    $('#movie-title').replaceWith(data);
    data = [];
    $(jsonData).map(function(i, movies) {
-      //Map each json movie into an individual object
-      jQuery.each(jsonData.movies, function(index, movie) {
-         //Only display the film-name if it plays at the location selected by the user
-         if (jQuery.inArray(getCookie('location'), movie.locations) !== -1 || isChrome) {
-            //Format each movie object to HTML and append to the film-name select as an option
-            data.push('<option value="' + movie.title.toLowerCase + '"> ' + movie.title + '</option>');
-         }
-      });
-   });
-   $('#movie-title').append(data);
-}
-
-function generateBookingNumber() {
-   //Generate a random 5 digit booking number
-   return Math.floor(Math.random() * 90000) + 10000;
-}
-
-function calcuateSubTotalAdult() {
-   //Get the value of the adult-quatity dropdown
-   var x = $('#adult-quantity').val();
-   //Get the value of the adult-price label and remove the £ symbol
-   var y = ($('#adult-price').text()).replace('£', '');
-   //Calculate the subtotal of the adult price
-   adultSubTotal = x * y;
-   //Set the adult-subtotal as £ plus the value of the subtotal
-   $('#adult-subtotal').text("£" + (adultSubTotal).toFixed(2));
-   //Update the total price label
-   calculateTotal();
-}
-
-function calcuateSubTotalStudent() {
-   //Get the value of the student-quatity dropdown
-   var x = $('#student-quantity').val();
-   //Get the value of the student-price label and remove the £ symbol
-   var y = ($('#student-price').text()).replace('£', '');
-   //Calculate the subtotal of the student price
-   studentSubTotal = x * y;
-   //Set the student-subtotal as £ plus the value of the subtotal
-   // $('#student-subtotal').text("£" + (studentSubTotal).toFixed(2));
-   $('#student-subtotal').text("£" + (studentSubTotal).toFixed(2));
-   //Update the total price label
-   calculateTotal();
-}
-
-function calcuateSubTotalChild() {
-   //Get the value of the child-quatity dropdown
-   var x = $('#child-quantity').val();
-   //Get the value of the child-price label and remove the £ symbol
-   var y = ($('#child-price').text()).replace('£', '');
-   //Calculate the subtotal of the child price
-   childSubTotal = x * y;
-   //Set the child-subtotal as £ plus the value of the subtotal
-   $('#child-subtotal').text("£" + (childSubTotal).toFixed(2));
-   //Update the total price label
-   calculateTotal();
-}
-
-function calculateTotal(){
-   //Calculate the total price of all types of tickets
-   var total = adultSubTotal + studentSubTotal + childSubTotal;
-   //Set the value of the total-price label to the total price of tickets
-   $('#total-price').text("£" + (total).toFixed(2));
-}
-
-function populateQuantityDropdown() {
-   var select = '';
-   for (i=0;i<=20;i++){
-      //Add the 'option' value to the 'select' from 0 to 20
-      select += '<option value=' + i + '>' + i + '</option>';
+         //Map each json movie into an individual object
+         jQuery.each(jsonData.movies, function(index, movie) {
+               //Only display the film-name if it plays at the location selected by the user
+               if (jQuery.inArray(getCookie('location'), movie.locations) !== -1 || isChrome) {
+                  //Format each movie object to HTML and append to the film-name select as an option
+                  data.push(' <
+                     option value = "' + movie.title.toLowerCase + '" > ' + movie.title + ' < /option>
+                     ');
+                  }
+               });
+         }); $('#movie-title').append(data);
    }
-   //Populate each of the quatity drop downs with the select from 0 to 20
-   $('#adult-quantity').html(select);
-   $('#student-quantity').html(select);
-   $('#child-quantity').html(select);
-}
+
+   //Function to carry out the application of discount
+   function discountCheck() {
+      var discountCode = getDiscountCodeEntered();
+      var discountIsValid = checkIfValidDiscountCode(discountCode);
+      if (discountIsValid) {
+         var discountPercent = checkDiscountPercentage(discountCode);
+         showDiscountDetails(discountPercent);
+         displayDiscountPriceOnPage(discountPercent);
+         discountApplied = true;
+      } else {
+         alert('Error: Incorrect Discount Code');
+         hideDiscountDetails();
+         $('#discount-code').val('');
+      }
+   }
+
+   //Check if the discount code entered is valid
+   function checkIfValidDiscountCode(discountCode) {
+      if (discountCode === tenPercentDiscountCode || discountCode === twentyPercentDiscountCode) {
+         return true;
+      } else {
+         return false;
+      }
+   }
+   //Check what percentage discount to be applied
+   function checkDiscountPercentage(discountCode) {
+      if (discountCode === tenPercentDiscountCode) {
+         return 10;
+      }
+      if (discountCode === twentyPercentDiscountCode) {
+         return 20;
+      }
+   }
+
+   //Generate random booking number
+   function generateBookingNumber() {
+      //Generate a random 5 digit booking number
+      return Math.floor(Math.random() * 90000) + 10000;
+   }
+
+   //Display the total price on page
+   function displayTotalPrice() {
+      var adultSubTotal = calculateAdultSubtotal();
+      var childSubTotal = calculateChildSubtotal();
+      var studentSubTotal = calculateStudentSubtotal();
+      var total = adultSubTotal + childSubTotal + studentSubTotal;
+      $('#total-price').text("£" + ((total).toFixed(2)));
+   }
+
+   //Get the total price of tickets
+   function getTotalPrice() {
+      var adultSubTotal = calculateAdultSubtotal();
+      var childSubTotal = calculateChildSubtotal();
+      var studentSubTotal = calculateStudentSubtotal();
+      var total = adultSubTotal + childSubTotal + studentSubTotal;
+      return total;
+   }
+   //Function to calulcate subtotal based on quantity and ticket price
+   function calculatePrice(quantityId, price) {
+      var quantity = $('*[id=' + quantityId + ']').val();
+      var subTotal = parseInt(quantity) * parseFloat(price);
+      return subTotal;
+   }
+
+   //Calculate adult subtotal
+   function calculateAdultSubtotal() {
+      var adultSubTotal = calculatePrice('adult-quantity', 5);
+      return adultSubTotal;
+   }
+
+   //Calculate student subtotal
+   function calculateStudentSubtotal() {
+      var studentSubTotal = calculatePrice('student-quantity', 4);
+      return studentSubTotal;
+   }
+
+   //Calculate child subtotal
+   function calculateChildSubtotal() {
+      var childSubTotal = calculatePrice('child-quantity', 2.5);
+      return childSubTotal;
+   }
+
+   //Populate quatity dropdown from 1 to 20
+   function populateQuantityDropdown() {
+      var select = '';
+      for (i = 0; i <= 20; i++) {
+         //Add the 'option' value to the 'select' from 0 to 20
+         select += ' <
+            option value = ' + i + ' > ' + i + ' < /option>
+         ';
+      }
+      //Populate each of the quatity drop downs with the select from 0 to 20
+      $('#adult-quantity').html(select);
+      $('#student-quantity').html(select);
+      $('#child-quantity').html(select);
+   }
+
+   //Check discount code field and if there is nothing present, disable button
+   function checkDiscountCodeField() {
+      var discountCodeFieldLength = $('#discount-code').val().length;
+      if (discountCodeFieldLength > 0) {
+         $('#apply-discount').prop('disabled', false);
+      } else {
+         $('#apply-discount').prop('disabled', true);
+      }
+   }
+
+   //Get the value of the entered discount code
+   function getDiscountCodeEntered() {
+      var discountCode = $('#discount-code').val();
+      return discountCode;
+   }
+
+   //Display the discounted amount
+   function displayDiscountPriceOnPage(discountPercent) {
+      var preDiscountTotal = getTotalPrice();
+      var discountAmount = preDiscountTotal * (discountPercent / 100);
+      var postDiscountTotal = preDiscountTotal - discountAmount;
+      $('#discount-price').text("£" + (postDiscountTotal).toFixed(2));
+   }
+
+   //Hide the discount details
+   function hideDiscountDetails() {
+      $('#discount-percent').hide();
+      $('#discount-percent-label').hide();
+      $('#discount-total-label').hide();
+      $('#discount-price').hide();
+   }
+   //Show the extra discount details with the relevant discount percentage
+   function showDiscountDetails(discountPercent) {
+      $('#discount-percent').text(discountPercent + "%");
+      $('#discount-percent').show();
+      $('#discount-percent-label').show();
+      $('#discount-total-label').show();
+      $('#discount-price').show();
+   }
+   //Disable the apply discount button
+   function disableApplyDiscountButton() {
+      $('#apply-discount').prop('disabled', true);
+   }
+
+   //Enable the apply discount button
+   function enableApplyDiscountButton() {
+      $('#apply-discount').prop('disabled', false);
+   }
