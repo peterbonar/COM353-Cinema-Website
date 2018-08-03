@@ -120,13 +120,13 @@ function calcuateSubTotalStudent() {
 }
 
 function calcuateSubTotalTeen() {
-   //Get the value of the child-quatity dropdown
+   //Get the value of the teen-quatity dropdown
    var x = $('#teen-quantity').val();
-   //Get the value of the child-price label and remove the £ symbol
+   //Get the value of the teen-price label and remove the £ symbol
    var y = ($('#teen-price').text()).replace('£', '');
-   //Calculate the subtotal of the child price
+   //Calculate the subtotal of the teen price
    teenSubTotal = x * y;
-   //Set the child-subtotal as £ plus the value of the subtotal
+   //Set the teen-subtotal as £ plus the value of the subtotal
    $('#teen-subtotal').text("£" + (teenSubTotal).toFixed(2));
    //Update the total price label
    calculateTotal();
