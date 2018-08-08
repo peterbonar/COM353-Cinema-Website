@@ -48,7 +48,7 @@
 }
 
 .movies-heading {
-	font-size: 7em;
+	font-size: 6.5em;
 	text-align: center;
 	color: white;
 	margin: 0;
@@ -61,7 +61,7 @@
 }
 
 body {
-	height: 75%;
+	height: 100%;
 	font-family: 'Lato', sans-serif;
 }
 
