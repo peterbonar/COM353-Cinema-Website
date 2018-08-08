@@ -41,6 +41,7 @@ window.onload = function() {
          } else {
             displayTotalPrice();
             hideDiscountDetails();
+            discountApplied = false;
          }
       }
       studentSubTotal = calculatePrice('student-quantity', 4);
@@ -56,6 +57,7 @@ window.onload = function() {
         } else {
            displayTotalPrice();
            hideDiscountDetails();
+           discountApplied = false;
         }
      }
      teenSubTotal = calculatePrice('teen-quantity', 3.5);
@@ -71,6 +73,7 @@ window.onload = function() {
          } else {
             displayTotalPrice();
             hideDiscountDetails();
+            discountApplied = false;
          }
       }
       childSubTotal = calculatePrice('child-quantity', 2.5);
