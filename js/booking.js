@@ -25,6 +25,7 @@ window.onload = function() {
          } else {
             displayTotalPrice();
             hideDiscountDetails();
+            discountApplied = false;
          }
       }
       adultSubTotal = calculatePrice('adult-quantity', 5);
@@ -75,6 +76,7 @@ window.onload = function() {
       childSubTotal = calculatePrice('child-quantity', 2.5);
       $('#child-subtotal').text("£" + (childSubTotal).toFixed(2));
       displayTotalPrice();
+      checkDiscountCodeField();
    });
    //Provie the user with a reference number upon submitting the form.
    //NOTE: alert used at the minute but this will be changed to use Bootstrap features when styling
