@@ -7,7 +7,31 @@ var adultSubTotal = 0, studentSubTotal = 0, teenSubTotal = 0, childSubTotal = 0;
 */
 window.onload = function() {
    checkLocationCookie();
-   updateBookingFields();
+
+   if (getMovieCookie() == ''){
+     updateBookingFields();
+   }else{
+     setMovieBasedOnCookie();
+   }
+
+   if (getLocationCookie() == ''){
+     updateBookingFields();
+   }else{
+     setLocationBasedOnCookie();
+   }
+
+   if (getTimeCookie() == ''){
+     updateBookingFields();
+   }else{
+     setTimeBasedOnCookie();
+   }
+
+   if ( getDateCookie() == ''){
+     updateBookingFields();
+   }else{
+     setDateBasedOnCookie();
+   }
+
    $('#locations').on('change', function() {
       setLocationCookie();
       updateBookingFields();
@@ -163,4 +187,44 @@ function populateQuantityDropdown() {
    $('#student-quantity').html(select);
    $('#teen-quantity').html(select);
    $('#child-quantity').html(select);
+}
+
+function getMovieCookie(){
+  return getCookie('movie');
+}
+
+function setMovieBasedOnCookie(){
+  //$('#movie-title').attr("disabled", true);
+  var movie = getCookie('movie');
+  $('#movie-title').val(movie).change();
+}
+
+function getLocationCookie(){
+  return getCookie('location');
+}
+
+function setLocationBasedOnCookie(){
+  var location = getCookie('location');
+  $('#locations select').val(location);
+  //$('#locations').attr("disabled", true);
+}
+
+function getDateCookie(){
+  return getCookie('date');
+}
+
+function setDateBasedOnCookie(){
+  var date = getCookie('date');
+  $('#date').val(date).change();
+  //$('#date').attr("disabled", true);
+}
+
+function getTimeCookie(){
+  return getCookie('time');
+}
+
+function setTimeBasedOnCookie(){
+  var time = getCookie('time');
+  $('#time').val(time).change();
+  //$('#time').attr("disabled", true);
 }
