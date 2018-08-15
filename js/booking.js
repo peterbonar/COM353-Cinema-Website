@@ -77,7 +77,7 @@ window.onload = function() {
       } else {
          $(':input[type="submit"]').prop('disabled', false);
       }
-   })
+   });
 }
 
 function updateBookingFields() {
@@ -90,9 +90,9 @@ function updateBookingFields() {
       //Map each json movie into an individual object
       jQuery.each(jsonData.movies, function(index, movie) {
          //Only display the film-name if it plays at the location selected by the user
-         if (jQuery.inArray(getCookie('location'), movie.locations) !== -1 || isChrome) {
+         if (jQuery.inArray(getCookie('location'), movie.locations)) {
             //Format each movie object to HTML and append to the film-name select as an option
-            data.push('<option value="' + movie.title.toLowerCase + '"> ' + movie.title + '</option>');
+            data.push('<option value="' + movie.title + '"> ' + movie.title + '</option>');
          }
       });
    });
