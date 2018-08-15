@@ -7,31 +7,19 @@ var adultSubTotal = 0, studentSubTotal = 0, teenSubTotal = 0, childSubTotal = 0;
 */
 window.onload = function() {
    checkLocationCookie();
-
-   if (getMovieCookie() == ''){
-     updateBookingFields();
-   }else{
+   updateBookingFields();
+   if (getMovieCookie() != ''){
      setMovieBasedOnCookie();
    }
-
-   if (getLocationCookie() == ''){
-     updateBookingFields();
-   }else{
+   if (getLocationCookie() != ''){
      setLocationBasedOnCookie();
    }
-
-   if (getTimeCookie() == ''){
-     updateBookingFields();
-   }else{
+   if (getTimeCookie() != ''){
      setTimeBasedOnCookie();
    }
-
-   if ( getDateCookie() == ''){
-     updateBookingFields();
-   }else{
+   if ( getDateCookie() != ''){
      setDateBasedOnCookie();
    }
-
    $('#locations').on('change', function() {
       setLocationCookie();
       updateBookingFields();
@@ -194,9 +182,9 @@ function getMovieCookie(){
 }
 
 function setMovieBasedOnCookie(){
-  //$('#movie-title').attr("disabled", true);
   var movie = getCookie('movie');
   $('#movie-title').val(movie).change();
+  $('#movie-title').attr("disabled", true);
 }
 
 function getLocationCookie(){
@@ -206,7 +194,7 @@ function getLocationCookie(){
 function setLocationBasedOnCookie(){
   var location = getCookie('location');
   $('#locations select').val(location);
-  //$('#locations').attr("disabled", true);
+  $('#locations').attr("disabled", true);
 }
 
 function getDateCookie(){
@@ -216,7 +204,7 @@ function getDateCookie(){
 function setDateBasedOnCookie(){
   var date = getCookie('date');
   $('#date').val(date).change();
-  //$('#date').attr("disabled", true);
+  $('#date').attr("disabled", true);
 }
 
 function getTimeCookie(){
@@ -226,5 +214,5 @@ function getTimeCookie(){
 function setTimeBasedOnCookie(){
   var time = getCookie('time');
   $('#time').val(time).change();
-  //$('#time').attr("disabled", true);
+  $('#time').attr("disabled", true);
 }
