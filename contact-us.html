@@ -32,114 +32,140 @@
             </ul>
          </div>
       </nav>
-      <div class="parallax">
-         <div class="parallax-overlay">
-            <div class="page-header">
-               <h1 class="heading" id="contact-us-heading">Contact Us</h1>
-            </div>
-         </div>
+      <div class="parallax" id="parallax-contact-us">
+         <h1 class="contact-heading">Contact Us</h1>
       </div>
       <!--All input elements of the form are required. However this attribute is not supported by all browsers.-->
       <!--Therefore fields will also be checked via javascript and error messages output to the user if required.-->
       <!--NOTE: This is to be added later using Bootstrap popover-->
       <div class="container">
-      <h2 class="sub-heading">Complete the form below to get in touch:</h2>
-      <hr>
-      <form method="post" id="contact-form">
-         <div class="row">
-            <div class="col-sm-6">
-               <label for="forename">Forename:</label>
-               <!--Setting maximum length to 50 characters to accomodate extreme edge cases-->
-               <input type="text" id="forename" name="forename" maxlength="50" placeholder="Forename" class="form-field" required>
+         <h2 class="sub-heading">Complete the form below to get in touch:</h2>
+         <hr>
+         <form method="post" id="contact-form">
+            <div class="row">
+               <div class="col-sm-6">
+                  <label for="forename">Forename:</label>
+                  <!--Setting maximum length to 50 characters to accomodate extreme edge cases-->
+                  <input type="text" id="forename" name="forename" maxlength="50" placeholder="Forename" class="form-field" required>
+               </div>
+               <div class="col-sm-6">
+                  <label for="surname">Surname:</label>
+                  <!--Setting maximum length to 50 characters to accomodate extreme edge cases-->
+                  <input type="text" id="surname" name="surname" maxlength="50" placeholder="Surname" class="form-field" required>
+               </div>
             </div>
-            <div class="col-sm-6">
-               <label for="surname">Surname:</label>
-               <!--Setting maximum length to 50 characters to accomodate extreme edge cases-->
-               <input type="text" id="surname" name="surname" maxlength="50" placeholder="Surname" class="form-field" required>
+            <div class="row">
+               <div class="col-sm-6">
+                  <label for="email">Email Address:</label>
+                  <input type="email" id="email" name="email" placeholder="example@email.com" class="form-field" required>
+               </div>
+               <div class="col-sm-6">
+                  <label for="phone">Phone Number:</label>
+                  <!--Decided not to use regex validation here as phone number formats can vary greatly e.g. +447812345, 021-212-1223, 0211234567, etc-->
+                  <!--Setting maximum phone number length to 15 as suggested ITU-T in their recommendation E.164. In the recommendation that telephone numbers should not exceed 15 digits-->
+                  <input type="tel" id="phone" name="phone" minlength="7" maxlength="15" placeholder="(+44)78-1234-5678"class="form-field" required>
+               </div>
             </div>
-         </div>
-         <div class="row">
-            <div class="col-sm-6">
-               <label for="email">Email Address:</label>
-               <input type="email" id="email" name="email" placeholder="example@email.com" class="form-field" required>
-            </div>
-            <div class="col-sm-6">
-               <label for="phone">Phone Number:</label>
-               <!--Decided not to use regex validation here as phone number formats can vary greatly e.g. +447812345, 021-212-1223, 0211234567, etc-->
-               <!--Setting maximum phone number length to 15 as suggested ITU-T in their recommendation E.164. In the recommendation that telephone numbers should not exceed 15 digits-->
-               <input type="tel" id="phone" name="phone" minlength="7" maxlength="15" placeholder="(+44)78-1234-5678"class="form-field" required>
-            </div>
-         </div>
-         <div class="row">
-            <div class="col-sm-12">
-               <div id="preferred-contact-method-checkboxes">
-                  <label for="preferred-contact-method">Preferred Contact Method(s):</label>
-                  <div class="col-sm-6">
-                     <input type="checkbox" name="preferred-contact-method" value="Phone" id="phone-checkbox" class="contact-us-checkbox"><label for="phone-checkbox">Phone</label>
+            <div class="row">
+               <div class="col-sm-12">
+                  <div id="preferred-contact-method-checkboxes">
+                     <label for="preferred-contact-method">Preferred Contact Method(s):</label>
+                     <div class="col-sm-6">
+                        <input type="checkbox" name="preferred-contact-method" value="Phone" id="phone-checkbox" class="contact-us-checkbox"><label for="phone-checkbox">Phone</label>
+                     </div>
+                     <div class="col-sm-6">
+                        <input type="checkbox" name="preferred-contact-method" value="Email" id="email-checkbox" class="contact-us-checkbox"><label for="email-checkbox">Email</label>
+                     </div>
                   </div>
-                  <div class="col-sm-6">
-                     <input type="checkbox" name="preferred-contact-method" value="Email" id="email-checkbox" class="contact-us-checkbox"><label for="email-checkbox">Email</label>
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-sm-12">
+                  <label for="enquiry">Enquiry: </label>
+                  <textarea id="enquiry" rows="4" cols="50" placeholder="Please type enquiry here..." maxlength="500" class="form-field" required></textarea>
+                  <output id="characters-remaining"></output>
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-sm-6">
+                  <input type="reset" id="reset" form="contact-form" value="Reset" class="form-button"></input>
+               </div>
+               <div class="col-sm-6">
+                  <input type="submit" id="submit" form="contact-form" formmethod="post" value="Submit" class="form-button"></input>
+               </div>
+            </div>
+         </form>
+         <br>
+         <h2 class="sub-heading">Contact Information</h2>
+         <hr>
+         <div class = "row">
+            <div class="col-md-6">
+               <div class="contact-info">
+                  <h3 class="contact-information-headings">Main Office</h3>
+                  <p class="contact-information">All Star Cinemas
+                     <br>14 Dublin Rd,
+                     <br>Belfast
+                     <br>County Antrim
+                     <br>BT2 7HN
+                  </p>
+                  <b>Telephone Enquiries: </b><a href="tel:028 9367 1321">028 9367 1321</a>
+                  <br>
+                  <b>Email Enquiries: </b><a href="mailto:enquiries@allstarcinemas.com?Subject=Enquiry" target="_top">enquiries@allstarcinemas.com</a>
+                  <br>
+                  <br>
+               </div>
+            </div>
+            <div class="col-md-6">
+               <iframe
+                  width = "100%"
+                  height = "100%"
+                  frameborder="0" style="border:0"
+                  src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAoEF379wGPpIzz0raN58plJSNy0J-ybck&q=Dublin+Road+Cinema,Belfast" allowfullscreen>
+               </iframe>
+            </div>
+         </div>
+         <h3 class="contact-information-headings">Cinema Locations</h3>
+         <div class="row">
+            <div class="col-md-4">
+               <div class="card mb-4 shadow-sm h-100">
+                  <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" style="height: 225px; width: 100%; display: block;" src="Media/Belfast Cinema.jpg" data-holder-rendered="true">
+                  <div class="card-body">
+                     <p class="card-text"><span class="cinema-location">Belfast:</span><br>
+                        <span class="contact-information">No. 1 Victoria Square,<br>
+                        Belfast<br>
+                        BT1 4QG
+                     </p>
+                     </span>
+                  </div>
+               </div>
+            </div>
+            <div class="col-md-4">
+               <div class="card mb-4 shadow-sm h-100">
+                  <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" style="height: 225px; width: 100%; display: block;" src="Media/Antrim Cinema.jpg" data-holder-rendered="true">
+                  <div class="card-body">
+                     <p class="card-text"><span class="cinema-location">Antrim:</span><br>
+                        <span class="contact-information">Junction One Retail Park,<br>
+                        Antrim<br>
+                        BT41 4LL
+                     </p>
+                     </span>
+                  </div>
+               </div>
+            </div>
+            <div class="col-md-4">
+               <div class="card mb-4 shadow-sm h-100">
+                  <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" style="height: 225px; width: 100%; display: block;" src="Media/Lisburn Cinema.jpg" data-holder-rendered="true">
+                  <div class="card-body">
+                     <p class="card-text"><span class="cinema-location">Lisburn:</span><br>
+                        <span class="contact-information">Multiplex Leisure,<br>
+                        Governors Rd,<br>
+                        Lisburn<br></span>
+                        BT28 1PP
+                     </p>
                   </div>
                </div>
             </div>
          </div>
-         <div class="row">
-            <div class="col-sm-12">
-               <label for="enquiry">Enquiry: </label>
-               <textarea id="enquiry" rows="4" cols="50" placeholder="Please type enquiry here..." maxlength="500" class="form-field" required></textarea>
-               <output id="characters-remaining"></output>
-            </div>
-         </div>
-         <div class="row">
-            <div class="col-sm-6">
-               <input type="reset" id="reset" form="contact-form" value="Reset" class="form-button"></input>
-            </div>
-            <div class="col-sm-6">
-               <input type="submit" id="submit" form="contact-form" formmethod="post" value="Submit" class="form-button"></input>
-            </div>
-         </div>
-      </form>
-      <br>
-      <h2 class="sub-heading">Contact Information</h2>
-      <hr>
-      <div class="contact-info">
-         <h3 class="contact-information-headings">Main Office</h3>
-         <p class="contact-information">All Star Cinemas
-            <br>14 Dublin Rd,
-            <br>Belfast
-            <br>County Antrim
-            <br>BT2 7HN
-         </p>
-         <b>Telephone Enquiries: </b><a href="tel:028 9367 1321">028 9367 1321</a>
-         <br>
-         <b>Email Enquiries: </b><a href="mailto:enquiries@allstarcinemas.com?Subject=Enquiry" target="_top">enquiries@allstarcinemas.com</a>
-         <br>
-         <br>
-         <div class="row">
-            <div class="col-sm-12">
-               <h3 class="contact-information-headings">Cinema Locations</h3>
-               <h4 class="cinema-location">Belfast:</h4>
-               <p class="contact-information">
-                  No. 1 Victoria Square, BT1 4QG
-               </p>
-               <h4 class="cinema-location">Antrim:</h4>
-               <p class="contact-information">
-                  Junction One Retail Park, Antrim BT41 4LL
-               </p>
-               <h4 class="cinema-location">Lisburn:</h4>
-               <p class="contact-information">
-                  Multiplex Leisure, Governors Rd, Lisburn BT28 1PP
-               </p>
-            </div>
-         </div>
-      </div>
-      <div class="map-container">
-         <iframe
-            width="590"
-            height="500"
-            frameborder="0" style="border:0"
-            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAoEF379wGPpIzz0raN58plJSNy0J-ybck&q=Dublin+Road+Cinema,Belfast" allowfullscreen>
-         </iframe>
       </div>
    </body>
 </html>

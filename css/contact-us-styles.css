@@ -2,17 +2,9 @@
 	display: table-row;
 }
 
-#contact-us-heading {
-	font-size: 145px;
-}
-
 .contact-info {
   float: left;
   padding-right: 10vw;
-}
-
-.map-container {
-  display: inline block;
 }
 
 .form-field {
