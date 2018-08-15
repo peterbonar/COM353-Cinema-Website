@@ -1,36 +1,31 @@
 .parallax {
-	/* The image used */
-    background-image: url("../Media/Cinema Seating.jpg");
-
-    /* Full height */
     height: 75%; 
-
-    /* Create the parallax scrolling effect */
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    position: relative;
 }
 
-.parallax-overlay {
-  height: 100%;
-  width: 40%;
-  margin: auto;
-  background: rgba(255,255,255, 0.6)
-  position: relative;
+#parallax-prices {
+  background-image: url("../Media/Prices Header.jpg");
 }
 
+#parallax-contact-us {
+  background-image: url("../Media/Contact Us Header.jpg");
+}
 .heading {
-	font-size: 150px;
-	text-align: center;
+	font-size: 12vw;
 	color: white;
-	margin: 0;
-	opacity: .85;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -150%);
-    font-family: 'Lato', sans-serif;
+  width:100%;
+  font-family: 'Lato', sans-serif;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  display: inline-block
 }
 
 body {

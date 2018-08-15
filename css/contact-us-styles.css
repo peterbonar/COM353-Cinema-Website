@@ -1,18 +1,14 @@
-.form-row {
-	display: table-row;
+.parallax {
+	background-image: url("../Media/Cinema Screen.jpg");
 }
 
-#contact-us-heading {
-	font-size: 145px;
+.form-row {
+	display: table-row;
 }
 
 .contact-info {
   float: left;
   padding-right: 10vw;
-}
-
-.map-container {
-  display: inline block;
 }
 
 .form-field {
