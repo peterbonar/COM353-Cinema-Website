@@ -1,15 +1,61 @@
 .movie-poster {
+  padding-top: 12px;
   width: 15vw;
   height: auto;
   max-width: 500px;
+  max-height: 380px;
 }
 
-.movie-poster-container {
-  width: 20vw;
-  float: left;
-}
-
-.movie-data {
-  width: 55vw;
+.inline-block{
   display: inline-block;
+}
+
+.movies-heading {
+  padding: 10px;
+}
+
+.rating {
+  min-width: 30px;
+  width: 3.5vw;
+  height: auto;
+  padding-left: 15px;
+  padding-bottom: 17px;
+}
+
+#location-selector {
+  padding: 5px 5px 5px 20px;
+}
+
+.cast-padding {
+  padding-right: 10px;
+  padding-top: 4px;
+}
+
+.fa-padding {
+  padding-right: 16px;
+  padding-top: 4px;
+}
+
+.youtube-padding {
+  padding-right: 13px;
+  padding-top: 4px;
+}
+
+body {
+  font-size: 1em;
+  font-family: 'Lato', sans-serif;
+}
+
+#currently-showing {
+  position: absolute;
+  top: 65%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  color: white;
+  font-size: 2em;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
 }
