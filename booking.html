@@ -11,6 +11,7 @@
    <link rel="stylesheet" href="css/general-styles.css">
    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   <link rel="stylesheet" href="css/booking-styles.css">
 </head>
 
 <body>
@@ -62,12 +63,92 @@
          </select>
       </div>
       <div>
-         <label for="ticket-type">Ticket Type: </label>
-         <select id="ticket-type" name="ticket-type">
-            <option value="adult">Adult</option>
-            <option value="student">Student</option>
-            <option value="child">Child</option>
-         </select>
+         <table>
+            <tr>
+               <th>
+                  <label for="ticket-type">Ticket Type: </label>
+               </th>
+               <th>
+                  <label for="price">Price: </label>
+               </th>
+               <th>
+                 <label for="quantity">Quantity: </label>
+               </th>
+               <th>
+                  <label for="subtotal">Subtotal: </label>
+               </th>
+            </tr>
+            <tr>
+               <td>
+                  <label for="adult-ticket-type">Adult</label>
+               </td>
+               <td>
+                  <label for="adult-price" id="adult-price">£5.00</label>
+               </td>
+               <td>
+                  <select id="adult-quantity" name="adult-quantity">
+                  </select>
+               </td>
+               <td>
+                  <label for="adult-subtotal" id="adult-subtotal">£0.00</label>
+               </td>
+            </tr>
+            <tr>
+               <td>
+                  <label for="student-ticket-type">Student</label>
+               </td>
+               <td>
+                  <label for="student-price" id="student-price">£4.00</label>
+               </td>
+               <td>
+                  <select id="student-quantity" name="student-quantity">
+                  </select>
+               </td>
+               <td>
+                  <label for="student-subtotal" id="student-subtotal">£0.00</label>
+               </td>
+            </tr>
+            <tr>
+               <td>
+                  <label for="teen-ticket-type">Teen</label>
+               </td>
+               <td>
+                  <label for="teen-price" id="teen-price">£3.50</label>
+               </td>
+               <td>
+                  <select id="teen-quantity" name="teen-quantity">
+                  </select>
+               </td>
+               <td>
+                  <label for="teen-subtotal" id="teen-subtotal">£0.00</label>
+               </td>
+            </tr>
+            <tr>
+               <td>
+                  <label for="child-ticket-type">Child</label>
+               </td>
+               <td>
+                  <label for="child-price" id="child-price">£2.50</label>
+               </td>
+               <td>
+                  <select id="child-quantity" name="child-quantity">
+                  </select>
+               </td>
+               <td>
+                  <label for="child-subtotal" id="child-subtotal">£0.00</label>
+               </td>
+            </tr>
+            <tr>
+               <th></th>
+               <th></th>
+               <th>
+                  <label for="total" id="total">Total:</label>
+               </th>
+               <th>
+                  <label for="total-price" id="total-price">£0.00</label>
+               </th>
+            </tr>
+         </table>
       </div>
       <div>
          <label for="locations">Location: </label>
