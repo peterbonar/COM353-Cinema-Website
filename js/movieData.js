@@ -10,50 +10,7 @@ var jsonData = {
       rating: "Media/Ratings/12A.png",
       poster: "Media/Movie covers/Adrift.jpg",
       trailer: "https://www.youtube.com/watch?v=HdMP4sWc71M",
-      locationShowTimes: [
-      {
-        location: "Belfast",
-        showing: [
-          {
-            date: "01/08/2018",
-            time: ["14:30", "16:00", "19:30", "20:00"]
-          },
-          {
-            date: "02/08/2018",
-            time: ["14:30", "16:00", "19:30", "20:00"]
-          },
-          {
-            date: "03/08/2018",
-            time: ["14:30", "16:00", "19:30", "20:00"]
-          },
-          {
-            date: "04/08/2018",
-            time: ["19:30", "20:00"]
-          }
-        ]
-      },
-      {
-        location: "Antrim",
-        showing: [
-          {
-            date: "01/08/2018",
-            time: ["11:00", "13:00", "14:30", "16:00", "19:30", "20:00"]
-          },
-          {
-            date: "02/08/2018",
-            time: ["16:00", "19:30", "20:00"]
-          },
-          {
-            date: "03/08/2018",
-            time: ["16:00", "19:30", "20:00"]
-          },
-          {
-            date: "04/08/2018",
-            time: ["19:30", "20:00"]
-          },
-        ]
-      }
-      ] 
+      locations: ["Belfast", "Antrim"]
     },
     {
       title: "Deadpool 2",
@@ -65,63 +22,7 @@ var jsonData = {
       rating: "Media/Ratings/15.png",
       poster: "Media/Movie covers/Deadpool 2.jpg",
       trailer: "https://www.youtube.com/watch?v=20bpjtCbCz0",
-      locationShowTimes: [
-      {
-        location: "Belfast",
-        showing: [
-          {
-            date: "01/08/2018",
-            time: ["14:30", "16:00", "19:30", "20:00"]
-          },
-          {
-            date: "02/08/2018",
-            time: ["14:30", "16:00", "19:30", "20:00"]
-          },
-          {
-            date: "03/08/2018",
-            time: ["14:30", "16:00", "19:30", "20:00"]
-          },
-          {
-            date: "04/08/2018",
-            time: ["16:00", "19:30", "20:00"]
-          },
-          {
-            date: "05/08/2018",
-            time: ["16:00", "19:30", "20:00"]
-          },
-        ]
-      },
-      {
-        location: "Antrim",
-        showing: [
-          {
-            date: "02/08/2018",
-            time: ["16:00", "19:30", "20:00"]
-          },
-          {
-            date: "03/08/2018",
-            time: ["16:00", "19:30", "20:00"]
-          },
-          {
-            date: "04/08/2018",
-            time: ["19:30", "20:00"]
-          },
-        ]
-      },
-      {
-       location: "Lisburn",
-        showing: [
-           {
-            date: "03/08/2018",
-            time: ["14:30", "16:00", "19:30", "20:00"]
-          },
-          {
-            date: "04/08/2018",
-            time: ["19:30", "20:00"]
-          }
-        ]
-      }
-      ]
+      locations: ["Belfast", "Antrim", "Lisburn"]
     },
     {
       title: "The First Purge",
@@ -133,50 +34,7 @@ var jsonData = {
       rating: "Media/Ratings/15.png",
       poster: "Media/Movie covers/The First Purge.jpg",
       trailer: "https://www.youtube.com/watch?v=UL29y0ah92w",
-      locationShowTimes: [
-      {
-        location: "Belfast",
-        showing: [
-          {
-            date: "01/08/2018",
-            time: ["14:30", "16:00", "19:30", "20:00"]
-          },
-          {
-            date: "02/08/2018",
-            time: ["14:30", "16:00", "19:30", "20:00"]
-          },
-          {
-            date: "03/08/2018",
-            time: ["14:30", "16:00", "19:30", "20:00"]
-          },
-          {
-            date: "04/08/2018",
-            time: ["16:00", "19:30", "20:00"]
-          },
-          {
-            date: "05/08/2018",
-            time: ["16:00", "19:30", "20:00"]
-          },
-        ]
-      },
-      {
-        location: "Antrim",
-        showing: [
-          {
-            date: "02/08/2018",
-            time: ["16:00", "19:30", "20:00"]
-          },
-          {
-            date: "03/08/2018",
-            time: ["16:00", "19:30", "20:00"]
-          },
-          {
-            date: "04/08/2018",
-            time: ["19:30", "20:00"]
-          },
-        ]
-      }
-      ]
+      locations: ["Belfast", "Lisburn"]
     },
     {
       title: "Hereditary",
@@ -188,54 +46,7 @@ var jsonData = {
       rating: "Media/Ratings/15.png",
       poster: "Media/Movie covers/Hereditary.jpg",
       trailer: "https://www.youtube.com/watch?v=V6wWKNij_1M",
-      locationShowTimes: [
-      {
-        location: "Belfast",
-        showing: [
-          {
-            date: "01/08/2018",
-            time: ["14:30", "16:00", "19:30", "20:00"]
-          },
-          {
-            date: "02/08/2018",
-            time: ["14:30", "16:00", "19:30", "20:00"]
-          },
-          {
-            date: "03/08/2018",
-            time: ["14:30", "16:00", "19:30", "20:00"]
-          },
-          {
-            date: "04/08/2018",
-            time: ["16:00", "19:30", "20:00"]
-          },
-          {
-            date: "05/08/2018",
-            time: ["16:00", "19:30", "20:00"]
-          },
-        ]
-      },
-      {
-        location: "Lisburn",
-        showing: [
-          {
-            date: "01/08/2018",
-            time: ["14:30", "16:00", "19:30", "20:00"]
-          },
-          {
-            date: "02/08/2018",
-            time: ["16:00", "19:30", "20:00"]
-          },
-          {
-            date: "03/08/2018",
-            time: ["16:00", "19:30", "20:00"]
-          },
-          {
-            date: "04/08/2018",
-            time: ["19:30", "20:00"]
-          },
-        ]
-      }
-      ]
+      locations: ["Belfast", "Lisburn"]
     },
     {
       title: "Incredibles 2",
@@ -247,68 +58,7 @@ var jsonData = {
       rating: "Media/Ratings/PG.png",
       poster: "Media/Movie covers/Incredibles 2.jpg",
       trailer: "https://www.youtube.com/watch?v=i5qOzqD9Rms",
-      locationShowTimes: [
-      {
-        location: "Belfast",
-        showing: [
-          {
-            date: "01/08/2018",
-            time: ["14:30", "16:00", "19:30", "20:00"]
-          },
-          {
-            date: "02/08/2018",
-            time: ["14:30", "16:00", "19:30", "20:00"]
-          },
-          {
-            date: "03/08/2018",
-            time: ["14:30", "16:00", "19:30", "20:00"]
-          },
-          {
-            date: "04/08/2018",
-            time: ["16:00", "19:30", "20:00"]
-          },
-          {
-            date: "05/08/2018",
-            time: ["16:00", "19:30", "20:00"]
-          },
-        ]
-      },
-      {
-        location: "Antrim",
-        showing: [
-          {
-            date: "02/08/2018",
-            time: ["16:00", "19:30", "20:00"]
-          },
-          {
-            date: "03/08/2018",
-            time: ["16:00", "19:30", "20:00"]
-          },
-          {
-            date: "04/08/2018",
-            time: ["19:30", "20:00"]
-          },
-        ]
-      },
-      {
-       location: "Lisburn",
-        showing: [
-           {
-            date: "03/08/2018",
-            time: ["14:30", "16:00", "19:30", "20:00"]
-          },
-          {
-            date: "04/08/2018",
-            time: ["19:30", "20:00"]
-          },
-          {
-            date: "05/08/2018",
-            time: ["19:30", "20:00"]
-          }
-
-        ]
-      }
-      ]
+      locations: ["Belfast", "Antrim", "Lisburn"]
     },
     {
       title: "Jurassic World: Fallen Kingdom",
@@ -320,54 +70,7 @@ var jsonData = {
       rating: "Media/Ratings/12A.png",
       poster: "Media/Movie covers/Jurassic World Fallen Kingdom.jpg",
       trailer: "https://www.youtube.com/watch?v=1FJD7jZqZEk",
-      locationShowTimes: [
-      {
-        location: "Belfast",
-        showing: [
-          {
-            date: "01/08/2018",
-            time: ["14:30", "16:00", "19:30", "20:00"]
-          },
-          {
-            date: "02/08/2018",
-            time: ["14:30", "16:00", "19:30", "20:00"]
-          },
-          {
-            date: "03/08/2018",
-            time: ["14:30", "16:00", "19:30", "20:00"]
-          },
-          {
-            date: "04/08/2018",
-            time: ["16:00", "19:30", "20:00"]
-          },
-          {
-            date: "05/08/2018",
-            time: ["16:00", "19:30", "20:00"]
-          },
-        ]
-      },
-      {
-        location: "Lisburn",
-        showing: [
-          {
-            date: "01/08/2018",
-            time: ["14:30", "16:00", "19:30", "20:00"]
-          },
-          {
-            date: "02/08/2018",
-            time: ["16:00", "19:30", "20:00"]
-          },
-          {
-            date: "03/08/2018",
-            time: ["16:00", "19:30", "20:00"]
-          },
-          {
-            date: "04/08/2018",
-            time: ["19:30", "20:00"]
-          },
-        ]
-      }
-      ]
+      locations: ["Belfast", "Lisburn"]
     },
     {
       title: "Hotel Transylvania 3: Summer Vacation",
@@ -391,25 +94,7 @@ var jsonData = {
       rating: "Media/Ratings/15.png",
       poster: "Media/Movie covers/Sicario 2- Soldado.jpg",
       trailer: "https://www.youtube.com/watch?v=i02bxFc88b4",
-      locationShowTimes: [
-      {
-        location: "Antrim",
-        showing: [
-          {
-            date: "02/08/2018",
-            time: ["16:00", "19:30", "20:00"]
-          },
-          {
-            date: "03/08/2018",
-            time: ["16:00", "19:30", "20:00"]
-          },
-          {
-            date: "04/08/2018",
-            time: ["19:30", "20:00"]
-          },
-        ]
-      }
-        ]
+      locations: ["Antrim"]
     },
     {
       title: "Skyscraper",
@@ -421,46 +106,7 @@ var jsonData = {
       rating: "Media/Ratings/12A.png",
       poster: "Media/Movie covers/Skyscraper.jpg",
       trailer: "https://www.youtube.com/watch?v=t9QePUT-Yt8",
-      locationShowTimes: [
-      {
-        location: "Antrim",
-        showing: [
-          {
-            date: "02/08/2018",
-            time: ["16:00", "19:30", "20:00"]
-          },
-          {
-            date: "03/08/2018",
-            time: ["16:00", "19:30", "20:00"]
-          },
-          {
-            date: "04/08/2018",
-            time: ["19:30", "20:00"]
-          },
-          {
-            date: "05/08/2018",
-            time: ["19:30", "20:00"]
-          }
-        ]
-      },
-      {
-       location: "Lisburn",
-        showing: [
-           {
-            date: "03/08/2018",
-            time: ["14:30", "16:00", "19:30", "20:00"]
-          },
-          {
-            date: "04/08/2018",
-            time: ["19:30", "20:00"]
-          },
-          {
-            date: "05/08/2018",
-            time: ["19:30", "20:00"]
-          }
-        ]
-      }
-      ]
+      locations: ["Antrim", "Lisburn"]
     },
     {
       title: "Tag",
@@ -472,50 +118,7 @@ var jsonData = {
       rating: "Media/Ratings/15.png",
       poster: "Media/Movie covers/Tag.jpg",
       trailer: "https://www.youtube.com/watch?v=kjC1zmZo30U",
-      locationShowTimes: [
-      {
-        location: "Belfast",
-        showing: [
-          {
-            date: "01/08/2018",
-            time: ["14:30", "16:00", "19:30", "20:00"]
-          },
-          {
-            date: "02/08/2018",
-            time: ["14:30", "16:00", "19:30", "20:00"]
-          },
-          {
-            date: "03/08/2018",
-            time: ["14:30", "16:00", "19:30", "20:00"]
-          },
-          {
-            date: "04/08/2018",
-            time: ["16:00", "19:30", "20:00"]
-          },
-          {
-            date: "05/08/2018",
-            time: ["16:00", "19:30", "20:00"]
-          },
-        ]
-      },
-      {
-        location: "Antrim",
-        showing: [
-          {
-            date: "02/08/2018",
-            time: ["16:00", "19:30", "20:00"]
-          },
-          {
-            date: "03/08/2018",
-            time: ["16:00", "19:30", "20:00"]
-          },
-          {
-            date: "04/08/2018",
-            time: ["19:30", "20:00"]
-          },
-        ]
-      }
-    ]
-  }
-]
+      locations: ["Belfast", "Antrim"]
+    }
+  ]
 }
