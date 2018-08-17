@@ -1,40 +1,64 @@
 .parallax {
-	/* The image used */
-    background-image: url("../Media/Cinema Seating.jpg");
-
-    /* Full height */
-    height: 75%; 
-
-    /* Create the parallax scrolling effect */
+    height: 75%;
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    position: relative;
 }
 
-.parallax-overlay {
-  height: 100%;
-  width: 40%;
-  margin: auto;
-  background: rgba(255,255,255, 0.6)
-  position: relative;
+#parallax-prices {
+  background-image: url("../Media/Prices Header.jpg");
 }
-
-.heading {
-	font-size: 150px;
+.prices-heading {
+	font-size: 10vw;
 	text-align: center;
 	color: white;
 	margin: 0;
 	opacity: .85;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -150%);
-    font-family: 'Lato', sans-serif;
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -150%);
+  font-family: 'Lato', sans-serif;
+}
+
+#parallax-movies {
+  background-image: url("../Media/Movies Header.jpg");
+  height: 100%;
+}
+.movies-heading {
+	font-size: 10vw;
+	text-align: center;
+	color: white;
+	margin: 0;
+	opacity: .95;
+  position: absolute;
+  top: 90%;
+  left: 50%;
+  transform: translate(-50%, -150%);
+  font-family: 'Lato', sans-serif;
+}
+
+#parallax-contact-us {
+  background-image: url("../Media/Contact Us Header.jpg");
+}
+.contact-heading {
+	font-size: 12vw;
+	color: white;
+  width:100%;
+  font-family: 'Lato', sans-serif;
+  margin: 0;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  display: inline-block
 }
 
 body {
-	height: 75%;
+	height: 100%;
 	font-family: 'Lato', sans-serif;
 }
 

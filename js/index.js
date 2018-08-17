@@ -13,73 +13,48 @@ window.onload = function() {
         setLocationCookie();
         populateHTMLMovieData();
     });
+
+    $("#currently-showing").click(function() {
+      $('html,body').animate({
+        scrollTop: $("#location-selector").offset().top},'slow');
+    });
 }
 
 function populateHTMLMovieData() {
-    var data = [];
-    //Clear the div before updating movies so the movie list is replaced with new movies rather than continually added to
-    data.push('<div id="movie-list"></div>');
-    $('#movie-list').replaceWith(data);
-    data = [];
-    $(jsonData).map(function(i, movies) {
-        //Map each json movie into an individual object
-        jQuery.each(jsonData.movies, function(index, movie) {
-            //Initialise flag and arrays that will be used for formatting movie show time details
-            var movieDisplayed = false;
-            var locations = [];
-            var showtimes = [];
-            var dates = [];
-            var times = [];
-            //Map each nested locationShowTime json (nested within movie object) to an individual object
-            jQuery.each(movie.locationShowTimes, function(index, locationShowTime) {
-                //Add each location for which the film is shown to the "locations" array
-                locations.push(locationShowTime.location);
-                //Only display movie if it plays at the location selected by the user
-                if (((getCookie('location') == locationShowTime.location) || isChrome)) {
-                    //Only format and display the content below if the movie isn't already displayed on the page
-                    if (!movieDisplayed) {
-                        //Format each movie object to HTML
-                        data.push('<tr>' +
-                            '<th class="movie-poster-container">' +
-                            '<img src="' + movie.poster + '" class="movie-poster"></img>' +
-                            '</th>' +
-                            '<th class="movie-data">' +
-                            '<h3>' + movie.title + '</h3>' +
-                            '<h5>' + movie.tagline + '</h5>' +
-                            '<p>Description: ' + movie.description + '</p>' +
-                            '<p>Cast: ' + movie.cast + '</p>' +
-                            '<p>Director: ' + movie.director + '</p>' +
-                            '<p>Genre: ' + movie.genre + '</p>' +
-                            '<p>Rating: ' + movie.rating + '</p>' +
-                            '<p><a href="' + movie.trailer + '" target="_blank">Trailer: ' + movie.title + '</a></p>');
-                        //Set this flag to true to ensure that no movie details are duplicated
-                        movieDisplayed = true;
-                    }
-                    //Store the json array of date and times for each movie to the "showtimes" variable
-                    showtimes = locationShowTime.showing;
-                    for (var i = 0; i < showtimes.length; i++) {
-                        //Only display/return the matching dates and times for a film for the location which is currently selected by the user
-                        if ((getCookie('location') == locationShowTime.location)) {
-                            var datetime = showtimes[i];
-                            dates.push(datetime.date);
-                            times.push(datetime.time);
-                        }
-                    }
-                }
-            });
-            //Only output the information for a film's available locations, dates and times if it is showing at a location selected by the user
-            if (locations.includes(getCookie('location'))) {
-                data.push('<p>Location: ' + locations + '</p>');
-                //Output screening dates to the user
-                data.push('<ul class="' + movie.title + '-screening-dates">' + getDatesForFilmAsString(movie, dates) + '</ul>');
-                //Output screening times to the user
-                data.push(getTimesForDateAsString(movie, dates, times));
-                //Output available screening locations to the user
-                data.push(
-                    '</th>' +
-                    '</tr>');
-            }
-        });
+  var data = [];
+  //Clear the div before updating movies so the movie list is replaced with new movies rather than continually added to
+  data.push('<div id="movie-list"></div>');
+  $('#movie-list').replaceWith(data);
+  data = [];
+  $(jsonData).map(function(i, movies) {
+    //Map each json movie into an individual object
+    jQuery.each(jsonData.movies, function(index, movie) {
+      //Only display movie if it plays at the location selected by the user
+      if (jQuery.inArray(getCookie('location'), movie.locations) !== -1 || isChrome) {
+        var locations = '';
+        for (i = 0; i < movie.locations.length; i++) {
+          locations += movie.locations[i]
+          if (i != movie.locations.length - 1) {
+            locations += ', ';
+          }
+        }
+        //Format each movie object to HTML
+        data.push('<div class="col-md-4 mb-3 float-left">' +
+          '<img class="img-fluid rounded mb-3 movie-poster" src="' + movie.poster + '" alt="' + movie.title + ' movie poster"></img>' +
+          '</div>' +
+          '<div class="col-md-8 mb-3 inline-block">' +
+          '<h2>' + movie.title +
+          '<img class="rating" src="' + movie.rating + '"></img></h2>' +
+          '<h5>' + movie.tagline + '</h5>' +
+          '<p><b>Synopsis:</b> ' + movie.description + '</p>' +
+          '<div><i class="float-left fas fa-users cast-padding"></i><p class="inline-block"> ' + movie.cast + '</p></div>' +
+          '<div><i class="float-left fas fa-user fa-padding"></i><p class="inline-block"> ' + movie.director + '</p></div>' +
+          '<div><i class="float-left fas fa-bars fa-padding"></i><p class="inline-block"> ' + movie.genre + '</p></div>' +
+          '<div><i class="float-left fab fa-youtube youtube-padding"></i><p><a href="' + movie.trailer + '" target="_blank">Trailer</a></p></div>' +
+          '<div><i class="float-left fas fa-globe-americas fa-padding"></i><p class="inline-block"> ' + locations + '</p></div>' +
+          '</div>' +
+          '<hr>');
+      }
     });
     //Push the array of HTML formatted movies to the 'movieList' Div in index.html
     $('#movie-list').append(data);
