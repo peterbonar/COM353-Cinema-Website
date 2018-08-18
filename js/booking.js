@@ -1,4 +1,5 @@
 var isChrome = navigator.userAgent.toLowerCase().indexOf('chrome') > -1;
+var adultSubTotal = 0, studentSubTotal = 0, teenSubTotal = 0, childSubTotal = 0;
 
 /*
 	As the page loads set the value in the #locations select equal to the value stored in the location cookie (as it has already been determined by the user).
@@ -10,6 +11,22 @@ window.onload = function() {
    $('#locations').on('change', function() {
       setLocationCookie();
       updateBookingFields();
+   });
+   //Populate the quantity dropdown with values from 0 to 20
+   //If a user wants to book any more than 20 of any ticket type they have to call up to book
+   populateQuantityDropdown();
+   //Calculate the subtotal of tickets when the relevant quantity dropdown is changed
+   $('#adult-quantity').on('change', function() {
+       calcuateSubTotalAdult();
+   });
+   $('#student-quantity').on('change', function() {
+       calcuateSubTotalStudent();
+   });
+   $('#teen-quantity').on('change', function() {
+       calcuateSubTotalTeen();
+   });
+   $('#child-quantity').on('change', function() {
+       calcuateSubTotalChild();
    });
    //Provie the user with a reference number upon submitting the form.
    //NOTE: alert used at the minute but this will be changed to use Bootstrap features when styling
@@ -73,4 +90,77 @@ function updateBookingFields() {
 function generateBookingNumber() {
    //Generate a random 5 digit booking number
    return Math.floor(Math.random() * 90000) + 10000;
+}
+
+function calcuateSubTotalAdult() {
+   //Get the value of the adult-quantity dropdown
+   var x = $('#adult-quantity').val();
+   //Get the value of the adult-price label and remove the £ symbol
+   var y = ($('#adult-price').text()).replace('£', '');
+   //Calculate the subtotal of the adult price
+   adultSubTotal = x * y;
+   //Set the adult-subtotal as £ plus the value of the subtotal
+   $('#adult-subtotal').text("£" + (adultSubTotal).toFixed(2));
+   //Update the total price label
+   calculateTotal();
+}
+
+function calcuateSubTotalStudent() {
+   //Get the value of the student-quantity dropdown
+   var x = $('#student-quantity').val();
+   //Get the value of the student-price label and remove the £ symbol
+   var y = ($('#student-price').text()).replace('£', '');
+   //Calculate the subtotal of the student price
+   studentSubTotal = x * y;
+   //Set the student-subtotal as £ plus the value of the subtotal
+   // $('#student-subtotal').text("£" + (studentSubTotal).toFixed(2));
+   $('#student-subtotal').text("£" + (studentSubTotal).toFixed(2));
+   //Update the total price label
+   calculateTotal();
+}
+
+function calcuateSubTotalTeen() {
+   //Get the value of the teen-quantity dropdown
+   var x = $('#teen-quantity').val();
+   //Get the value of the teen-price label and remove the £ symbol
+   var y = ($('#teen-price').text()).replace('£', '');
+   //Calculate the subtotal of the teen price
+   teenSubTotal = x * y;
+   //Set the teen-subtotal as £ plus the value of the subtotal
+   $('#teen-subtotal').text("£" + (teenSubTotal).toFixed(2));
+   //Update the total price label
+   calculateTotal();
+}
+
+function calcuateSubTotalChild() {
+   //Get the value of the child-quantity dropdown
+   var x = $('#child-quantity').val();
+   //Get the value of the child-price label and remove the £ symbol
+   var y = ($('#child-price').text()).replace('£', '');
+   //Calculate the subtotal of the child price
+   childSubTotal = x * y;
+   //Set the child-subtotal as £ plus the value of the subtotal
+   $('#child-subtotal').text("£" + (childSubTotal).toFixed(2));
+   //Update the total price label
+   calculateTotal();
+}
+
+function calculateTotal(){
+   //Calculate the total price of all types of tickets
+   var total = adultSubTotal + studentSubTotal + teenSubTotal + childSubTotal;
+   //Set the value of the total-price label to the total price of tickets
+   $('#total-price').text("£" + (total).toFixed(2));
+}
+
+function populateQuantityDropdown() {
+   var select = '';
+   for (i=0;i<=20;i++){
+      //Add the 'option' value to the 'select' from 0 to 20
+      select += '<option value=' + i + '>' + i + '</option>';
+   }
+   //Populate each of the quantity drop downs with the select from 0 to 20
+   $('#adult-quantity').html(select);
+   $('#student-quantity').html(select);
+   $('#teen-quantity').html(select);
+   $('#child-quantity').html(select);
 }
