@@ -1,5 +1,5 @@
 .parallax {
-    height: 75%; 
+    height: 75%;
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -11,9 +11,15 @@
   background-image: url("../Media/Prices Header.jpg");
 }
 
+#parallax-movies {
+  background-image: url("../Media/Movies Header.jpg");
+  height: 100%;
+}
+
 #parallax-contact-us {
   background-image: url("../Media/Contact Us Header.jpg");
 }
+
 .heading {
 	font-size: 12vw;
 	color: white;
@@ -21,7 +27,7 @@
   font-family: 'Lato', sans-serif;
   margin: 0;
   position: absolute;
-  top: 50%;
+  top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
@@ -29,7 +35,7 @@
 }
 
 body {
-	height: 75%;
+	height: 100%;
 	font-family: 'Lato', sans-serif;
 }
 
