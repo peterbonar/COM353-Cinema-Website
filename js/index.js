@@ -7,11 +7,11 @@ var isChrome = navigator.userAgent.toLowerCase().indexOf('chrome') > -1;
 */
 window.onload = function() {
     checkLocationCookie();
-    populateHTMLMovieData();
+    populateHTMLdata();
     //Update the location cookie and movie list each time the #locations select value changes.
     $('#locations').on('change', function() {
         setLocationCookie();
-        populateHTMLMovieData();
+        populateHTMLdata();
     });
 
     $("#currently-showing").click(function() {
@@ -20,15 +20,15 @@ window.onload = function() {
     });
 }
 
-function populateHTMLMovieData() {
+function populateHTMLdata() {
     $('#currently-showing-header').replaceWith('<div class="row" id="currently-showing-header"><div class="col-sm-12"><h2>Currently Showing at ' + getCookie('location') + ':</h2></div></div>');
     console.log(getCookie('location'));
 
-    var movieData = [];
+    var data = [];
     //Clear the div before updating movies so the movie list is replaced with new movies rather than continually added to
-    movieData.push('<div id="movie-list"></div>');
-    $('#movie-list').replaceWith(movieData);
-    movieData = [];
+    data.push('<div id="movie-list"></div>');
+    $('#movie-list').replaceWith(data);
+    data = [];
     $(jsonData).map(function(i, movies) {
         //Map each json movie into an individual object
         jQuery.each(jsonData.movies, function(index, movie) {
@@ -47,7 +47,7 @@ function populateHTMLMovieData() {
                     //Only format and display the content below if the movie isn't already displayed on the page
                     if (!movieDisplayed) {
                         //Format each movie object to HTML
-                        movieData.push('<div class="col-md-4 mb-3 float-left">' +
+                        data.push('<div class="col-md-4 mb-3 float-left">' +
                           '<img class="img-fluid rounded mb-3 movie-poster" src="' + movie.poster + '" alt="' + movie.title + ' movie poster"></img>' +
                           '</div>' +
                           '<div class="col-md-8 mb-3 inline-block">' +
@@ -79,20 +79,20 @@ function populateHTMLMovieData() {
             });
             //Only output the information for a film's available locations, dates and times if it is showing at a location selected by the user
             if (locations.indexOf(getCookie('location')) > -1) {
-                movieData.push('<p>Location: ' + locations + '</p>');
+                data.push('<p>Location: ' + locations + '</p>');
                 //Output screening dates to the user
-                movieData.push('<ul class="' + movie.title + '-screening-dates">' + getDatesForFilmAsString(movie, dates) + '</ul>');
+                data.push('<ul class="' + movie.title + '-screening-dates">' + getDatesForFilmAsString(movie, dates) + '</ul>');
                 //Output screening times to the user
-                movieData.push(getTimesForDateAsString(movie, dates, times));
+                data.push(getTimesForDateAsString(movie, dates, times));
                 //Output available screening locations to the user
-                movieData.push(
+                data.push(
                     '</th>' +
                     '</tr>');
             }
         });
     });
     //Push the array of HTML formatted movies to the 'movieList' Div in index.html
-    $('#movie-list').append(movieData);
+    $('#movie-list').append(data);
 }
 
 function getDatesForFilmAsString(movie, dates) {

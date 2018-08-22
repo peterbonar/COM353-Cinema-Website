@@ -66,15 +66,3 @@ body {
 .show-times {
   display: none;
 }
-
-.location-overlay {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width:80%;
-    transform: translate(-50%, -50%);
-    color: white;
-    font-size: 2vw;
-    background-color: grey;
-    box-sizing: border-box;
-}
