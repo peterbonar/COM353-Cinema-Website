@@ -17,7 +17,7 @@ window.onload = function() {
    if (getTimeCookie() != ''){
      setTimeBasedOnCookie();
    }
-   if ( getDateCookie() != ''){
+   if (getDateCookie() != ''){
      setDateBasedOnCookie();
    }
    $('#locations').on('change', function() {
@@ -89,8 +89,12 @@ function updateBookingFields() {
    $(jsonData).map(function(i, movies) {
       //Map each json movie into an individual object
       jQuery.each(jsonData.movies, function(index, movie) {
+        var locations = [];
+        for (i = 0; i < movie.locationShowTimes.length; i++) {
+            locations.push(movie.locationShowTimes[i].location);
+        }
          //Only display the film-name if it plays at the location selected by the user
-         if (jQuery.inArray(getCookie('location'), movie.locations)) {
+         if (jQuery.inArray(getCookie('location'), locations) !== -1 || isChrome) {
             //Format each movie object to HTML and append to the film-name select as an option
             data.push('<option value="' + movie.title + '"> ' + movie.title + '</option>');
          }
@@ -166,7 +170,7 @@ function calculateTotal(){
 
 function populateQuantityDropdown() {
    var select = '';
-   for (i=0;i<=20;i++){
+   for (i = 0; i <= 20; i++) {
       //Add the 'option' value to the 'select' from 0 to 20
       select += '<option value=' + i + '>' + i + '</option>';
    }
@@ -184,7 +188,6 @@ function getMovieCookie(){
 function setMovieBasedOnCookie(){
   var movie = getCookie('movie');
   $('#movie-title').val(movie).change();
-  $('#movie-title').attr("disabled", true);
 }
 
 function getLocationCookie(){
@@ -194,7 +197,6 @@ function getLocationCookie(){
 function setLocationBasedOnCookie(){
   var location = getCookie('location');
   $('#locations select').val(location);
-  $('#locations').attr("disabled", true);
 }
 
 function getDateCookie(){
