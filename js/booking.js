@@ -206,7 +206,6 @@ function getDateCookie(){
 function setDateBasedOnCookie(){
   var date = getCookie('date');
   $('#date').val(date).change();
-  $('#date').attr("disabled", true);
 }
 
 function getTimeCookie(){
@@ -216,5 +215,4 @@ function getTimeCookie(){
 function setTimeBasedOnCookie(){
   var time = getCookie('time');
   $('#time').val(time).change();
-  $('#time').attr("disabled", true);
 }
