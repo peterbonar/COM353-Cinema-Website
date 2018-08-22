@@ -174,7 +174,7 @@ function updateBookingFields() {
          displayDiscountPriceOnPage(discountPercent);
          discountApplied = true;
       } else {
-         alert('Error: Incorrect Discount Code');
+         alert('Invalid Discount Code Entered. Please Enter a Valid Discount Code.');
          hideDiscountDetails();
          $('#discount-code').val('');
       }
