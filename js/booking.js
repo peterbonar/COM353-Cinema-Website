@@ -30,48 +30,21 @@ window.onload = function() {
    populateQuantityDropdown();
    //Calculate the subtotal of tickets when the relevant quantity dropdown is changed
    $('#adult-quantity').on('change', function() {
-      if (discountApplied) {
-         var reapplyDiscount = confirm('Do you want to reapply discount?');
-         if (reapplyDiscount) {
-            discountCheck();
-         } else {
-            displayTotalPrice();
-            hideDiscountDetails();
-            discountApplied = false;
-         }
-      }
+      checkForDiscountApplied();
       adultSubTotal = calculatePrice('adult-quantity', 5);
       $('#adult-subtotal').text("£" + (adultSubTotal).toFixed(2));
       displayTotalPrice();
       checkDiscountCodeField();
    });
    $('#student-quantity').on('change', function() {
-      if (discountApplied) {
-         var reapplyDiscount = confirm('Do you want to reapply discount?');
-         if (reapplyDiscount) {
-            discountCheck();
-         } else {
-            displayTotalPrice();
-            hideDiscountDetails();
-            discountApplied = false;
-         }
-      }
+      checkForDiscountApplied();
       studentSubTotal = calculatePrice('student-quantity', 4);
       $('#student-subtotal').text("£" + (studentSubTotal).toFixed(2));
       displayTotalPrice();
       checkDiscountCodeField();
    });
    $('#teen-quantity').on('change', function() {
-     if (discountApplied) {
-        var reapplyDiscount = confirm('Do you want to reapply discount?');
-        if (reapplyDiscount) {
-           discountCheck();
-        } else {
-           displayTotalPrice();
-           hideDiscountDetails();
-           discountApplied = false;
-        }
-     }
+     checkForDiscountApplied();
      teenSubTotal = calculatePrice('teen-quantity', 3.5);
      $('#teen-subtotal').text("£" + (teenSubTotal).toFixed(2));
      displayTotalPrice();
@@ -349,4 +322,17 @@ function updateBookingFields() {
   function setTimeBasedOnCookie(){
     var time = getCookie('time');
     $('#time').val(time).change();
+  }
+
+  function checkForDiscountApplied(){
+    if (discountApplied) {
+       var reapplyDiscount = confirm('Do you want to reapply discount?');
+       if (reapplyDiscount) {
+          discountCheck();
+       } else {
+          displayTotalPrice();
+          hideDiscountDetails();
+          discountApplied = false;
+       }
+    }
   }
