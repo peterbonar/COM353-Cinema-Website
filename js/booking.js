@@ -8,6 +8,18 @@ var adultSubTotal = 0, studentSubTotal = 0, teenSubTotal = 0, childSubTotal = 0;
 window.onload = function() {
    checkLocationCookie();
    updateBookingFields();
+   if (getMovieCookie() != ''){
+     setMovieBasedOnCookie();
+   }
+   if (getLocationCookie() != ''){
+     setLocationBasedOnCookie();
+   }
+   if (getTimeCookie() != ''){
+     setTimeBasedOnCookie();
+   }
+   if (getDateCookie() != ''){
+     setDateBasedOnCookie();
+   }
    $('#locations').on('change', function() {
       setLocationCookie();
       updateBookingFields();
@@ -65,22 +77,26 @@ window.onload = function() {
       } else {
          $(':input[type="submit"]').prop('disabled', false);
       }
-   })
+   });
 }
 
 function updateBookingFields() {
    var data = [];
-   //Clear the select before updating the film names so the that the select is replaced with new film names rather than continually added to
+   //Clear the select before updating the film names so the that the select is replaced with new film names rather than continually added to.
    data.push('<select id="movie-title" name="movie-title"></select>');
    $('#movie-title').replaceWith(data);
    data = [];
    $(jsonData).map(function(i, movies) {
       //Map each json movie into an individual object
       jQuery.each(jsonData.movies, function(index, movie) {
+        var locations = [];
+        for (i = 0; i < movie.locationShowTimes.length; i++) {
+            locations.push(movie.locationShowTimes[i].location);
+        }
          //Only display the film-name if it plays at the location selected by the user
-         if (jQuery.inArray(getCookie('location'), movie.locations) !== -1 || isChrome) {
+         if (jQuery.inArray(getCookie('location'), locations) !== -1 || isChrome) {
             //Format each movie object to HTML and append to the film-name select as an option
-            data.push('<option value="' + movie.title.toLowerCase + '"> ' + movie.title + '</option>');
+            data.push('<option value="' + movie.title + '"> ' + movie.title + '</option>');
          }
       });
    });
@@ -154,7 +170,7 @@ function calculateTotal(){
 
 function populateQuantityDropdown() {
    var select = '';
-   for (i=0;i<=20;i++){
+   for (i = 0; i <= 20; i++) {
       //Add the 'option' value to the 'select' from 0 to 20
       select += '<option value=' + i + '>' + i + '</option>';
    }
@@ -163,4 +179,40 @@ function populateQuantityDropdown() {
    $('#student-quantity').html(select);
    $('#teen-quantity').html(select);
    $('#child-quantity').html(select);
+}
+
+function getMovieCookie(){
+  return getCookie('movie');
+}
+
+function setMovieBasedOnCookie(){
+  var movie = getCookie('movie');
+  $('#movie-title').val(movie).change();
+}
+
+function getLocationCookie(){
+  return getCookie('location');
+}
+
+function setLocationBasedOnCookie(){
+  var location = getCookie('location');
+  $('#locations select').val(location);
+}
+
+function getDateCookie(){
+  return getCookie('date');
+}
+
+function setDateBasedOnCookie(){
+  var date = getCookie('date');
+  $('#date').val(date).change();
+}
+
+function getTimeCookie(){
+  return getCookie('time');
+}
+
+function setTimeBasedOnCookie(){
+  var time = getCookie('time');
+  $('#time').val(time).change();
 }
