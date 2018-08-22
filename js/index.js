@@ -22,7 +22,6 @@ window.onload = function() {
 
 function populateHTMLMovieData() {
     $('#currently-showing-header').replaceWith('<div class="row" id="currently-showing-header"><div class="col-sm-12"><h2>Currently Showing at ' + getCookie('location') + ':</h2></div></div>');
-    console.log(getCookie('location'));
 
     var data = [];
     //Clear the div before updating movies so the movie list is replaced with new movies rather than continually added to
