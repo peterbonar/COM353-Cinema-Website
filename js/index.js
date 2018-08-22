@@ -7,11 +7,11 @@ var isChrome = navigator.userAgent.toLowerCase().indexOf('chrome') > -1;
 */
 window.onload = function() {
     checkLocationCookie();
-    populateHTMLdata();
+    populateHTMLMovieData();
     //Update the location cookie and movie list each time the #locations select value changes.
     $('#locations').on('change', function() {
         setLocationCookie();
-        populateHTMLdata();
+        populateHTMLMovieData();
     });
 
     $("#currently-showing").click(function() {
@@ -20,7 +20,7 @@ window.onload = function() {
     });
 }
 
-function populateHTMLdata() {
+function populateHTMLMovieData() {
     $('#currently-showing-header').replaceWith('<div class="row" id="currently-showing-header"><div class="col-sm-12"><h2>Currently Showing at ' + getCookie('location') + ':</h2></div></div>');
     console.log(getCookie('location'));
 
