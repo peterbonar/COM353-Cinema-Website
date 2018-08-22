@@ -71,7 +71,7 @@ window.onload = function() {
 function updateBookingFields() {
    var data = [];
    //Clear the select before updating the film names so the that the select is replaced with new film names rather than continually added to
-   data.push('<select id="movie-title" name="movie-title"></select>');
+   data.push('<select id="movie-title" name="movie-title" class="form-field"></select>');
    $('#movie-title').replaceWith(data);
    data = [];
    $(jsonData).map(function(i, movies) {

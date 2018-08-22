@@ -73,8 +73,32 @@
             </div>
             <div class="row">
                <div class="col-sm-12">
+                  <label for="locations">Location: </label>
+                  <select id="locations" name="locations" class="form-field">
+                     <option value="belfast">Belfast</option>
+                     <option value="antrim">Antrim</option>
+                     <option value="lisburn">Lisburn</option>
+                  </select>
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-sm-6">
+                  <label for="date">Date: </label>
+                  <select id="date" name="date" class="form-field">
+                  </select>
+               </div>
+               <div class="col-sm-6">
+                  <label for="time">Time: </label>
+                  <select id="time" name="time" class="form-field">
+                  </select>
+               </div>
+            </div>
+            <br>
+            <div class="row">
+               <div class="col-sm-12">
+                  <label for="ticket-table">Please choose your ticket(s) below: </label>
                   <div class="table-responsive">
-                     <table class="table table-hover">
+                     <table class="table table-hover" id="ticket-table">
                         <tr>
                            <th>
                               <label for="ticket-type">Ticket Type: </label>
@@ -161,28 +185,6 @@
                         </tr>
                      </table>
                   </div>
-               </div>
-            </div>
-            <div class="row">
-               <div class="col-sm-12">
-                  <label for="locations">Location: </label>
-                  <select id="locations" name="locations" class="form-field">
-                     <option value="belfast">Belfast</option>
-                     <option value="antrim">Antrim</option>
-                     <option value="lisburn">Lisburn</option>
-                  </select>
-               </div>
-            </div>
-            <div class="row">
-               <div class="col-sm-6">
-                  <label for="date">Date: </label>
-                  <select id="date" name="date" class="form-field">
-                  </select>
-               </div>
-               <div class="col-sm-6">
-                  <label for="time">Time: </label>
-                  <select id="time" name="time" class="form-field">
-                  </select>
                </div>
             </div>
             <div class="row">
