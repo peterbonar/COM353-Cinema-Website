@@ -46,13 +46,7 @@ function getCookie(cookieKey) {
                 //It determines the value to be returned by removing the identifier e.g. 'location=' from the key and value
                 return cookieValue.substring(cookieIdentifier.length, cookieValue.location);
             }
-            if (cookieValue.indexOf(cookieIdentifier) == 1) {
-              return cookieValue.substring(cookieIdentifier.length + 1, cookieValue.location);
-            }
-            if (cookieValue.indexOf(cookieIdentifier) == 2) {
-              return cookieValue.substring(cookieIdentifier.length + 1, cookieValue.location);
-            }
-            if (cookieValue.indexOf(cookieIdentifier) == 3) {
+            if (cookieValue.indexOf(cookieIdentifier) > 0) {
               return cookieValue.substring(cookieIdentifier.length + 1, cookieValue.location);
             }
         }
