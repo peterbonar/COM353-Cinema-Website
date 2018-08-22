@@ -21,6 +21,8 @@ window.onload = function() {
 }
 
 function populateHTMLMovieData() {
+    $('#currently-showing-header').replaceWith('<div class="row" id="currently-showing-header"><div class="col-sm-12"><h2>Currently Showing at ' + getCookie('location') + ':</h2></div></div>');
+
     var data = [];
     //Clear the div before updating movies so the movie list is replaced with new movies rather than continually added to
     data.push('<div id="movie-list"></div>');
@@ -75,7 +77,7 @@ function populateHTMLMovieData() {
                 }
             });
             //Only output the information for a film's available locations, dates and times if it is showing at a location selected by the user
-            if (locations.includes(getCookie('location'))) {
+            if (locations.indexOf(getCookie('location')) > -1) {
                 data.push('<p>Location: ' + locations + '</p>');
                 //Output screening dates to the user
                 data.push('<ul class="' + movie.title + '-screening-dates">' + getDatesForFilmAsString(movie, dates) + '</ul>');
@@ -116,10 +118,10 @@ function getTimesForDateAsString(movie, dates, times) {
         for (var j = 0; j < timesForDate.length; j++) {
             //If the time corresponds to the earliest date on which the film is shown then ensure it is displayed upon page load
             if (i == 0) {
-                timesToDisplay += ('<input type="button" style="display: inline" class="show-times" value="' + timesForDate[j] + '"></input>');
-                //Otherwise hide the times from the user initially. (These times will be displayed if the user selects their corresponding date on the page).    
+                timesToDisplay += ('<a href="./booking.html"><input type="button" href="./booking.html" style="display: inline" onclick="setDateCookie(\'' + dates[i] + '\'); setTimeCookie(\'' + timesForDate[j] + '\'); setMovieCookie(\'' + movie.title + '\')" class="show-times" value="' + timesForDate[j] + '"></input></a>');
+                //Otherwise hide the times from the user initially. (These times will be displayed if the user selects their corresponding date on the page).
             } else {
-                timesToDisplay += ('<input type="button" class="show-times" value="' + timesForDate[j] + '"></input>');
+                timesToDisplay += ('<a href="./booking.html"><input type="button" onclick="setDateCookie(\'' + dates[i] + '\'); setTimeCookie(\'' + timesForDate[j] + '\'); setMovieCookie(\'' + movie.title + '\')" class="show-times" value="' + timesForDate[j] + '"></input></a>');
             }
         }
         timesToDisplay += ('</div>');
