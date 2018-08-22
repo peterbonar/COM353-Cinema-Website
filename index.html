@@ -40,18 +40,16 @@
 			<h1 class="heading">All-Star Cinemas</h1>
 			<input class="btn btn-primary" type="button" id="currently-showing" name="currently showing" value="Currently Showing"></input>
 		</div>
-		<div id="location-selector">
-			<h3>Select location:</h3>
-	    <select name="locations" id="locations" class="btn dropdown-toggle">
+    <div class="container">
+      <div id="location-selector">
+      <h2>Select location:</h2>
+      <select name="locations" id="locations" class="btn dropdown-toggle">
         <option selected value="belfast" name="locations">Belfast</option>
         <option value="antrim" name="locations">Antrim</option>
         <option value="lisburn" name="locations">Lisburn</option>
-	    </select>
-		</div>
-    <div class="container">
-			<span>
-				<h2 class="movie-heading">Currently showing:</h2>
-			</span>
+      </select>
+    </div>
+			<div class="row" id="currently-showing-header"></div>
     	<div class="row" id="movie-list"></div>
 		</div>
 	</body>

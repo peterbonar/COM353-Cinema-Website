@@ -10,10 +10,6 @@
   display: inline-block;
 }
 
-.movies-heading {
-  padding: 10px;
-}
-
 .rating {
   min-width: 30px;
   width: 3.5vw;
@@ -23,7 +19,14 @@
 }
 
 #location-selector {
-  padding: 5px 5px 5px 20px;
+  padding-top: 20px;
+  padding-bottom: 40px;
+}
+
+#locations {
+  width: 100%;
+  height: 3vw;
+  font-size: 1.5vw;
 }
 
 .cast-padding {
@@ -62,4 +65,16 @@ body {
 
 .show-times {
   display: none;
+}
+
+.location-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width:80%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 2vw;
+    background-color: grey;
+    box-sizing: border-box;
 }
