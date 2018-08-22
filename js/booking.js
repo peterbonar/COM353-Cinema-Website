@@ -78,6 +78,10 @@ window.onload = function() {
          $(':input[type="submit"]').prop('disabled', false);
       }
    });
+
+   $('#phone').blur(function(){
+     
+   })
 }
 
 function updateBookingFields() {
