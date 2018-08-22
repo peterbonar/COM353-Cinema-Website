@@ -20,6 +20,10 @@
   background-image: url("../Media/Contact Us Header.jpg");
 }
 
+#parallax-booking {
+  background-image: url("../Media/Booking Header.jpg");
+}
+
 .heading {
 	font-size: 12vw;
 	color: white;
