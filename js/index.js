@@ -68,7 +68,7 @@ function populateHTMLMovieData() {
                 }
             });
             //Only output the information for a film's available locations, dates and times if it is showing at a location selected by the user
-            if (locations.includes(getCookie('location'))) {
+            if (locations.indexOf(getCookie('location')) > -1) {
                 data.push('<p>Location: ' + locations + '</p>');
                 //Output screening dates to the user
                 data.push('<ul class="' + movie.title + '-screening-dates">' + getDatesForFilmAsString(movie, dates) + '</ul>');
