@@ -9,6 +9,27 @@ function setLocationCookie() {
     document.cookie = location + expires;
 };
 
+function setMovieCookie(movie){
+  var movie = 'movie=' + movie + ';', d = new Date();
+  d.setTime(d.getTime() + (24 * 60 * 60 * 1000));
+  var expires = "expires=" + d.toUTCString() + ';';
+  document.cookie = movie + expires;
+}
+
+function setDateCookie(date){
+  var date = 'date=' + date + ';', d = new Date();
+  d.setTime(d.getTime() + (24 * 60 * 60 * 1000));
+  var expires = "expires=" + d.toUTCString() + ';';
+  document.cookie = date + expires;
+}
+
+function setTimeCookie(time){
+  var time = 'time=' + time + ';', d = new Date();
+  d.setTime(d.getTime() + (24 * 60 * 60 * 1000));
+  var expires = "expires=" + d.toUTCString() + ';';
+  document.cookie = time + expires;
+}
+
 function getCookie(cookieKey) {
     //The key of the cookie value we wish to find is passed in e.g. 'location'.
     var cookieIdentifier = cookieKey + "=";
@@ -22,8 +43,11 @@ function getCookie(cookieKey) {
             var cookieValue = cookieArray[i];
             //If the requested cookieKey is found then return the value associated with the key.
             if (cookieValue.indexOf(cookieIdentifier) == 0) {
-                //It determines the value to be return by removing the identifier e.g. 'location=' from the key and value
+                //It determines the value to be returned by removing the identifier e.g. 'location=' from the key and value
                 return cookieValue.substring(cookieIdentifier.length, cookieValue.location);
+            }
+            else if (cookieValue.indexOf(cookieIdentifier) > 0) {
+              return cookieValue.substring(cookieIdentifier.length + 1, cookieValue.location);
             }
         }
     }

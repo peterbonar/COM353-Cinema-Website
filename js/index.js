@@ -118,10 +118,10 @@ function getTimesForDateAsString(movie, dates, times) {
         for (var j = 0; j < timesForDate.length; j++) {
             //If the time corresponds to the earliest date on which the film is shown then ensure it is displayed upon page load
             if (i == 0) {
-                timesToDisplay += ('<input type="button" style="display: inline" class="show-times" value="' + timesForDate[j] + '"></input>');
-                //Otherwise hide the times from the user initially. (These times will be displayed if the user selects their corresponding date on the page).    
+                timesToDisplay += ('<a href="./booking.html"><input type="button" href="./booking.html" style="display: inline" onclick="setDateCookie(\'' + dates[i] + '\'); setTimeCookie(\'' + timesForDate[j] + '\'); setMovieCookie(\'' + movie.title + '\')" class="show-times" value="' + timesForDate[j] + '"></input></a>');
+                //Otherwise hide the times from the user initially. (These times will be displayed if the user selects their corresponding date on the page).
             } else {
-                timesToDisplay += ('<input type="button" class="show-times" value="' + timesForDate[j] + '"></input>');
+                timesToDisplay += ('<a href="./booking.html"><input type="button" onclick="setDateCookie(\'' + dates[i] + '\'); setTimeCookie(\'' + timesForDate[j] + '\'); setMovieCookie(\'' + movie.title + '\')" class="show-times" value="' + timesForDate[j] + '"></input></a>');
             }
         }
         timesToDisplay += ('</div>');
