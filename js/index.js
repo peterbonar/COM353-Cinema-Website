@@ -21,6 +21,8 @@ window.onload = function() {
 }
 
 function populateHTMLMovieData() {
+    $('#currently-showing-header').replaceWith('<div class="row" id="currently-showing-header"><div class="col-sm-12"><h2>Currently Showing at ' + getCookie('location') + ':</h2></div></div>');
+
     var data = [];
     //Clear the div before updating movies so the movie list is replaced with new movies rather than continually added to
     data.push('<div id="movie-list"></div>');
@@ -75,7 +77,7 @@ function populateHTMLMovieData() {
                 }
             });
             //Only output the information for a film's available locations, dates and times if it is showing at a location selected by the user
-            if (locations.includes(getCookie('location'))) {
+            if (locations.indexOf(getCookie('location')) > -1) {
                 data.push('<p>Location: ' + locations + '</p>');
                 //Output screening dates to the user
                 data.push('<ul class="' + movie.title + '-screening-dates">' + getDatesForFilmAsString(movie, dates) + '</ul>');
