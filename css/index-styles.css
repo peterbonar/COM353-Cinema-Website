@@ -66,3 +66,11 @@ body {
 .show-times {
   display: none;
 }
+
+.date-time-header {
+  padding-top: 1.5vw;
+  font-weight: bold;
+}
+.date-time-instructions {
+  color: #505050;
+}

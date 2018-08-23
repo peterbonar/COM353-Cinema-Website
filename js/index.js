@@ -81,7 +81,7 @@ function populateHTMLMovieData() {
                 //Output available screening locations to the user
                 data+='<div class="col-md-4"></div><div class="col-md-8 float-right"><p><b>Currently showing at:</b> ' + locations.join(", ") + '</p></div>';
                 //Output screening dates to the user
-                data+='<div class="col-md-4"></div><div class="col-md-8 float-right"><h5>Select a date and time below to book your screening:</h5><div class="' + movie.title + '-screening-dates">' + getDatesForFilmAsString(movie, dates) + '</div></div>';
+                data+='<div class="col-md-4"></div><div class="col-md-8 float-right"><h5 class="date-time-header">Select a date and time below to book your screening:</h5><p class="date-time-instructions">Click a date below to see show times on that date</p><div class="' + movie.title + '-screening-dates">' + getDatesForFilmAsString(movie, dates) + '</div></div>';
                 //Output screening times to the user
                 data+=getTimesForDateAsString(movie, dates, times);
             }
