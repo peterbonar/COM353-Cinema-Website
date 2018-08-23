@@ -1,9 +1,9 @@
 .movie-poster {
   padding-top: 12px;
-  width: 15vw;
+  width: 18vw;
   height: auto;
   max-width: 500px;
-  max-height: 380px;
+  max-height: 500px;
 }
 
 .inline-block{

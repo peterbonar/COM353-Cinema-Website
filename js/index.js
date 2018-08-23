@@ -23,11 +23,11 @@ window.onload = function() {
 function populateHTMLMovieData() {
     $('#currently-showing-header').replaceWith('<div class="row" id="currently-showing-header"><div class="col-sm-12"><h2>Currently Showing at ' + getCookie('location') + ':</h2></div></div>');
 
-    var data = [];
+    var data = "";
     //Clear the div before updating movies so the movie list is replaced with new movies rather than continually added to
-    data.push('<div id="movie-list"></div>');
+    data+='<div id="movie-list"></div>';
     $('#movie-list').replaceWith(data);
-    data = [];
+    data = "";
     $(jsonData).map(function(i, movies) {
         //Map each json movie into an individual object
         jQuery.each(jsonData.movies, function(index, movie) {
@@ -45,9 +45,10 @@ function populateHTMLMovieData() {
                 if (((getCookie('location') == locationShowTime.location) || isChrome)) {
                     //Only format and display the content below if the movie isn't already displayed on the page
                     if (!movieDisplayed) {
+                        data+='<div class="row">';
                         //Format each movie object to HTML
-                        data.push('<div class="col-md-4 mb-3 float-left">' +
-                          '<img class="img-fluid rounded mb-3 movie-poster" src="' + movie.poster + '" alt="' + movie.title + ' movie poster"></img>' +
+                        data+='<div class="col-md-4 mb-9 float-left">' +
+                          '<img class="img-fluid rounded mb-9 movie-poster" src="' + movie.poster + '" alt="' + movie.title + ' movie poster"></img>' +
                           '</div>' +
                           '<div class="col-md-8 mb-3 inline-block">' +
                           '<h2>' + movie.title +
@@ -59,8 +60,7 @@ function populateHTMLMovieData() {
                           '<div><i class="float-left fas fa-bars fa-padding"></i><p class="inline-block"> ' + movie.genre + '</p></div>' +
                           '<div><i class="float-left fab fa-youtube youtube-padding"></i><p><a href="' + movie.trailer + '" target="_blank">Trailer</a></p></div>' +
                           '<div><i class="float-left fas fa-globe-americas fa-padding"></i><p class="inline-block"> ' + locations + '</p></div>' +
-                          '</div>' +
-                          '<hr>');
+                          '</div>';
                         //Set this flag to true to ensure that no movie details are duplicated
                         movieDisplayed = true;
                     }
@@ -78,15 +78,12 @@ function populateHTMLMovieData() {
             });
             //Only output the information for a film's available locations, dates and times if it is showing at a location selected by the user
             if (locations.indexOf(getCookie('location')) > -1) {
-                data.push('<p>Location: ' + locations + '</p>');
-                //Output screening dates to the user
-                data.push('<ul class="' + movie.title + '-screening-dates">' + getDatesForFilmAsString(movie, dates) + '</ul>');
-                //Output screening times to the user
-                data.push(getTimesForDateAsString(movie, dates, times));
                 //Output available screening locations to the user
-                data.push(
-                    '</th>' +
-                    '</tr>');
+                data+='<div class="col-md-4"></div><div class="col-md-8 float-right"><p><b>Currently showing at:</b> ' + locations.join(", ") + '</p></div>';
+                //Output screening dates to the user
+                data+='<div class="col-md-4"></div><div class="col-md-8 float-right"><h5>Select a date and time below to book your screening:</h5><div class="' + movie.title + '-screening-dates">' + getDatesForFilmAsString(movie, dates) + '</div></div>';
+                //Output screening times to the user
+                data+=getTimesForDateAsString(movie, dates, times);
             }
         });
     });
@@ -101,14 +98,14 @@ function getDatesForFilmAsString(movie, dates) {
     //For each date on which the film is shown add a list and anchor tag to the screen. The id for the anchor tag is comprised of the movie name and the date on which it is shown, thus making it unique.
     //When the anchor tag (shown as a date to the user) is clicked it will call the displayTimesForDate() function
     for (var i = 0; i < dates.length; i++) {
-        datesToDisplay += '<li><a class="date-selector" href="javascript:;" id="' + movie.title + '-' + dates[i] + '" onclick="displayTimesForDate(\'' + movie.title + '\', \'' + dates[i] + '\')">' + dates[i] + '</a></li>';
+        datesToDisplay += '<p><a class="date-selector" href="javascript:;" id="' + movie.title + '-' + dates[i] + '" onclick="displayTimesForDate(\'' + movie.title + '\', \'' + dates[i] + '\')">' + dates[i] + '</a></p>';
     }
     return datesToDisplay;
 }
 
 function getTimesForDateAsString(movie, dates, times) {
     //Initialise variable to be returned by adding initial div with id containing movie name
-    var timesToDisplay = '<div id="' + movie.title + '-screening-times">';
+    var timesToDisplay = '<div class="col-md-4"></div><div id="' + movie.title + '-screening-times" class="col-md-8 float-right">';
     //"times" is an array holding arrays, therefore we loop through each entry and extract these nested arrays into a variable "timesForDate"
     for (var i = 0; i < times.length; i++) {
         var timesForDate = times[i];
@@ -126,7 +123,7 @@ function getTimesForDateAsString(movie, dates, times) {
         }
         timesToDisplay += ('</div>');
     }
-    timesToDisplay += ('</div>');
+    timesToDisplay += ('</div><div class="col-md-12"><hr></div></div>');
     return timesToDisplay;
 }
 
