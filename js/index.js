@@ -138,7 +138,7 @@ function displayTimesForDate(movieTitle, date) {
     //dateID is used to locate the div which contains all time-related elements for a screening of a specified movie on a particular date
     var dateId = movieTitle + '-' + date + "-Times";
     //Hide all other times for a particular movie
-    $("*[id*=\"" + screeningId + "\"]").find("*[id*=\"Times\"]").find("input").css("display", "none");
+    $("*[id=\"" + screeningId + "\"]").find("*[id*=\"Times\"]").find("input").css("display", "none");
     //Show the times for a particular movie that are linked to the date that the user has selected
     $("*[id=\"" + String(dateId) + "\"]").find("input").css("display", "block");
 }
