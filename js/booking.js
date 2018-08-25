@@ -90,8 +90,8 @@ function updateBookingFields() {
       //Map each json movie into an individual object
       jQuery.each(jsonData.movies, function(index, movie) {
         var locations = [];
-        for (i = 0; i < movie.locationShowTimes.length; i++) {
-            locations.push(movie.locationShowTimes[i].location);
+        for (i = 0; i < movie.screeningDatesAndTimesByLocation.length; i++) {
+            locations.push(movie.screeningDatesAndTimesByLocation[i].location);
         }
          //Only display the film-name if it plays at the location selected by the user
          if (jQuery.inArray(getCookie('location'), locations) !== -1 || isChrome) {

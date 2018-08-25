@@ -63,14 +63,20 @@ body {
   border-radius: 5px;
 }
 
-.show-times {
+.screening-times {
   display: none;
+  width: 100%
 }
 
 .date-time-header {
   padding-top: 1.5vw;
   font-weight: bold;
 }
+
 .date-time-instructions {
   color: #505050;
+}
+
+.date-selector {
+  width:100%;
 }
