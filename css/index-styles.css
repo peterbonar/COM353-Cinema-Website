@@ -1,9 +1,7 @@
 .movie-poster {
   padding-top: 12px;
-  width: 18vw;
+  width: 34vw;
   height: auto;
-  max-width: 500px;
-  max-height: 500px;
 }
 
 .inline-block{
@@ -79,4 +77,8 @@ body {
 
 .date-selector {
   width:100%;
+}
+
+.index-header {
+  font-weight: bold;
 }

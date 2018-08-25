@@ -22,7 +22,7 @@ window.onload = function() {
 }
 
 function populateHTMLMovieData() {
-    $('#currently-showing-header').replaceWith('<div class="row" id="currently-showing-header"><div class="col-sm-12"><h2>Currently Showing at ' + getCookie('location') + ':</h2></div></div>');
+    $('#currently-showing-header').replaceWith('<div id="currently-showing-header" class="row"><div class="col-sm-12"><h2 class="index-header">Currently Showing at ' + getCookie('location') + ':</h2><hr></div></div>');
 
     var data = "";
     //Clear the div before updating movies so the movie list is replaced with new movies rather than continually added to
@@ -74,10 +74,10 @@ function populateHTMLMovieData() {
 function getMovieDetailsAsString(movie, locations) {
     var movieDetails = '<div class="row">';
     //Format each movie object to HTML
-    movieDetails += '<div class="col-md-4 mb-9 float-left">' +
+    movieDetails += '<div class="col-md-6 mb-9 float-left">' +
         '<img class="img-fluid rounded mb-9 movie-poster" src="' + movie.poster + '" alt="' + movie.title + ' movie poster"></img>' +
         '</div>' +
-        '<div class="col-md-8 mb-3 inline-block">' +
+        '<div class="col-md-6 mb-3 inline-block">' +
         '<h2>' + movie.title +
         '<img class="rating" src="' + movie.rating + '"></img></h2>' +
         '<h5>' + movie.tagline + '</h5>' +
