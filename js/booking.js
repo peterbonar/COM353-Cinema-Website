@@ -29,18 +29,18 @@ window.onload = function() {
    populateQuantityDropdown();
    //Calculate the subtotal of tickets when the relevant quantity dropdown is changed
    $('#adult-quantity').on('change', function() {
-       calcuateSubTotalAdult();
+       calculateTicketPriceTotals();
    });
    $('#student-quantity').on('change', function() {
-       calcuateSubTotalStudent();
+       calculateTicketPriceTotals();
    });
    $('#teen-quantity').on('change', function() {
-       calcuateSubTotalTeen();
+       calculateTicketPriceTotals();
    });
    $('#child-quantity').on('change', function() {
-       calcuateSubTotalChild();
+       calculateTicketPriceTotals();
    });
-   //Provie the user with a reference number upon submitting the form.
+   //Provide the user with a reference number upon submitting the form.
    //NOTE: alert used at the minute but this will be changed to use Bootstrap features when styling
    $('#booking-form').submit(function() {
       //Email validation in case 'email' input type isn't supported in the user's browser.
@@ -108,62 +108,47 @@ function generateBookingNumber() {
    return Math.floor(Math.random() * 90000) + 10000;
 }
 
-function calcuateSubTotalAdult() {
+function calculateTicketPriceTotals() {
+   var x, y, total = 0;
    //Get the value of the adult-quantity dropdown
-   var x = $('#adult-quantity').val();
+   x = $('#adult-quantity').val();
    //Get the value of the adult-price label and remove the £ symbol
-   var y = ($('#adult-price').text()).replace('£', '');
+   y = ($('#adult-price').text()).replace('£', '');
    //Calculate the subtotal of the adult price
    adultSubTotal = x * y;
    //Set the adult-subtotal as £ plus the value of the subtotal
    $('#adult-subtotal').text("£" + (adultSubTotal).toFixed(2));
-   //Update the total price label
-   calculateTotal();
-}
 
-function calcuateSubTotalStudent() {
    //Get the value of the student-quantity dropdown
-   var x = $('#student-quantity').val();
+   x = $('#student-quantity').val();
    //Get the value of the student-price label and remove the £ symbol
-   var y = ($('#student-price').text()).replace('£', '');
+   y = ($('#student-price').text()).replace('£', '');
    //Calculate the subtotal of the student price
    studentSubTotal = x * y;
    //Set the student-subtotal as £ plus the value of the subtotal
    // $('#student-subtotal').text("£" + (studentSubTotal).toFixed(2));
    $('#student-subtotal').text("£" + (studentSubTotal).toFixed(2));
-   //Update the total price label
-   calculateTotal();
-}
 
-function calcuateSubTotalTeen() {
    //Get the value of the teen-quantity dropdown
-   var x = $('#teen-quantity').val();
+   x = $('#teen-quantity').val();
    //Get the value of the teen-price label and remove the £ symbol
-   var y = ($('#teen-price').text()).replace('£', '');
+   y = ($('#teen-price').text()).replace('£', '');
    //Calculate the subtotal of the teen price
    teenSubTotal = x * y;
    //Set the teen-subtotal as £ plus the value of the subtotal
    $('#teen-subtotal').text("£" + (teenSubTotal).toFixed(2));
-   //Update the total price label
-   calculateTotal();
-}
 
-function calcuateSubTotalChild() {
    //Get the value of the child-quantity dropdown
-   var x = $('#child-quantity').val();
+   x = $('#child-quantity').val();
    //Get the value of the child-price label and remove the £ symbol
-   var y = ($('#child-price').text()).replace('£', '');
+   y = ($('#child-price').text()).replace('£', '');
    //Calculate the subtotal of the child price
    childSubTotal = x * y;
    //Set the child-subtotal as £ plus the value of the subtotal
    $('#child-subtotal').text("£" + (childSubTotal).toFixed(2));
-   //Update the total price label
-   calculateTotal();
-}
 
-function calculateTotal(){
    //Calculate the total price of all types of tickets
-   var total = adultSubTotal + studentSubTotal + teenSubTotal + childSubTotal;
+   total = adultSubTotal + studentSubTotal + teenSubTotal + childSubTotal;
    //Set the value of the total-price label to the total price of tickets
    $('#total-price').text("£" + (total).toFixed(2));
 }
