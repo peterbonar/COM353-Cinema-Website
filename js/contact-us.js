@@ -1,5 +1,5 @@
-window.onload = function() {
-   $('#contact-form').submit(function() {
+window.onload = function () {
+   $('#contact-form').submit(function () {
       var contactMethodSelected = $('#preferred-contact-method-checkboxes :checkbox:checked').length;
 
       //If no checkbox has been checked then alert the user and prevent form submission. This will ensure at least one checkbox is checked.
@@ -18,7 +18,8 @@ window.onload = function() {
       //Ensure that there are also at least 2 characters following the '.'
       if ((atLoc > 0) && (dotLoc > 0) && (emailValue.length > dotLoc + 2)) {
          return true;
-      } else {
+      }
+      else {
          //NOTE: Using alert at the minute, this will be replaced with something like Bootstrap pop-over.
          alert('Please enter your e-mail address in a valid format');
          return false;
@@ -31,12 +32,13 @@ window.onload = function() {
    $('#characters-remaining').hide().val(charactersLeft + htmlString).css("color", "green");
    $(':input[type="submit"]').prop('disabled', true);
 
-   $('#enquiry').keyup(function() {
+   $('#enquiry').keyup(function () {
       var charactersLeft = fieldLimit - $('#enquiry').val().length;
       $('#characters-remaining').val(charactersLeft + htmlString);
       if ($('#enquiry').val().length == 0) {
          $('#characters-remaining').hide();
-      } else {
+      }
+      else {
          $('#characters-remaining').show();
       }
       if ($('#enquiry').val().length >= fieldLimit * 0.9) {
@@ -44,12 +46,13 @@ window.onload = function() {
          if ($('#enquiry').val().length >= fieldLimit * 0.95) {
             $('#characters-remaining').css("color", "red");
          }
-      } else {
+      }
+      else {
          $('#characters-remaining').css("color", "green");
       }
    })
 
-   $('#contact-form *').keyup(function() {
+   $('#contact-form *').keyup(function () {
       var allInputs = $('#contact-form *');
       var counterForEmptyFields = 0;
       for (var i = 0; i < allInputs.length; i++) {
@@ -61,7 +64,8 @@ window.onload = function() {
       }
       if (counterForEmptyFields > 0) {
          $(':input[type="submit"]').prop('disabled', true);
-      } else {
+      }
+      else {
          $(':input[type="submit"]').prop('disabled', false);
       }
    })

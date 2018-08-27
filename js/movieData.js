@@ -1,6 +1,6 @@
 var jsonData = {
-  movies: [
-    {
+   movies: [
+   {
       title: "Adrift",
       tagline: "'Based on the incredible true story'",
       description: "Based on the true story of survival, a young couple's chance encounter leads them first to love, and then on the adventure of a lifetime as they face one of the most catastrophic hurricanes in recorded history.",
@@ -12,50 +12,47 @@ var jsonData = {
       trailer: "https://www.youtube.com/watch?v=HdMP4sWc71M",
       locationShowTimes: [
       {
-        location: "Belfast",
-        showing: [
-          {
+         location: "Belfast",
+         showing: [
+         {
             date: "01/08/2018",
             time: ["14:30", "16:00", "19:30", "20:00"]
-          },
-          {
+         },
+         {
             date: "02/08/2018",
             time: ["14:30", "16:00", "19:30", "20:00"]
-          },
-          {
+         },
+         {
             date: "03/08/2018",
             time: ["14:30", "16:00", "19:30", "20:00"]
-          },
-          {
+         },
+         {
             date: "04/08/2018",
             time: ["19:30", "20:00"]
-          }
-        ]
+         }]
       },
       {
-        location: "Antrim",
-        showing: [
-          {
+         location: "Antrim",
+         showing: [
+         {
             date: "01/08/2018",
             time: ["11:00", "13:00", "14:30", "16:00", "19:30", "20:00"]
-          },
-          {
+         },
+         {
             date: "02/08/2018",
             time: ["16:00", "19:30", "20:00"]
-          },
-          {
+         },
+         {
             date: "03/08/2018",
             time: ["16:00", "19:30", "20:00"]
-          },
-          {
+         },
+         {
             date: "04/08/2018",
             time: ["19:30", "20:00"]
-          },
-        ]
-      }
-      ] 
-    },
-    {
+         }, ]
+      }]
+   },
+   {
       title: "Deadpool 2",
       tagline: "'Prepare for the second coming.'",
       description: "After surviving a near fatal bovine attack, a disfigured cafeteria chef (Wade Wilson) struggles to fulfill his dream of becoming Mayberry's hottest bartender while also learning to cope with his lost sense of taste. Searching to regain his spice for life, as well as a flux capacitor, Wade must battle ninjas, the yakuza, and a pack of sexually aggressive canines, as he journeys around the world to discover the importance of family, friendship, and flavor - finding a new taste for adventure and earning the coveted coffee mug title of World's Best Lover.",
@@ -67,63 +64,59 @@ var jsonData = {
       trailer: "https://www.youtube.com/watch?v=20bpjtCbCz0",
       locationShowTimes: [
       {
-        location: "Belfast",
-        showing: [
-          {
+         location: "Belfast",
+         showing: [
+         {
             date: "01/08/2018",
             time: ["14:30", "16:00", "19:30", "20:00"]
-          },
-          {
+         },
+         {
             date: "02/08/2018",
             time: ["14:30", "16:00", "19:30", "20:00"]
-          },
-          {
+         },
+         {
             date: "03/08/2018",
             time: ["14:30", "16:00", "19:30", "20:00"]
-          },
-          {
+         },
+         {
             date: "04/08/2018",
             time: ["16:00", "19:30", "20:00"]
-          },
-          {
+         },
+         {
             date: "05/08/2018",
             time: ["16:00", "19:30", "20:00"]
-          },
-        ]
+         }, ]
       },
       {
-        location: "Antrim",
-        showing: [
-          {
+         location: "Antrim",
+         showing: [
+         {
             date: "02/08/2018",
             time: ["16:00", "19:30", "20:00"]
-          },
-          {
+         },
+         {
             date: "03/08/2018",
             time: ["16:00", "19:30", "20:00"]
-          },
-          {
+         },
+         {
             date: "04/08/2018",
             time: ["19:30", "20:00"]
-          },
-        ]
+         }, ]
       },
       {
-       location: "Lisburn",
-        showing: [
-           {
+         location: "Lisburn",
+         showing: [
+         {
             date: "03/08/2018",
             time: ["14:30", "16:00", "19:30", "20:00"]
-          },
-          {
+         },
+         {
             date: "04/08/2018",
             time: ["19:30", "20:00"]
-          }
-        ]
-      }
-      ]
-    },
-    {
+         }]
+      }]
+   },
+   {
       title: "The First Purge",
       tagline: "'Make America Great Again'",
       description: "The film will be a prequel that will focus on the events that lead up to the very first Purge event.",
@@ -135,50 +128,47 @@ var jsonData = {
       trailer: "https://www.youtube.com/watch?v=UL29y0ah92w",
       locationShowTimes: [
       {
-        location: "Belfast",
-        showing: [
-          {
+         location: "Belfast",
+         showing: [
+         {
             date: "01/08/2018",
             time: ["14:30", "16:00", "19:30", "20:00"]
-          },
-          {
+         },
+         {
             date: "02/08/2018",
             time: ["14:30", "16:00", "19:30", "20:00"]
-          },
-          {
+         },
+         {
             date: "03/08/2018",
             time: ["14:30", "16:00", "19:30", "20:00"]
-          },
-          {
+         },
+         {
             date: "04/08/2018",
             time: ["16:00", "19:30", "20:00"]
-          },
-          {
+         },
+         {
             date: "05/08/2018",
             time: ["16:00", "19:30", "20:00"]
-          },
-        ]
+         }, ]
       },
       {
-        location: "Antrim",
-        showing: [
-          {
+         location: "Antrim",
+         showing: [
+         {
             date: "02/08/2018",
             time: ["16:00", "19:30", "20:00"]
-          },
-          {
+         },
+         {
             date: "03/08/2018",
             time: ["16:00", "19:30", "20:00"]
-          },
-          {
+         },
+         {
             date: "04/08/2018",
             time: ["19:30", "20:00"]
-          },
-        ]
-      }
-      ]
-    },
-    {
+         }, ]
+      }]
+   },
+   {
       title: "Hereditary",
       tagline: "'Every family tree hides a secret'",
       description: "When Ellen, the matriarch of the Graham family, passes away, her daughter's family begins to unravel cryptic and increasingly terrifying secrets about their ancestry.",
@@ -190,54 +180,51 @@ var jsonData = {
       trailer: "https://www.youtube.com/watch?v=V6wWKNij_1M",
       locationShowTimes: [
       {
-        location: "Belfast",
-        showing: [
-          {
+         location: "Belfast",
+         showing: [
+         {
             date: "01/08/2018",
             time: ["14:30", "16:00", "19:30", "20:00"]
-          },
-          {
+         },
+         {
             date: "02/08/2018",
             time: ["14:30", "16:00", "19:30", "20:00"]
-          },
-          {
+         },
+         {
             date: "03/08/2018",
             time: ["14:30", "16:00", "19:30", "20:00"]
-          },
-          {
+         },
+         {
             date: "04/08/2018",
             time: ["16:00", "19:30", "20:00"]
-          },
-          {
+         },
+         {
             date: "05/08/2018",
             time: ["16:00", "19:30", "20:00"]
-          },
-        ]
+         }, ]
       },
       {
-        location: "Lisburn",
-        showing: [
-          {
+         location: "Lisburn",
+         showing: [
+         {
             date: "01/08/2018",
             time: ["14:30", "16:00", "19:30", "20:00"]
-          },
-          {
+         },
+         {
             date: "02/08/2018",
             time: ["16:00", "19:30", "20:00"]
-          },
-          {
+         },
+         {
             date: "03/08/2018",
             time: ["16:00", "19:30", "20:00"]
-          },
-          {
+         },
+         {
             date: "04/08/2018",
             time: ["19:30", "20:00"]
-          },
-        ]
-      }
-      ]
-    },
-    {
+         }, ]
+      }]
+   },
+   {
       title: "Incredibles 2",
       tagline: "'You have powers! Yeah, baby!'",
       description: "Bob Parr (Mr. Incredible) is left to care for Jack-Jack while Helen (Elastigirl) is out saving the world.",
@@ -249,68 +236,65 @@ var jsonData = {
       trailer: "https://www.youtube.com/watch?v=i5qOzqD9Rms",
       locationShowTimes: [
       {
-        location: "Belfast",
-        showing: [
-          {
+         location: "Belfast",
+         showing: [
+         {
             date: "01/08/2018",
             time: ["14:30", "16:00", "19:30", "20:00"]
-          },
-          {
+         },
+         {
             date: "02/08/2018",
             time: ["14:30", "16:00", "19:30", "20:00"]
-          },
-          {
+         },
+         {
             date: "03/08/2018",
             time: ["14:30", "16:00", "19:30", "20:00"]
-          },
-          {
+         },
+         {
             date: "04/08/2018",
             time: ["16:00", "19:30", "20:00"]
-          },
-          {
+         },
+         {
             date: "05/08/2018",
             time: ["16:00", "19:30", "20:00"]
-          },
-        ]
+         }, ]
       },
       {
-        location: "Antrim",
-        showing: [
-          {
+         location: "Antrim",
+         showing: [
+         {
             date: "02/08/2018",
             time: ["16:00", "19:30", "20:00"]
-          },
-          {
+         },
+         {
             date: "03/08/2018",
             time: ["16:00", "19:30", "20:00"]
-          },
-          {
+         },
+         {
             date: "04/08/2018",
             time: ["19:30", "20:00"]
-          },
-        ]
+         }, ]
       },
       {
-       location: "Lisburn",
-        showing: [
-           {
-            date: "03/08/2018",
-            time: ["14:30", "16:00", "19:30", "20:00"]
-          },
-          {
-            date: "04/08/2018",
-            time: ["19:30", "20:00"]
-          },
-          {
-            date: "05/08/2018",
-            time: ["19:30", "20:00"]
-          }
+         location: "Lisburn",
+         showing: [
+            {
+               date: "03/08/2018",
+               time: ["14:30", "16:00", "19:30", "20:00"]
+            },
+            {
+               date: "04/08/2018",
+               time: ["19:30", "20:00"]
+            },
+            {
+               date: "05/08/2018",
+               time: ["19:30", "20:00"]
+            }
 
-        ]
-      }
-      ]
-    },
-    {
+         ]
+      }]
+   },
+   {
       title: "Jurassic World: Fallen Kingdom",
       tagline: "'Life finds a way'",
       description: "When the island's dormant volcano begins roaring to life, Owen and Claire mount a campaign to rescue the remaining dinosaurs from this extinction-level event.",
@@ -322,54 +306,51 @@ var jsonData = {
       trailer: "https://www.youtube.com/watch?v=1FJD7jZqZEk",
       locationShowTimes: [
       {
-        location: "Belfast",
-        showing: [
-          {
+         location: "Belfast",
+         showing: [
+         {
             date: "01/08/2018",
             time: ["14:30", "16:00", "19:30", "20:00"]
-          },
-          {
+         },
+         {
             date: "02/08/2018",
             time: ["14:30", "16:00", "19:30", "20:00"]
-          },
-          {
+         },
+         {
             date: "03/08/2018",
             time: ["14:30", "16:00", "19:30", "20:00"]
-          },
-          {
+         },
+         {
             date: "04/08/2018",
             time: ["16:00", "19:30", "20:00"]
-          },
-          {
+         },
+         {
             date: "05/08/2018",
             time: ["16:00", "19:30", "20:00"]
-          },
-        ]
+         }, ]
       },
       {
-        location: "Lisburn",
-        showing: [
-          {
+         location: "Lisburn",
+         showing: [
+         {
             date: "01/08/2018",
             time: ["14:30", "16:00", "19:30", "20:00"]
-          },
-          {
+         },
+         {
             date: "02/08/2018",
             time: ["16:00", "19:30", "20:00"]
-          },
-          {
+         },
+         {
             date: "03/08/2018",
             time: ["16:00", "19:30", "20:00"]
-          },
-          {
+         },
+         {
             date: "04/08/2018",
             time: ["19:30", "20:00"]
-          },
-        ]
-      }
-      ]
-    },
-    {
+         }, ]
+      }]
+   },
+   {
       title: "Sicario 2: Soldado",
       tagline: "'Day of the Soldado'",
       description: "The drug war on the US-Mexico border has escalated as the cartels have begun trafficking terrorists across the US border. To fight the war, federal agent Matt Graver re-teams with the mercurial Alejandro.",
@@ -381,25 +362,23 @@ var jsonData = {
       trailer: "https://www.youtube.com/watch?v=i02bxFc88b4",
       locationShowTimes: [
       {
-        location: "Antrim",
-        showing: [
-          {
+         location: "Antrim",
+         showing: [
+         {
             date: "02/08/2018",
             time: ["16:00", "19:30", "20:00"]
-          },
-          {
+         },
+         {
             date: "03/08/2018",
             time: ["16:00", "19:30", "20:00"]
-          },
-          {
+         },
+         {
             date: "04/08/2018",
             time: ["19:30", "20:00"]
-          },
-        ]
-      }
-        ]
-    },
-    {
+         }, ]
+      }]
+   },
+   {
       title: "Skyscraper",
       tagline: "'Skyscraper'",
       description: "FBI Hostage Rescue Team leader and U.S. war veteran Will Ford, who now assesses security for skyscrapers. On assignment in Hong Kong he finds the tallest, safest building in the world suddenly ablaze, and he's been framed for it.",
@@ -411,46 +390,43 @@ var jsonData = {
       trailer: "https://www.youtube.com/watch?v=t9QePUT-Yt8",
       locationShowTimes: [
       {
-        location: "Antrim",
-        showing: [
-          {
+         location: "Antrim",
+         showing: [
+         {
             date: "02/08/2018",
             time: ["16:00", "19:30", "20:00"]
-          },
-          {
+         },
+         {
             date: "03/08/2018",
             time: ["16:00", "19:30", "20:00"]
-          },
-          {
+         },
+         {
             date: "04/08/2018",
             time: ["19:30", "20:00"]
-          },
-          {
+         },
+         {
             date: "05/08/2018",
             time: ["19:30", "20:00"]
-          }
-        ]
+         }]
       },
       {
-       location: "Lisburn",
-        showing: [
-           {
+         location: "Lisburn",
+         showing: [
+         {
             date: "03/08/2018",
             time: ["14:30", "16:00", "19:30", "20:00"]
-          },
-          {
+         },
+         {
             date: "04/08/2018",
             time: ["19:30", "20:00"]
-          },
-          {
+         },
+         {
             date: "05/08/2018",
             time: ["19:30", "20:00"]
-          }
-        ]
-      }
-      ]
-    },
-    {
+         }]
+      }]
+   },
+   {
       title: "Tag",
       tagline: "'Tag. You're it'",
       description: "A small group of former classmates organize an elaborate, annual game of tag that requires some to travel all over the country.",
@@ -462,48 +438,44 @@ var jsonData = {
       trailer: "https://www.youtube.com/watch?v=kjC1zmZo30U",
       locationShowTimes: [
       {
-        location: "Belfast",
-        showing: [
-          {
+         location: "Belfast",
+         showing: [
+         {
             date: "01/08/2018",
             time: ["14:30", "16:00", "19:30", "20:00"]
-          },
-          {
+         },
+         {
             date: "02/08/2018",
             time: ["14:30", "16:00", "19:30", "20:00"]
-          },
-          {
+         },
+         {
             date: "03/08/2018",
             time: ["14:30", "16:00", "19:30", "20:00"]
-          },
-          {
+         },
+         {
             date: "04/08/2018",
             time: ["16:00", "19:30", "20:00"]
-          },
-          {
+         },
+         {
             date: "05/08/2018",
             time: ["16:00", "19:30", "20:00"]
-          },
-        ]
+         }, ]
       },
       {
-        location: "Antrim",
-        showing: [
-          {
+         location: "Antrim",
+         showing: [
+         {
             date: "02/08/2018",
             time: ["16:00", "19:30", "20:00"]
-          },
-          {
+         },
+         {
             date: "03/08/2018",
             time: ["16:00", "19:30", "20:00"]
-          },
-          {
+         },
+         {
             date: "04/08/2018",
             time: ["19:30", "20:00"]
-          },
-        ]
-      }
-    ]
-  }
-]
+         }, ]
+      }]
+   }]
 }
