@@ -1,20 +1,20 @@
 div {
-  display: table-row;
+   display: table-row;
 }
 
 label {
-  display: table-cell;
+   display: table-cell;
 }
 
 input {
-  display: table-cell;
+   display: table-cell;
 }
 
 .contact-info {
-  float: left;
-  padding-right: 10vw;
+   float: left;
+   padding-right: 10vw;
 }
 
 .map-container {
-  display: inline-block;
+   display: inline-block;
 }

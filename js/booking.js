@@ -1,26 +1,29 @@
 var isChrome = navigator.userAgent.toLowerCase().indexOf('chrome') > -1;
-var adultSubTotal = 0, studentSubTotal = 0, teenSubTotal = 0, childSubTotal = 0;
+var adultSubTotal = 0,
+   studentSubTotal = 0,
+   teenSubTotal = 0,
+   childSubTotal = 0;
 
 /*
-	As the page loads set the value in the #locations select equal to the value stored in the location cookie (as it has already been determined by the user).
-	Then update the appropriate booking fields to match the allowed dates, times, etc. for that location.
+  As the page loads set the value in the #locations select equal to the value stored in the location cookie (as it has already been determined by the user).
+  Then update the appropriate booking fields to match the allowed dates, times, etc. for that location.
 */
-window.onload = function() {
+window.onload = function () {
    checkLocationCookie();
    updateBookingFields();
-   if (getMovieCookie() != ''){
-     setMovieBasedOnCookie();
+   if (getMovieCookie() != '') {
+      setMovieBasedOnCookie();
    }
-   if (getLocationCookie() != ''){
-     setLocationBasedOnCookie();
+   if (getLocationCookie() != '') {
+      setLocationBasedOnCookie();
    }
-   if (getTimeCookie() != ''){
-     setTimeBasedOnCookie();
+   if (getTimeCookie() != '') {
+      setTimeBasedOnCookie();
    }
-   if (getDateCookie() != ''){
-     setDateBasedOnCookie();
+   if (getDateCookie() != '') {
+      setDateBasedOnCookie();
    }
-   $('#locations').on('change', function() {
+   $('#locations').on('change', function () {
       setLocationCookie();
       updateBookingFields();
    });
@@ -28,21 +31,21 @@ window.onload = function() {
    //If a user wants to book any more than 20 of any ticket type they have to call up to book
    populateQuantityDropdown();
    //Calculate the subtotal of tickets when the relevant quantity dropdown is changed
-   $('#adult-quantity').on('change', function() {
-       calcuateSubTotalAdult();
+   $('#adult-quantity').on('change', function () {
+      calcuateSubTotalAdult();
    });
-   $('#student-quantity').on('change', function() {
-       calcuateSubTotalStudent();
+   $('#student-quantity').on('change', function () {
+      calcuateSubTotalStudent();
    });
-   $('#teen-quantity').on('change', function() {
-       calcuateSubTotalTeen();
+   $('#teen-quantity').on('change', function () {
+      calcuateSubTotalTeen();
    });
-   $('#child-quantity').on('change', function() {
-       calcuateSubTotalChild();
+   $('#child-quantity').on('change', function () {
+      calcuateSubTotalChild();
    });
    //Provie the user with a reference number upon submitting the form.
    //NOTE: alert used at the minute but this will be changed to use Bootstrap features when styling
-   $('#booking-form').submit(function() {
+   $('#booking-form').submit(function () {
       //Email validation in case 'email' input type isn't supported in the user's browser.
       var emailValue = $('#email').val();
       //This ensures that an '@' is present and has at least one symbol before it.
@@ -52,7 +55,8 @@ window.onload = function() {
       //Ensure that there are also at least 2 characters following the '.'
       if ((atLoc > 0) && (dotLoc > 0) && (emailValue.length > dotLoc + 2)) {
          return true;
-      } else {
+      }
+      else {
          //NOTE: Using alert at the minute, this will be replaced with something like Bootstrap pop-over.
          alert('Please enter your e-mail address in a valid format');
          return false;
@@ -62,7 +66,7 @@ window.onload = function() {
 
    $(':input[type="submit"]').prop('disabled', true);
 
-   $('#booking-form *').keyup(function() {
+   $('#booking-form *').keyup(function () {
       var allInputs = $('#booking-form *');
       var counterForEmptyFields = 0;
       for (var i = 0; i < allInputs.length; i++) {
@@ -74,7 +78,8 @@ window.onload = function() {
       }
       if (counterForEmptyFields > 0) {
          $(':input[type="submit"]').prop('disabled', true);
-      } else {
+      }
+      else {
          $(':input[type="submit"]').prop('disabled', false);
       }
    });
@@ -86,13 +91,13 @@ function updateBookingFields() {
    data.push('<select id="movie-title" name="movie-title"></select>');
    $('#movie-title').replaceWith(data);
    data = [];
-   $(jsonData).map(function(i, movies) {
+   $(jsonData).map(function (i, movies) {
       //Map each json movie into an individual object
-      jQuery.each(jsonData.movies, function(index, movie) {
-        var locations = [];
-        for (i = 0; i < movie.locationShowTimes.length; i++) {
+      jQuery.each(jsonData.movies, function (index, movie) {
+         var locations = [];
+         for (i = 0; i < movie.locationShowTimes.length; i++) {
             locations.push(movie.locationShowTimes[i].location);
-        }
+         }
          //Only display the film-name if it plays at the location selected by the user
          if (jQuery.inArray(getCookie('location'), locations) !== -1 || isChrome) {
             //Format each movie object to HTML and append to the film-name select as an option
@@ -161,7 +166,7 @@ function calcuateSubTotalChild() {
    calculateTotal();
 }
 
-function calculateTotal(){
+function calculateTotal() {
    //Calculate the total price of all types of tickets
    var total = adultSubTotal + studentSubTotal + teenSubTotal + childSubTotal;
    //Set the value of the total-price label to the total price of tickets
@@ -181,38 +186,38 @@ function populateQuantityDropdown() {
    $('#child-quantity').html(select);
 }
 
-function getMovieCookie(){
-  return getCookie('movie');
+function getMovieCookie() {
+   return getCookie('movie');
 }
 
-function setMovieBasedOnCookie(){
-  var movie = getCookie('movie');
-  $('#movie-title').val(movie).change();
+function setMovieBasedOnCookie() {
+   var movie = getCookie('movie');
+   $('#movie-title').val(movie).change();
 }
 
-function getLocationCookie(){
-  return getCookie('location');
+function getLocationCookie() {
+   return getCookie('location');
 }
 
-function setLocationBasedOnCookie(){
-  var location = getCookie('location');
-  $('#locations select').val(location);
+function setLocationBasedOnCookie() {
+   var location = getCookie('location');
+   $('#locations select').val(location);
 }
 
-function getDateCookie(){
-  return getCookie('date');
+function getDateCookie() {
+   return getCookie('date');
 }
 
-function setDateBasedOnCookie(){
-  var date = getCookie('date');
-  $('#date').val(date).change();
+function setDateBasedOnCookie() {
+   var date = getCookie('date');
+   $('#date').val(date).change();
 }
 
-function getTimeCookie(){
-  return getCookie('time');
+function getTimeCookie() {
+   return getCookie('time');
 }
 
-function setTimeBasedOnCookie(){
-  var time = getCookie('time');
-  $('#time').val(time).change();
+function setTimeBasedOnCookie() {
+   var time = getCookie('time');
+   $('#time').val(time).change();
 }
