@@ -1,17 +1,11 @@
 .movie-poster {
   padding-top: 12px;
-  width: 15vw;
+  width: 34vw;
   height: auto;
-  max-width: 500px;
-  max-height: 380px;
 }
 
 .inline-block{
   display: inline-block;
-}
-
-.movies-heading {
-  padding: 10px;
 }
 
 .rating {
@@ -23,7 +17,14 @@
 }
 
 #location-selector {
-  padding: 5px 5px 5px 20px;
+  padding-top: 20px;
+  padding-bottom: 40px;
+}
+
+#locations {
+  width: 100%;
+  height: 3vw;
+  font-size: 1.5vw;
 }
 
 .cast-padding {
@@ -60,6 +61,24 @@ body {
   border-radius: 5px;
 }
 
-.show-times {
+.screening-times {
   display: none;
+  width: 100%
+}
+
+.date-time-header {
+  padding-top: 1.5vw;
+  font-weight: bold;
+}
+
+.date-time-instructions {
+  color: #505050;
+}
+
+.date-selector {
+  width:100%;
+}
+
+.index-header {
+  font-weight: bold;
 }
