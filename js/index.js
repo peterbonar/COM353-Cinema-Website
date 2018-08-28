@@ -79,7 +79,7 @@ function getMovieDetailsAsString(movie, locations) {
         '</div>' +
         '<div class="col-md-6 mb-3 inline-block">' +
         '<h2>' + movie.title +
-        '<img class="rating" src="' + movie.rating + '"></img></h2>' +
+        '<img class="rating" src="' + movie.rating + '" alt="' + movie.rating.substring(14, movie.rating.length - 4) + '"></img></h2>' +
         '<h5>' + movie.tagline + '</h5>' +
         '<p><b>Synopsis:</b> ' + movie.description + '</p>' +
         '<div><i class="float-left fas fa-users cast-padding"></i><p class="inline-block"> ' + movie.cast + '</p></div>' +
