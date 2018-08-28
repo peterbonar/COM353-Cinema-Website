@@ -239,7 +239,7 @@ function setLocationBasedOnCookie() {
 
 function setDateBasedOnCookie() {
   var date = getCookie('date');
-  $("#date").val(date).change();
+  $('#date').val(date).change();
 }
 
 function setTimeBasedOnCookie() {
