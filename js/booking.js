@@ -1,4 +1,3 @@
-var isChrome = navigator.userAgent.toLowerCase().indexOf('chrome') > -1;
 var adultSubTotal = 0, studentSubTotal = 0, teenSubTotal = 0, childSubTotal = 0;
 
 /*
