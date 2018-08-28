@@ -24,6 +24,12 @@ window.onload = function() {
         setLocationCookie();
         populateHTMLMovieData();  
     });  
+
+    $("#currently-showing").click(function() {
+        $('html,body').animate({
+            scrollTop: $("#location-selector").offset().top
+        }, 'slow');
+    });
 }
 
 function populateHTMLMovieData() {
