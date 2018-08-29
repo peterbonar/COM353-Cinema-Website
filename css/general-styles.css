@@ -32,7 +32,7 @@ body {
     color: white;
 }
 
-.fab {
+td > .fab {
     padding: 10px;
     font-size: 30px;
     width: 50px;
@@ -41,7 +41,7 @@ body {
     margin: 2px 2px;
 }
 
-.fab:hover {
+td > .fab:hover {
     color: white;
     text-decoration: none;
 }

@@ -1,5 +1,3 @@
-var isChrome = navigator.userAgent.toLowerCase().indexOf('chrome') > -1;
-
 /*
   As the page loads either set the location cookie to the value in the #location select if a cookie does not already exist...
   Or else set the value in the #location select equal to the value stored in the location cookie...
@@ -43,7 +41,7 @@ function populateHTMLMovieData() {
                 //Add each location for which the movie is shown to the "locations" array
                 locations.push(screeningDatesAndTimesByLocation.location);
                 //Only display movie if it plays at the location selected by the user
-                if (((getCookie('location') == screeningDatesAndTimesByLocation.location) || isChrome)) {
+                if (getCookie('location') == screeningDatesAndTimesByLocation.location) {
                     //Only format and display the content below if the movie isn't already displayed on the page
                     if (!movieDisplayed) {
                         data += getMovieDetailsAsString(movie, locations);

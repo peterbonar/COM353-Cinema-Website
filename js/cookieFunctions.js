@@ -1,33 +1,40 @@
 function setLocationCookie() {
-    //Determine the location from the option currently selected.
-    var location = 'location=' + $('#locations option:selected').text() + ';',
-        d = new Date();
-    //Set an expiry time of 24 hours from the cookie's creation.
-    d.setTime(d.getTime() + (24 * 60 * 60 * 1000));
-    var expires = "expires=" + d.toUTCString() + ';';
-    //Set the location and expiry keys and values.
-    document.cookie = location + expires;
+  //Determine the location from the option currently selected.
+  var location = 'location=' + $('#locations option:selected').text() + ';',
+      d = new Date();
+  //Set an expiry time of 24 hours from the cookie's creation.
+  d.setTime(d.getTime() + (24 * 60 * 60 * 1000));
+  var expires = "expires=" + d.toUTCString() + ';';
+  //Set the location and expiry keys and values.
+  document.cookie = location + expires;
 };
 
-function setMovieCookie(movie){
+function setMovieCookie(movie) {
   var movie = 'movie=' + movie + ';', d = new Date();
   d.setTime(d.getTime() + (24 * 60 * 60 * 1000));
   var expires = "expires=" + d.toUTCString() + ';';
   document.cookie = movie + expires;
 }
 
-function setDateCookie(date){
+function setDateCookie(date) {
   var date = 'date=' + date + ';', d = new Date();
   d.setTime(d.getTime() + (24 * 60 * 60 * 1000));
   var expires = "expires=" + d.toUTCString() + ';';
   document.cookie = date + expires;
 }
 
-function setTimeCookie(time){
+function setTimeCookie(time) {
   var time = 'time=' + time + ';', d = new Date();
   d.setTime(d.getTime() + (24 * 60 * 60 * 1000));
   var expires = "expires=" + d.toUTCString() + ';';
   document.cookie = time + expires;
+}
+
+function setCookiesNull() {
+  document.cookie = 'location' + '=; expires=Thu, 01-Jan-70 00:00:01 GMT;';
+  document.cookie = 'movie' + '=; expires=Thu, 01-Jan-70 00:00:01 GMT;';
+  document.cookie = 'date' + '=; expires=Thu, 01-Jan-70 00:00:01 GMT;';
+  document.cookie = 'time' + '=; expires=Thu, 01-Jan-70 00:00:01 GMT;';
 }
 
 function getCookie(cookieKey) {
