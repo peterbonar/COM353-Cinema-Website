@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
    <head>
-      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
@@ -88,13 +88,11 @@
             <div class="row">
                <div class="col-sm-6">
                   <label for="date">Date: </label>
-                  <select id="date" name="date" class="form-field">
-                  </select>
+                  <select id="date" name="date" class="form-field"></select>
                </div>
                <div class="col-sm-6">
                   <label for="time">Time: </label>
-                  <select id="time" name="time" class="form-field">
-                  </select>
+                  <select id="time" name="time" class="form-field"></select>
                </div>
             </div>
             <br>
@@ -125,8 +123,7 @@
                               <label for="adult-price" id="adult-price">£5.00</label>
                            </td>
                            <td>
-                              <select id="adult-quantity" name="adult-quantity">
-                              </select>
+                              <select id="adult-quantity" name="adult-quantity"></select>
                            </td>
                            <td>
                               <label for="adult-subtotal" id="adult-subtotal">£0.00</label>
@@ -140,8 +137,7 @@
                               <label for="student-price" id="student-price">£4.00</label>
                            </td>
                            <td>
-                              <select id="student-quantity" name="student-quantity">
-                              </select>
+                              <select id="student-quantity" name="student-quantity"></select>
                            </td>
                            <td>
                               <label for="student-subtotal" id="student-subtotal">£0.00</label>
@@ -155,8 +151,7 @@
                               <label for="teen-price" id="teen-price">£3.50</label>
                            </td>
                            <td>
-                              <select id="teen-quantity" name="teen-quantity">
-                              </select>
+                              <select id="teen-quantity" name="teen-quantity"></select>
                            </td>
                            <td>
                               <label for="teen-subtotal" id="teen-subtotal">£0.00</label>
@@ -170,8 +165,7 @@
                               <label for="child-price" id="child-price">£2.50</label>
                            </td>
                            <td>
-                              <select id="child-quantity" name="child-quantity">
-                              </select>
+                              <select id="child-quantity" name="child-quantity"></select>
                            </td>
                            <td>
                               <label for="child-subtotal" id="child-subtotal">£0.00</label>
@@ -198,32 +192,28 @@
             </div>
          </form>
       </div>
-   <footer class="footer">
-       <table id="footer-table">
-           <tr>
-               <th>
-                   Quick Links:
-               </th>
-               <th>
-                   Social Media:
-               </th>
-           </tr>
-           <tr>
-               <td>
-                   <a class="footer-link" href="./index.html">Movies</a><br>
-                   <a class="footer-link" href="./prices.html">Prices</a><br>
-                   <a class="footer-link" href="./contact-us.html">Contact Us</a><br>
-                   <a class="footer-link" href="./booking.html">Booking</a><br>
-               </td>
-                <td>
-                    <!-- Add font awesome icons -->
-                    <a href="https://www.facebook.com/moviehousecinemas" class="fab fa-facebook"></a>
-                    <a href="https://twitter.com/moviehouseni" class="fab fa-twitter"></a>
-                    <a href="https://plus.google.com/116448872385582101440" class="fab fa-google"></a>
-                    <a href="https://www.youtube.com/channel/UCaOzkz0FyAZTXnzM33tCdWA" class="fab fa-youtube"></a>
-                </td>
-           </tr>
-       </table>
-   </footer>
-</body>
+      <footer class="footer">
+         <table id="footer-table">
+             <tr>
+                 <th>Quick Links:</th>
+                 <th>Social Media:</th>
+             </tr>
+             <tr>
+                 <td>
+                     <a class="footer-link" href="./index.html">Movies</a><br>
+                     <a class="footer-link" href="./prices.html">Prices</a><br>
+                     <a class="footer-link" href="./contact-us.html">Contact Us</a><br>
+                     <a class="footer-link" href="./booking.html">Booking</a><br>
+                 </td>
+                  <td>
+                      <!-- Add font awesome icons -->
+                      <a href="https://www.facebook.com/moviehousecinemas" class="fab fa-facebook"></a>
+                      <a href="https://twitter.com/moviehouseni" class="fab fa-twitter"></a>
+                      <a href="https://plus.google.com/116448872385582101440" class="fab fa-google"></a>
+                      <a href="https://www.youtube.com/channel/UCaOzkz0FyAZTXnzM33tCdWA" class="fab fa-youtube"></a>
+                  </td>
+             </tr>
+         </table>
+      </footer>
+   </body>
 </html>
