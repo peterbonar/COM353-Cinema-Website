@@ -64,5 +64,14 @@ window.onload = function() {
       } else {
          $(':input[type="submit"]').prop('disabled', false);
       }
-   })
+   });
+
+   $('#phone').change(function(){
+     var phone = $('#phone').val();
+     if(!$.isNumeric(phone) || phone.length != 11){
+       $(':input[type="submit"]').prop('disabled', true);
+       alert('Please enter a valid phone number that is 11 numbers long');
+       $('#phone').focus();
+     }
+   });
 };
