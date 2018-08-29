@@ -13,11 +13,10 @@ window.onload = function() {
         setLocationCookie();
         populateHTMLMovieData();
     });
-  
+
     $('#genre-list').on('change', function() {
-        setLocationCookie();
-        populateHTMLMovieData();  
-    });  
+        populateHTMLMovieData();
+    });
 
     $("#currently-showing").click(function() {
         $('html,body').animate({
@@ -50,36 +49,30 @@ function populateHTMLMovieData() {
                 //Only display movie if it plays at the location selected by the user
                 if (((getCookie('location') == screeningDatesAndTimesByLocation.location) || isChrome)) {
                     //Only format and display the content below if the movie isn't already displayed on the page
-                    if (!movieDisplayed) {
-                        if ($('#genre-list').val() != 'select-genre') {
-                            //Genre filter set therefore display all movies by location if they are also that genre
-                            var movieGenres = movie.genre;
-                            var selectedGenre = $('#genre-list').val();
-                            if (movieGenres.indexOf(selectedGenre) != -1 ) {
-                                data += getMovieDetailsAsString(movie, locations);
-                                //Set this flag to true to ensure that no movie details are duplicated
-                                movieDisplayed = true;
-                            }
-                        } else {
-                            //Genre filter not set therefore display all movies by location only
+                    if ($('#genre-list').val() != 'select-genre') {
+                        //Genre filter set therefore display all movies by location if they are also that genre
+                        var movieGenres = movie.genre;
+                        var selectedGenre = $('#genre-list').val();
+                        if (movieGenres.indexOf(selectedGenre) != -1 ) {
                             data += getMovieDetailsAsString(movie, locations);
-                            //Set this flag to true to ensure that no movie details are duplicated
-                            movieDisplayed = true;         
                         }
+                    } else {
+                        //Genre filter not set therefore display all movies by location only
+                        data += getMovieDetailsAsString(movie, locations);
                     }
-                    //Store the json array of date and times by location for each movie to the "screeningTimes" variable
-                    screeningTimes = screeningDatesAndTimesByLocation.screening;
-                    for (var i = 0; i < screeningTimes.length; i++) {
-                        //Only display/return the matching dates and times for a movie for the location which is currently selected by the user
-                        if ((getCookie('location') == screeningDatesAndTimesByLocation.location)) {
-                            datesAndTimes[screeningTimes[i].date] = screeningTimes[i].time;
-                            dates.push(screeningTimes[i].date);
-                        }
+                }
+                //Store the json array of date and times by location for each movie to the "screeningTimes" variable
+                screeningTimes = screeningDatesAndTimesByLocation.screening;
+                for (var i = 0; i < screeningTimes.length; i++) {
+                    //Only display/return the matching dates and times for a movie for the location which is currently selected by the user
+                    if ((getCookie('location') == screeningDatesAndTimesByLocation.location)) {
+                        datesAndTimes[screeningTimes[i].date] = screeningTimes[i].time;
+                        dates.push(screeningTimes[i].date);
                     }
                 }
             });
             //Only output the information for a movie's available locations, dates and times if it is showing at a location selected by the user
-            if (locations.indexOf(getCookie('location')) > -1) {
+            if (locations.indexOf(getCookie('location')) > -1 && movie.genre.indexOf($('#genre-list').val()) != -1 ) {
                 data += getScreeningDataForMovieAsString(movie, dates, datesAndTimes, locations);
             }
         });
@@ -107,7 +100,7 @@ function getMovieDetailsAsString(movie, locations) {
         '<p><b>Synopsis:</b> ' + movie.description + '</p>' +
         '<div><i class="float-left fas fa-users cast-padding"></i><p class="inline-block"> ' + movie.cast + '</p></div>' +
         '<div><i class="float-left fas fa-user fa-padding"></i><p class="inline-block"> ' + movie.director + '</p></div>' +
-        '<div><i class="float-left fas fa-bars fa-padding"></i><p class="inline-block"> ' + movie.genre + '</p></div>' +
+        '<div><i class="float-left fas fa-bars fa-padding"></i><p class="inline-block"> ' + formatGenresWithSpaces(movie.genre) + '</p></div>' +
         '<div><i class="float-left fab fa-youtube youtube-padding"></i><p><a href="' + movie.trailer + '" target="_blank">Trailer</a></p></div>';
     return movieDetails;
 }
@@ -164,4 +157,16 @@ function displayTimesForDate(movieTitle, date) {
     $("*[id=\"" + screeningId + "\"]").find("*[id*=\"Times\"]").find("input").css("display", "none");
     //Show the times for a particular movie that are linked to the date that the user has selected
     $("*[id=\"" + String(dateId) + "\"]").find("input").css("display", "block");
+}
+
+function formatGenresWithSpaces(movieGenres) {
+  var formattedGenres = "";
+  for (var i = 0; i < movieGenres.length; i++) {
+    if (movieGenres.length - 1 === i) {
+      formattedGenres += movieGenres[i];
+    } else {
+      formattedGenres += movieGenres[i] + ', ';
+    }
+  }
+  return formattedGenres;
 }
