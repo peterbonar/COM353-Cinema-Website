@@ -1,5 +1,3 @@
-var isChrome = navigator.userAgent.toLowerCase().indexOf('chrome') > -1;
-
 /*
   As the page loads either set the location cookie to the value in the #location select if a cookie does not already exist...
   Or else set the value in the #location select equal to the value stored in the location cookie...
@@ -13,119 +11,160 @@ window.onload = function() {
         setLocationCookie();
         populateHTMLMovieData();
     });
+
+    $('#genre-list').on('change', function() {
+        populateHTMLMovieData();
+    });
+
+    $("#currently-showing").click(function() {
+        $('html,body').animate({
+            scrollTop: $("#location-selector").offset().top
+        }, 'slow');
+    });
 }
 
 function populateHTMLMovieData() {
-    var data = [];
+    $('#currently-showing-header').replaceWith('<div id="currently-showing-header" class="row"><div class="col-sm-12"><h2 class="index-header">Currently Showing at ' + getCookie('location') + ':</h2><hr></div></div>');
+
+    var data = "";
     //Clear the div before updating movies so the movie list is replaced with new movies rather than continually added to
-    data.push('<div id="movie-list"></div>');
+    data += '<div id="movie-list"></div>';
     $('#movie-list').replaceWith(data);
-    data = [];
+    data = "";
     $(jsonData).map(function(i, movies) {
         //Map each json movie into an individual object
         jQuery.each(jsonData.movies, function(index, movie) {
-            //Initialise flag and arrays that will be used for formatting movie show time details
+            //Initialise flag and arrays that will be used for formatting movie screening details
             var movieDisplayed = false;
             var locations = [];
-            var showtimes = [];
+            var screeningTimes = [];
+            var datesAndTimes = {};
             var dates = [];
-            var times = [];
-            //Map each nested locationShowTime json (nested within movie object) to an individual object
-            jQuery.each(movie.locationShowTimes, function(index, locationShowTime) {
-                //Add each location for which the film is shown to the "locations" array
-                locations.push(locationShowTime.location);
+            //Map each nested screeningDatesAndTimesByLocation json (nested within movie object) to an individual object
+            jQuery.each(movie.screeningDatesAndTimesByLocation, function(index, screeningDatesAndTimesByLocation) {
+                //Add each location for which the movie is shown to the "locations" array
+                locations.push(screeningDatesAndTimesByLocation.location);
                 //Only display movie if it plays at the location selected by the user
-                if (((getCookie('location') == locationShowTime.location) || isChrome)) {
+                if (getCookie('location') == screeningDatesAndTimesByLocation.location) {
                     //Only format and display the content below if the movie isn't already displayed on the page
-                    if (!movieDisplayed) {
-                        //Format each movie object to HTML
-                        data.push('<tr>' +
-                            '<th class="movie-poster-container">' +
-                            '<img src="' + movie.poster + '" class="movie-poster"></img>' +
-                            '</th>' +
-                            '<th class="movie-data">' +
-                            '<h3>' + movie.title + '</h3>' +
-                            '<h5>' + movie.tagline + '</h5>' +
-                            '<p>Description: ' + movie.description + '</p>' +
-                            '<p>Cast: ' + movie.cast + '</p>' +
-                            '<p>Director: ' + movie.director + '</p>' +
-                            '<p>Genre: ' + movie.genre + '</p>' +
-                            '<p>Rating: ' + movie.rating + '</p>' +
-                            '<p><a href="' + movie.trailer + '" target="_blank">Trailer: ' + movie.title + '</a></p>');
-                        //Set this flag to true to ensure that no movie details are duplicated
-                        movieDisplayed = true;
-                    }
-                    //Store the json array of date and times for each movie to the "showtimes" variable
-                    showtimes = locationShowTime.showing;
-                    for (var i = 0; i < showtimes.length; i++) {
-                        //Only display/return the matching dates and times for a film for the location which is currently selected by the user
-                        if ((getCookie('location') == locationShowTime.location)) {
-                            var datetime = showtimes[i];
-                            dates.push(datetime.date);
-                            times.push(datetime.time);
+                    if ($('#genre-list').val() != 'select-genre') {
+                        //Genre filter set therefore display all movies by location if they are also that genre
+                        var movieGenres = movie.genre;
+                        var selectedGenre = $('#genre-list').val();
+                        if (movieGenres.indexOf(selectedGenre) != -1 ) {
+                            data += getMovieDetailsAsString(movie, locations);
                         }
+                    } else {
+                        //Genre filter not set therefore display all movies by location only
+                        data += getMovieDetailsAsString(movie, locations);
+                    }
+                }
+                //Store the json array of date and times by location for each movie to the "screeningTimes" variable
+                screeningTimes = screeningDatesAndTimesByLocation.screening;
+                for (var i = 0; i < screeningTimes.length; i++) {
+                    //Only display/return the matching dates and times for a movie for the location which is currently selected by the user
+                    if ((getCookie('location') == screeningDatesAndTimesByLocation.location)) {
+                        datesAndTimes[screeningTimes[i].date] = screeningTimes[i].time;
+                        dates.push(screeningTimes[i].date);
                     }
                 }
             });
-            //Only output the information for a film's available locations, dates and times if it is showing at a location selected by the user
-            if (locations.indexOf(getCookie('location')) > -1) {
-                data.push('<p>Location: ' + locations + '</p>');
-                //Output screening dates to the user
-                data.push('<ul class="' + movie.title + '-screening-dates">' + getDatesForFilmAsString(movie, dates) + '</ul>');
-                //Output screening times to the user
-                data.push(getTimesForDateAsString(movie, dates, times));
-                //Output available screening locations to the user
-                data.push(
-                    '</th>' +
-                    '</tr>');
+            //Only output the information for a movie's available locations, dates and times if it is showing at a location selected by the user
+            if (locations.indexOf(getCookie('location')) > -1 && (movie.genre.indexOf($('#genre-list').val()) != -1 || $('#genre-list').val() == 'select-genre')) {
+                data += getScreeningDataForMovieAsString(movie, dates, datesAndTimes, locations);
             }
         });
     });
     //Push the array of HTML formatted movies to the 'movieList' Div in index.html
     $('#movie-list').append(data);
+    if (data == "") {
+        var message = 'There are no movies that match your search criteria.'
+        $('#no-films-for-criteria').text(message)
+    } else {
+        $('#no-films-for-criteria').text("")
+    }
 }
 
-function getDatesForFilmAsString(movie, dates) {
+function getMovieDetailsAsString(movie, locations) {
+    var movieDetails = '<div class="row">';
+    //Format each movie object to HTML
+    movieDetails += '<div class="col-md-6 mb-9 float-left">' +
+        '<img class="img-fluid rounded mb-9 movie-poster" src="' + movie.poster + '" alt="' + movie.title + ' movie poster"></img>' +
+        '</div>' +
+        '<div class="col-md-6 mb-3 inline-block">' +
+        '<h2>' + movie.title +
+        '<img class="rating" src="' + movie.rating + '" alt="' + movie.rating.substring(14, movie.rating.length - 4) + '"></img></h2>' +
+        '<h5>' + movie.tagline + '</h5>' +
+        '<p><b>Synopsis:</b> ' + movie.description + '</p>' +
+        '<div><i class="float-left fas fa-users cast-padding"></i><p class="inline-block"> ' + movie.cast + '</p></div>' +
+        '<div><i class="float-left fas fa-user fa-padding"></i><p class="inline-block"> ' + movie.director + '</p></div>' +
+        '<div><i class="float-left fas fa-bars fa-padding"></i><p class="inline-block"> ' + formatGenresWithSpaces(movie.genre) + '</p></div>' +
+        '<div><i class="float-left fab fa-youtube youtube-padding"></i><p><a href="' + movie.trailer + '" target="_blank">Trailer</a></p></div>';
+    return movieDetails;
+}
+
+function getScreeningDataForMovieAsString(movie, dates, datesAndTimes, locations) {
+    //Output available screening locations to the user
+    var screeningData = '<div><i class="float-left fas fa-globe-americas fa-padding"></i><p class="inline-block"> ' + locations.join(", ") + '</p></div>';
+    //Output screening dates and times to the user
+    screeningData += '<div class="float-left"><h5 class="date-time-header">Select a date and time below to book your screening:</h5><p class="date-time-instructions">(Click a date below to see screening times for that date)</p><div id="' +
+        movie.title + '-screening-dates-and-times">' +
+        getDatesAndTimesForMovieAsString(movie, dates, datesAndTimes) +
+        '</div></div></div></div></div></div><hr>';
+    return screeningData;
+}
+
+function getDatesAndTimesForMovieAsString(movie, dates, datesAndTimes) {
     //Initialise variable to be returned
     var datesToDisplay = "";
-
-    //For each date on which the film is shown add a list and anchor tag to the screen. The id for the anchor tag is comprised of the movie name and the date on which it is shown, thus making it unique.
-    //When the anchor tag (shown as a date to the user) is clicked it will call the displayTimesForDate() function
-    for (var i = 0; i < dates.length; i++) {
-        datesToDisplay += '<li><a class="date-selector" href="javascript:;" id="' + movie.title + '-' + dates[i] + '" onclick="displayTimesForDate(\'' + movie.title + '\', \'' + dates[i] + '\')">' + dates[i] + '</a></li>';
+    //For each date on which the movie is shown add a button to the screen. The id for the button is comprised of the movie name and the date on which it is shown, thus making it unique.
+    //When the button (displaying a date to the user) is clicked it will call the getTimesForMovieAsString() function
+    for (var dateCounter = 0; dateCounter < dates.length; dateCounter++) {
+        datesToDisplay += '<input type="button" class="btn btn-primary btn-block btn-small" href="javascript:;" id="' + movie.title + '-' + dates[dateCounter] + '" onclick="displayTimesForDate(\'' + movie.title + '\', \'' + dates[dateCounter] + '\');" value="' + dates[dateCounter] + '"></input>';
+        datesToDisplay += getTimesForMovieAsString(movie, dates, datesAndTimes, dateCounter);
     }
+    datesToDisplay += ('</div>')
     return datesToDisplay;
 }
 
-function getTimesForDateAsString(movie, dates, times) {
-    //Initialise variable to be returned by adding initial div with id containing movie name
-    var timesToDisplay = '<div id="' + movie.title + '-screening-times">';
-    //"times" is an array holding arrays, therefore we loop through each entry and extract these nested arrays into a variable "timesForDate"
-    for (var i = 0; i < times.length; i++) {
-        var timesForDate = times[i];
-        //Appending an inner div
-        timesToDisplay += '<div id="' + movie.title + '-' + dates[i] + '-Times">';
-        //We then loop through the timesForDate array to extract each individual time on which the film is shown for that date
-        for (var j = 0; j < timesForDate.length; j++) {
-            //If the time corresponds to the earliest date on which the film is shown then ensure it is displayed upon page load
-            if (i == 0) {
-                timesToDisplay += ('<a href="./booking.html"><input type="button" href="./booking.html" style="display: inline" onclick="setDateCookie(\'' + dates[i] + '\'); setTimeCookie(\'' + timesForDate[j] + '\'); setMovieCookie(\'' + movie.title + '\')" class="show-times" value="' + timesForDate[j] + '"></input></a>');
-                //Otherwise hide the times from the user initially. (These times will be displayed if the user selects their corresponding date on the page).
-            } else {
-                timesToDisplay += ('<a href="./booking.html"><input type="button" onclick="setDateCookie(\'' + dates[i] + '\'); setTimeCookie(\'' + timesForDate[j] + '\'); setMovieCookie(\'' + movie.title + '\')" class="show-times" value="' + timesForDate[j] + '"></input></a>');
-            }
+function getTimesForMovieAsString(movie, dates, datesAndTimes, dateCounter) {
+    //Store the array of times for the specified date in the datesAndTimes map in 'timesForDate' variable
+    var timesForDate = datesAndTimes[dates[dateCounter]];
+    //Appending an inner div that will be used for identifying which times to display to the user
+    var timesToDisplay = '<div id="' + movie.title + '-' + dates[dateCounter] + '-Times">';
+    //For each element in 'timesForDate' append a link/button to the HTML to allow the user to choose this time on a certain date for a specified movie
+    for (var timeCounter = 0; timeCounter < timesForDate.length; timeCounter++) {
+        if (dateCounter == 0) {
+            //Display the times for the most recent date on which the movie is shown by default
+            timesToDisplay += ('<a href="./booking.html"><input type="button" href="./booking.html" style="display: inline" onclick="setDateCookie(\'' + dates[dateCounter] + '\'); setTimeCookie(\'' + timesForDate[timeCounter] + '\'); setMovieCookie(\'' + movie.title + '\')" class="btn btn-block screening-times" value="' + timesForDate[timeCounter] + '"></input></a>');
+        } else {
+            //Otherwise hide the times from the user initially. (These times will be displayed if the user selects their corresponding date on the page)
+            timesToDisplay += ('<a href="./booking.html"><input type="button" onclick="setDateCookie(\'' + dates[dateCounter] + '\'); setTimeCookie(\'' + timesForDate[timeCounter] + '\'); setMovieCookie(\'' + movie.title + '\')" class="btn btn-block screening-times" value="' + timesForDate[timeCounter] + '"></input></a>');
         }
-        timesToDisplay += ('</div>');
     }
-    timesToDisplay += ('</div>');
+    timesToDisplay += ('</div><br>');
     return timesToDisplay;
 }
 
 function displayTimesForDate(movieTitle, date) {
-    var screeningId = movieTitle + "-screening-times";
+    //screeningID is used to locate the div which contains all elements relating to the dates and times on which a specified movie is shown
+    var screeningId = movieTitle + "-screening-dates-and-times";
+    //dateID is used to locate the div which contains all time-related elements for a screening of a specified movie on a particular date
     var dateId = movieTitle + '-' + date + "-Times";
-    //Hide all other times for a particular film
-    $("*[id=\"" + String(screeningId) + "\"]").find(".show-times").css("display", "none");
-    //Show the times for a particular film that are linked to the date that the user has selected
-    $("*[id=\"" + String(dateId) + "\"]").find("input").css("display", "inline");
+    //Hide all other times for a particular movie
+    $("*[id=\"" + screeningId + "\"]").find("*[id*=\"Times\"]").find("input").css("display", "none");
+    //Show the times for a particular movie that are linked to the date that the user has selected
+    $("*[id=\"" + String(dateId) + "\"]").find("input").css("display", "block");
+}
+
+function formatGenresWithSpaces(movieGenres) {
+  var formattedGenres = "";
+  for (var i = 0; i < movieGenres.length; i++) {
+    if (movieGenres.length - 1 === i) {
+      formattedGenres += movieGenres[i];
+    } else {
+      formattedGenres += movieGenres[i] + ', ';
+    }
+  }
+  return formattedGenres;
 }

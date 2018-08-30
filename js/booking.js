@@ -1,7 +1,5 @@
-var isChrome = navigator.userAgent.toLowerCase().indexOf('chrome') > -1;
-var tenPercentDiscountCode = "10",
-   twentyPercentDiscountCode = "20",
-   discountApplied = false;
+var adultSubTotal = 0, studentSubTotal = 0, teenSubTotal = 0, childSubTotal = 0, tenPercentDiscountCode = "10", twentyPercentDiscountCode = "20", discountApplied = false;
+
 /*
 As the page loads set the value in the #locations select equal to the value stored in the location cookie (as it has already been determined by the user).
 Then update the appropriate booking fields to match the allowed dates, times, etc. for that location.
@@ -9,21 +7,26 @@ Then update the appropriate booking fields to match the allowed dates, times, et
 window.onload = function() {
    checkLocationCookie();
    updateBookingFields();
-   if (getMovieCookie() != ''){
-     setMovieBasedOnCookie();
-   }
-   if (getLocationCookie() != ''){
+   if (getCookie('location') != ''){
      setLocationBasedOnCookie();
-   }
-   if (getTimeCookie() != ''){
-     setTimeBasedOnCookie();
-   }
-   if (getDateCookie() != ''){
-     setDateBasedOnCookie();
+     setMovieDateOptionsBasedOnMovieTitleAndLocation(getCurrentlySelectedMovieTitle());
+     setMovieTimeOptionsBasedOnMovieTitleAndDateAndLocation(getCurrentlySelectedMovieTitle());
    }
    $('#locations').on('change', function() {
+      setCookiesNull();
       setLocationCookie();
       updateBookingFields();
+      setMovieDateOptionsBasedOnMovieTitleAndLocation(getCurrentlySelectedMovieTitle());
+      setMovieTimeOptionsBasedOnMovieTitleAndDateAndLocation(getCurrentlySelectedMovieTitle());
+   });
+   $(document).on('change', '#movie-title', function() {
+      setCookiesNull();
+      setMovieDateOptionsBasedOnMovieTitleAndLocation(getCurrentlySelectedMovieTitle());
+      setMovieTimeOptionsBasedOnMovieTitleAndDateAndLocation(getCurrentlySelectedMovieTitle());
+   });
+   $(document).on('change', '#date', function() {
+      setCookiesNull();
+      setMovieTimeOptionsBasedOnMovieTitleAndDateAndLocation(getCurrentlySelectedMovieTitle());
    });
    //Populate the quantity dropdown with values from 0 to 20
    //If a user wants to book any more than 20 of any ticket type they have to call up to book
@@ -51,22 +54,13 @@ window.onload = function() {
      checkDiscountCodeField();
    });
    $('#child-quantity').on('change', function() {
-      if (discountApplied) {
-         var reapplyDiscount = confirm('Do you want to reapply discount?');
-         if (reapplyDiscount) {
-            discountCheck();
-         } else {
-            displayTotalPrice();
-            hideDiscountDetails();
-            discountApplied = false;
-         }
-      }
+      checkForDiscountApplied();
       childSubTotal = calculatePrice('child-quantity', 2.5);
       $('#child-subtotal').text("£" + (childSubTotal).toFixed(2));
       displayTotalPrice();
       checkDiscountCodeField();
-   });
-   //Provie the user with a reference number upon submitting the form.
+  });
+   //Provide the user with a reference number upon submitting the form.
    //NOTE: alert used at the minute but this will be changed to use Bootstrap features when styling
    $('#booking-form').submit(function() {
       //Email validation in case 'email' input type isn't supported in the user's browser.
@@ -123,26 +117,28 @@ window.onload = function() {
 }
 
 function updateBookingFields() {
-   var data = [];
-   //Clear the select before updating the film names so the that the select is replaced with new film names rather than continually added to.
-   data.push('<select id="movie-title" name="movie-title"></select>');
-   $('#movie-title').replaceWith(data);
-   data = [];
+   var movieTitleData = [];
+   //Clear the select before updating the film names so the that the select is replaced with new film names rather than continually added to
+   movieTitleData.push('<select id="movie-title" name="movie-title" class="form-field"></select>');
+   $('#movie-title').replaceWith(movieTitleData);
    $(jsonData).map(function(i, movies) {
       //Map each json movie into an individual object
       jQuery.each(jsonData.movies, function(index, movie) {
         var locations = [];
-        for (i = 0; i < movie.locationShowTimes.length; i++) {
-            locations.push(movie.locationShowTimes[i].location);
+        for (i = 0; i < movie.screeningDatesAndTimesByLocation.length; i++) {
+            locations.push(movie.screeningDatesAndTimesByLocation[i].location);
         }
-         //Only display the film-name if it plays at the location selected by the user
-         if (jQuery.inArray(getCookie('location'), locations) !== -1 || isChrome) {
-            //Format each movie object to HTML and append to the film-name select as an option
-            data.push('<option value="' + movie.title + '"> ' + movie.title + '</option>');
-         }
+        //Only display the film-name if it plays at the location selected by the user
+        if (jQuery.inArray(getCookie('location'), locations) !== -1) {
+           //Format each movie object to HTML and append to the film-name select as an option
+           movieTitleData.push('<option value="' + movie.title + '"> ' + movie.title + '</option>');
+        }
       });
    });
-   $('#movie-title').append(data);
+   $('#movie-title').append(movieTitleData);
+   if (getCookie('movie') != '') {
+     setMovieBasedOnCookie();
+   }
 }
 
    //Function to carry out the application of discount
@@ -277,6 +273,7 @@ function updateBookingFields() {
       $('#discount-percent-label').hide();
       $('#discount-total-label').hide();
       $('#discount-price').hide();
+      $('#discount-price-label').hide();
    }
    //Show the extra discount details with the relevant discount percentage
    function showDiscountDetails(discountPercent) {
@@ -343,4 +340,81 @@ function updateBookingFields() {
           discountApplied = false;
        }
     }
+  }
+  function setMovieDateOptionsBasedOnMovieTitleAndLocation(movieTitle) {
+    var dates = [];
+    dates.push('<select id="date" name="date" class="form-field"></select>');
+    $('#date').replaceWith(dates);
+    $(jsonData).map(function(i, movies) {
+      jQuery.each(jsonData.movies, function(index, movie) {
+        if (movieTitle === movie.title) {
+          for (locationIndex = 0; locationIndex < movie.screeningDatesAndTimesByLocation.length; locationIndex++) {
+            if ($('#locations').find(":selected").text().trim() === movie.screeningDatesAndTimesByLocation[locationIndex].location) {
+              for (screeningIndex = 0; screeningIndex < movie.screeningDatesAndTimesByLocation[locationIndex].screening.length; screeningIndex++) {
+                dates.push(getDataInHTMLOptionStringFormat(movie.screeningDatesAndTimesByLocation[locationIndex].screening[screeningIndex].date));
+              }
+            }
+          }
+        }
+      });
+    });
+    $('#date').append(dates);
+    if (getCookie('date') != '') {
+      setDateBasedOnCookie();
+    }
+  }
+
+  function setMovieTimeOptionsBasedOnMovieTitleAndDateAndLocation(movieTitle) {
+    var times = [];
+    times.push('<select id="time" name="time" class="form-field"></select>');
+    $('#time').replaceWith(times);
+    $(jsonData).map(function(i, movies) {
+      jQuery.each(jsonData.movies, function(index, movie) {
+        if (movieTitle === movie.title) {
+          for (locationIndex = 0; locationIndex < movie.screeningDatesAndTimesByLocation.length; locationIndex++) {
+            if ($('#locations').find(":selected").text().trim() === movie.screeningDatesAndTimesByLocation[locationIndex].location) {
+              for (screeningIndex = 0; screeningIndex < movie.screeningDatesAndTimesByLocation[locationIndex].screening.length; screeningIndex++) {
+                if ($('#date').find(":selected").text().trim() === movie.screeningDatesAndTimesByLocation[locationIndex].screening[screeningIndex].date) {
+                  for (timeIndex = 0; timeIndex < movie.screeningDatesAndTimesByLocation[locationIndex].screening[screeningIndex].time.length; timeIndex++) {
+                    times.push(getDataInHTMLOptionStringFormat(movie.screeningDatesAndTimesByLocation[locationIndex].screening[screeningIndex].time[timeIndex]));
+                  }
+                }
+              }
+            }
+          }
+        }
+      });
+    });
+    $('#time').append(times);
+    if (getCookie('time') != '') {
+      setTimeBasedOnCookie();
+    }
+  }
+
+  function getDataInHTMLOptionStringFormat(data) {
+    return '<option value="' + data + '">' + data + '</option>'
+  }
+
+  function setMovieBasedOnCookie() {
+    var movie = getCookie('movie');
+    $('#movie-title').val(movie).change();
+  }
+
+  function setLocationBasedOnCookie() {
+    var location = getCookie('location');
+    $('#locations select').val(location);
+  }
+
+  function setDateBasedOnCookie() {
+    var date = getCookie('date');
+    $('#date').val(date).change();
+  }
+
+  function setTimeBasedOnCookie() {
+    var time = getCookie('time');
+    $('#time').val(time).change();
+  }
+
+  function getCurrentlySelectedMovieTitle() {
+    return $('#movie-title').find(":selected").text().trim();
   }

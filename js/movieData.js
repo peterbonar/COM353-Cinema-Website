@@ -6,25 +6,25 @@ var jsonData = {
       description: "Based on the true story of survival, a young couple's chance encounter leads them first to love, and then on the adventure of a lifetime as they face one of the most catastrophic hurricanes in recorded history.",
       cast: "Shailene Woodley, Sam Claflin, Grace Palmer",
       director: "Baltasar Kormákur",
-      genre: "Action, Adventure, Drama",
-      rating: "12A",
+      genre: ["Action", "Adventure", "Drama"],
+      rating: "Media/Ratings/12A.png",
       poster: "Media/Movie covers/Adrift.jpg",
       trailer: "https://www.youtube.com/watch?v=HdMP4sWc71M",
-      locationShowTimes: [
+      screeningDatesAndTimesByLocation: [
       {
         location: "Belfast",
-        showing: [
+        screening: [
           {
             date: "01/08/2018",
             time: ["14:30", "16:00", "19:30", "20:00"]
           },
           {
             date: "02/08/2018",
-            time: ["14:30", "16:00", "19:30", "20:00"]
+            time: ["16:00", "19:30", "20:00"]
           },
           {
             date: "03/08/2018",
-            time: ["14:30", "16:00", "19:30", "20:00"]
+            time: ["19:30", "20:00"]
           },
           {
             date: "04/08/2018",
@@ -34,7 +34,7 @@ var jsonData = {
       },
       {
         location: "Antrim",
-        showing: [
+        screening: [
           {
             date: "01/08/2018",
             time: ["11:00", "13:00", "14:30", "16:00", "19:30", "20:00"]
@@ -57,18 +57,18 @@ var jsonData = {
     },
     {
       title: "Deadpool 2",
-      tagline: "'Prepare for the second coming.'",
-      description: "After surviving a near fatal bovine attack, a disfigured cafeteria chef (Wade Wilson) struggles to fulfill his dream of becoming Mayberry's hottest bartender while also learning to cope with his lost sense of taste. Searching to regain his spice for life, as well as a flux capacitor, Wade must battle ninjas, the yakuza, and a pack of sexually aggressive canines, as he journeys around the world to discover the importance of family, friendship, and flavor - finding a new taste for adventure and earning the coveted coffee mug title of World's Best Lover.",
+      tagline: "'Prepare for the second coming'",
+      description: "Wisecracking mercenary Deadpool meets Russell, an angry teenage mutant who lives at an orphanage. When Russell becomes the target of Cable -- a genetically enhanced soldier from the future -- Deadpool realizes that he'll need some help saving the boy from such a superior enemy.",
       cast: "Morena Baccarin, Ryan Reynolds, Josh Brolin, Brianna Hildebrand",
       director: "David Leitch",
-      genre: "Action, Adventure, Comedy",
-      rating: "15",
+      genre: ["Action", "Adventure", "Comedy"],
+      rating: "Media/Ratings/15.png",
       poster: "Media/Movie covers/Deadpool 2.jpg",
       trailer: "https://www.youtube.com/watch?v=20bpjtCbCz0",
-      locationShowTimes: [
+      screeningDatesAndTimesByLocation: [
       {
         location: "Belfast",
-        showing: [
+        screening: [
           {
             date: "01/08/2018",
             time: ["14:30", "16:00", "19:30", "20:00"]
@@ -93,7 +93,7 @@ var jsonData = {
       },
       {
         location: "Antrim",
-        showing: [
+        screening: [
           {
             date: "02/08/2018",
             time: ["16:00", "19:30", "20:00"]
@@ -110,7 +110,7 @@ var jsonData = {
       },
       {
        location: "Lisburn",
-        showing: [
+        screening: [
            {
             date: "03/08/2018",
             time: ["14:30", "16:00", "19:30", "20:00"]
@@ -126,17 +126,17 @@ var jsonData = {
     {
       title: "The First Purge",
       tagline: "'Make America Great Again'",
-      description: "The film will be a prequel that will focus on the events that lead up to the very first Purge event.",
+      description: "To push the crime rate below one percent for the rest of the year, the New Founding Fathers of America test a sociological theory that vents aggression for one night in one isolated community. But when the violence of oppressors meets the rage of the others, the contagion will explode from the trial-city borders and spread across the nation.",
       cast: "Marisa Tomei, Lex Scott Davis, Luna Lauren Velez",
       director: "Gerard McMurray",
-      genre: "Action, Horror, Sci-Fi",
-      rating: "15",
+      genre: ["Action", "Horror", "Sci-Fi"],
+      rating: "Media/Ratings/15.png",
       poster: "Media/Movie covers/The First Purge.jpg",
       trailer: "https://www.youtube.com/watch?v=UL29y0ah92w",
-      locationShowTimes: [
+      screeningDatesAndTimesByLocation: [
       {
         location: "Belfast",
-        showing: [
+        screening: [
           {
             date: "01/08/2018",
             time: ["14:30", "16:00", "19:30", "20:00"]
@@ -161,7 +161,7 @@ var jsonData = {
       },
       {
         location: "Antrim",
-        showing: [
+        screening: [
           {
             date: "02/08/2018",
             time: ["16:00", "19:30", "20:00"]
@@ -181,17 +181,17 @@ var jsonData = {
     {
       title: "Hereditary",
       tagline: "'Every family tree hides a secret'",
-      description: "When Ellen, the matriarch of the Graham family, passes away, her daughter's family begins to unravel cryptic and increasingly terrifying secrets about their ancestry.",
+      description: "When the matriarch of the Graham family passes away, her daughter and grandchildren begin to unravel cryptic and increasingly terrifying secrets about their ancestry, trying to outrun the sinister fate they have inherited.",
       cast: "Toni Collette, Gabriel Byrne, Alex Wolff",
       director: "Ari Aster",
-      genre: "Drama, Horror, Mystery",
-      rating: "15",
+      genre: ["Drama", "Horror", "Mystery"],
+      rating: "Media/Ratings/15.png",
       poster: "Media/Movie covers/Hereditary.jpg",
       trailer: "https://www.youtube.com/watch?v=V6wWKNij_1M",
-      locationShowTimes: [
+      screeningDatesAndTimesByLocation: [
       {
         location: "Belfast",
-        showing: [
+        screening: [
           {
             date: "01/08/2018",
             time: ["14:30", "16:00", "19:30", "20:00"]
@@ -216,7 +216,7 @@ var jsonData = {
       },
       {
         location: "Lisburn",
-        showing: [
+        screening: [
           {
             date: "01/08/2018",
             time: ["14:30", "16:00", "19:30", "20:00"]
@@ -240,17 +240,17 @@ var jsonData = {
     {
       title: "Incredibles 2",
       tagline: "'You have powers! Yeah, baby!'",
-      description: "Bob Parr (Mr. Incredible) is left to care for Jack-Jack while Helen (Elastigirl) is out saving the world.",
+      description: "Everyone’s favorite family of superheroes is back in “Incredibles 2” – but this time Helen is in the spotlight, leaving Bob at home with Violet and Dash to navigate the day-to-day heroics of “normal” life. It’s a tough transistion for everyone, made tougher by the fact that the family is still unaware of baby Jack-Jack’s emerging superpowers. ",
       cast: "Samuel L. Jackson, Catherine Keener, Holly Hunter, Bob Odenkirk",
       director: "Brad Bird",
-      genre: "Animation, Action, Adventure",
-      rating: "PG",
+      genre: ["Animation", "Action", "Adventure"],
+      rating: "Media/Ratings/PG.png",
       poster: "Media/Movie covers/Incredibles 2.jpg",
       trailer: "https://www.youtube.com/watch?v=i5qOzqD9Rms",
-      locationShowTimes: [
+      screeningDatesAndTimesByLocation: [
       {
         location: "Belfast",
-        showing: [
+        screening: [
           {
             date: "01/08/2018",
             time: ["14:30", "16:00", "19:30", "20:00"]
@@ -275,7 +275,7 @@ var jsonData = {
       },
       {
         location: "Antrim",
-        showing: [
+        screening: [
           {
             date: "02/08/2018",
             time: ["16:00", "19:30", "20:00"]
@@ -292,7 +292,7 @@ var jsonData = {
       },
       {
        location: "Lisburn",
-        showing: [
+        screening: [
            {
             date: "03/08/2018",
             time: ["14:30", "16:00", "19:30", "20:00"]
@@ -313,17 +313,17 @@ var jsonData = {
     {
       title: "Jurassic World: Fallen Kingdom",
       tagline: "'Life finds a way'",
-      description: "When the island's dormant volcano begins roaring to life, Owen and Claire mount a campaign to rescue the remaining dinosaurs from this extinction-level event.",
+      description: "Three years after the destruction of the Jurassic World theme park, Owen Grady and Claire Dearing return to the island of Isla Nublar to save the remaining dinosaurs from a volcano that's about to erupt. They soon encounter terrifying new breeds of gigantic dinosaurs, while uncovering a conspiracy that threatens the entire planet.",
       cast: "Bryce Dallas Howard, Chris Pratt, Jeff Goldblum, Daniel Stisen",
       director: "J.A. Bayona",
-      genre: "Action, Adventure, Sci-Fi",
-      rating: "12A",
+      genre: ["Action", "Adventure", "Sci-Fi"],
+      rating: "Media/Ratings/12A.png",
       poster: "Media/Movie covers/Jurassic World Fallen Kingdom.jpg",
       trailer: "https://www.youtube.com/watch?v=1FJD7jZqZEk",
-      locationShowTimes: [
+      screeningDatesAndTimesByLocation: [
       {
         location: "Belfast",
-        showing: [
+        screening: [
           {
             date: "01/08/2018",
             time: ["14:30", "16:00", "19:30", "20:00"]
@@ -348,7 +348,7 @@ var jsonData = {
       },
       {
         location: "Lisburn",
-        showing: [
+        screening: [
           {
             date: "01/08/2018",
             time: ["14:30", "16:00", "19:30", "20:00"]
@@ -375,14 +375,14 @@ var jsonData = {
       description: "The drug war on the US-Mexico border has escalated as the cartels have begun trafficking terrorists across the US border. To fight the war, federal agent Matt Graver re-teams with the mercurial Alejandro.",
       cast: "Josh Brolin, Benicio Del Toro, Isabela Moner",
       director: "Stefano Sollima",
-      genre: "Action, Crime, Drama",
-      rating: "15",
+      genre: ["Action", "Crime", "Drama"],
+      rating: "Media/Ratings/15.png",
       poster: "Media/Movie covers/Sicario 2- Soldado.jpg",
       trailer: "https://www.youtube.com/watch?v=i02bxFc88b4",
-      locationShowTimes: [
+      screeningDatesAndTimesByLocation: [
       {
         location: "Antrim",
-        showing: [
+        screening: [
           {
             date: "02/08/2018",
             time: ["16:00", "19:30", "20:00"]
@@ -401,18 +401,18 @@ var jsonData = {
     },
     {
       title: "Skyscraper",
-      tagline: "'Skyscraper'",
+      tagline: "'The sky is the limit'",
       description: "FBI Hostage Rescue Team leader and U.S. war veteran Will Ford, who now assesses security for skyscrapers. On assignment in Hong Kong he finds the tallest, safest building in the world suddenly ablaze, and he's been framed for it.",
       cast: "Dwayne Johnson, Neve Campbell, Pablo Schreiber",
       director: "Rawson Marshall Thurber",
-      genre: "Action, Crime, Drama",
-      rating: "12A",
+      genre: ["Action", "Crime", "Drama"],
+      rating: "Media/Ratings/12A.png",
       poster: "Media/Movie covers/Skyscraper.jpg",
       trailer: "https://www.youtube.com/watch?v=t9QePUT-Yt8",
-      locationShowTimes: [
+      screeningDatesAndTimesByLocation: [
       {
         location: "Antrim",
-        showing: [
+        screening: [
           {
             date: "02/08/2018",
             time: ["16:00", "19:30", "20:00"]
@@ -433,7 +433,7 @@ var jsonData = {
       },
       {
        location: "Lisburn",
-        showing: [
+        screening: [
            {
             date: "03/08/2018",
             time: ["14:30", "16:00", "19:30", "20:00"]
@@ -453,17 +453,17 @@ var jsonData = {
     {
       title: "Tag",
       tagline: "'Tag. You're it'",
-      description: "A small group of former classmates organize an elaborate, annual game of tag that requires some to travel all over the country.",
+      description: "One month every year, five highly competitive friends hit the ground running for a no-holds-barred game of tag - risking their necks, their jobs and their relationships to take one another down. This time, the game coincides with the wedding of the only undefeated player. What should be an easy target soon becomes an all-out war as he knows they're coming for him.",
       cast: "Annabelle Wallis, Jeremy Renner, Isla Fisher",
       director: "Jeff Tomsic",
-      genre: "Comedy",
-      rating: "15",
+      genre: ["Comedy"],
+      rating: "Media/Ratings/15.png",
       poster: "Media/Movie covers/Tag.jpg",
       trailer: "https://www.youtube.com/watch?v=kjC1zmZo30U",
-      locationShowTimes: [
+      screeningDatesAndTimesByLocation: [
       {
         location: "Belfast",
-        showing: [
+        screening: [
           {
             date: "01/08/2018",
             time: ["14:30", "16:00", "19:30", "20:00"]
@@ -488,7 +488,7 @@ var jsonData = {
       },
       {
         location: "Antrim",
-        showing: [
+        screening: [
           {
             date: "02/08/2018",
             time: ["16:00", "19:30", "20:00"]
