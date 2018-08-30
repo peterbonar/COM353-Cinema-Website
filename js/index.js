@@ -70,7 +70,7 @@ function populateHTMLMovieData() {
                 }
             });
             //Only output the information for a movie's available locations, dates and times if it is showing at a location selected by the user
-            if (locations.indexOf(getCookie('location')) > -1 && movie.genre.indexOf($('#genre-list').val()) != -1 || $('#genre-list').val() == 'select-genre') {
+            if (locations.indexOf(getCookie('location')) > -1 && (movie.genre.indexOf($('#genre-list').val()) != -1 || $('#genre-list').val() == 'select-genre')) {
                 data += getScreeningDataForMovieAsString(movie, dates, datesAndTimes, locations);
             }
         });
