@@ -97,7 +97,7 @@ function updateBookingFields() {
             locations.push(movie.screeningDatesAndTimesByLocation[i].location);
         }
         //Only display the film-name if it plays at the location selected by the user
-        if (jQuery.inArray(getCookie('location'), locations) !== -1 || isChrome) {
+        if (jQuery.inArray(getCookie('location'), locations) !== -1) {
            //Format each movie object to HTML and append to the film-name select as an option
            movieTitleData.push('<option value="' + movie.title + '"> ' + movie.title + '</option>');
         }
