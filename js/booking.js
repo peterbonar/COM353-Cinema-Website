@@ -108,10 +108,18 @@ window.onload = function() {
    hideDiscountDetails();
    $('#discount-code').keyup(function() {
       checkDiscountCodeField();
-   })
+   });
    $('#apply-discount').click(function() {
       discountCheck();
-   })
+   });
+   $('#phone').change(function(){
+     var phone = $('#phone').val();
+     if(!$.isNumeric(phone) || phone.length != 11){
+       $(':input[type="submit"]').prop('disabled', true);
+       alert('Please enter a valid phone number that is 11 numbers long');
+       $('#phone').focus();
+     }
+   });
 }
 
 function updateBookingFields() {
