@@ -63,18 +63,10 @@
       <div>
          <table>
             <tr>
-               <th>
-                  <label for="ticket-type">Ticket Type: </label>
-               </th>
-               <th>
-                  <label for="price">Price: </label>
-               </th>
-               <th>
-                 <label for="quantity">Quantity: </label>
-               </th>
-               <th>
-                  <label for="subtotal">Subtotal: </label>
-               </th>
+               <th>Ticket Type:</th>
+               <th>Price:</th>
+               <th>Quantity:</th>
+               <th>Subtotal:</th>
             </tr>
             <tr>
                <td>
@@ -146,7 +138,32 @@
                   <label for="total-price" id="total-price">£0.00</label>
                </th>
             </tr>
+            <tr>
+              <th></th>
+              <th></th>
+              <th>
+                 <label for="discount-percent" id="discount-percent-label">Discount:</label>
+              </th>
+              <th>
+                 <div id="discount-percent"></div>
+              </th>
+            </tr>
+            <tr>
+              <th></th>
+              <th></th>
+              <th>
+                 <label for="discount-price" id="discount-price-label">Discount Total:</label>
+              </th>
+              <th>
+                 <div id="discount-price">£0.00</div>
+              </th>
+            </tr>
          </table>
+      </div>
+      <div>
+        <label for="discount-code">Discount Code: </label>
+        <input type="text" id="discount-code" maxlength="10" name="discount-code" placeholder="Discount Code">
+        <input type="button" id="apply-discount" value="Apply Discount"></input>
       </div>
       <div>
          <label for="locations">Location: </label>
