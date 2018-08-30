@@ -282,6 +282,7 @@ function updateBookingFields() {
       $('#discount-percent-label').show();
       $('#discount-total-label').show();
       $('#discount-price').show();
+      $('#discount-price-label').show();
    }
    //Disable the apply discount button
    function disableApplyDiscountButton() {
