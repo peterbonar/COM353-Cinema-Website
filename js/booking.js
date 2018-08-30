@@ -274,6 +274,7 @@ function updateBookingFields() {
       $('#discount-total-label').hide();
       $('#discount-price').hide();
       $('#discount-price-label').hide();
+      $('#bottom-of-table').hide();
    }
    //Show the extra discount details with the relevant discount percentage
    function showDiscountDetails(discountPercent) {
@@ -283,6 +284,7 @@ function updateBookingFields() {
       $('#discount-total-label').show();
       $('#discount-price').show();
       $('#discount-price-label').show();
+      $('#bottom-of-table').show();
    }
    //Disable the apply discount button
    function disableApplyDiscountButton() {
