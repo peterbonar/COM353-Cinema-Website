@@ -1,22 +1,22 @@
 .ticket-type {
-	font-weight: bold;
+   font-weight: bold;
 }
 
 .ticket-price {
-	font-size: 20px;
-	padding-top: 10px;
+   font-size: 20px;
+   padding-top: 10px;
 }
 
 .ticket-info {
-	color: #686868;
+   color: #686868;
 }
 
 #price-list {
-	font-size: 35px;
-	padding-top: 25px;
+   font-size: 35px;
+   padding-top: 25px;
 }
 
 #general-ticket-info {
-	padding-top: 30px;
-	padding-bottom: 20px;
+   padding-top: 30px;
+   padding-bottom: 20px;
 }

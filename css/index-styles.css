@@ -1,94 +1,94 @@
 .movie-poster {
-  padding-top: 12px;
-  width: 34vw;
-  height: auto;
+   padding-top: 12px;
+   width: 34vw;
+   height: auto;
 }
 
-.inline-block{
-  display: inline-block;
+.inline-block {
+   display: inline-block;
 }
 
 .rating {
-  min-width: 30px;
-  width: 3.5vw;
-  height: auto;
-  padding-left: 15px;
-  padding-bottom: 17px;
+   min-width: 30px;
+   width: 3.5vw;
+   height: auto;
+   padding-left: 15px;
+   padding-bottom: 17px;
 }
 
 #location-selector {
-  padding-top: 20px;
-  padding-bottom: 40px;
+   padding-top: 20px;
+   padding-bottom: 40px;
 }
 
 #locations {
-  width: 100%;
-  height: 3vw;
-  font-size: 1.5vw;
+   width: 100%;
+   height: 3vw;
+   font-size: 1.5vw;
 }
 
 #genre-selector {
-  padding-bottom: 40px;
+   padding-bottom: 40px;
 }
 
 #genre-list {
-  width: 100%;
-  height: 3vw;
-  font-size: 1.5vw;
+   width: 100%;
+   height: 3vw;
+   font-size: 1.5vw;
 }
 
 .cast-padding {
-  padding-right: 10px;
-  padding-top: 4px;
+   padding-right: 10px;
+   padding-top: 4px;
 }
 
 .fa-padding {
-  padding-right: 16px;
-  padding-top: 4px;
+   padding-right: 16px;
+   padding-top: 4px;
 }
 
 .youtube-padding {
-  padding-right: 13px;
-  padding-top: 4px;
+   padding-right: 13px;
+   padding-top: 4px;
 }
 
 body {
-  font-size: 1em;
-  font-family: 'Lato', sans-serif;
+   font-size: 1em;
+   font-family: 'Lato', sans-serif;
 }
 
 #currently-showing {
-  position: absolute;
-  top: 65%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  color: white;
-  font-size: 2em;
-  padding: 12px 24px;
-  border: none;
-  cursor: pointer;
-  border-radius: 5px;
+   position: absolute;
+   top: 65%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   -ms-transform: translate(-50%, -50%);
+   color: white;
+   font-size: 2em;
+   padding: 12px 24px;
+   border: none;
+   cursor: pointer;
+   border-radius: 5px;
 }
 
 .screening-times {
-  display: none;
-  width: 100%
+   display: none;
+   width: 100%
 }
 
 .date-time-header {
-  padding-top: 1.5vw;
-  font-weight: bold;
+   padding-top: 1.5vw;
+   font-weight: bold;
 }
 
 .date-time-instructions {
-  color: #505050;
+   color: #505050;
 }
 
 .date-selector {
-  width:100%;
+   width: 100%;
 }
 
 .index-header {
-  font-weight: bold;
+   font-weight: bold;
 }

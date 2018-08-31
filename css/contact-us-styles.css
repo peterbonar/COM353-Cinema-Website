@@ -1,32 +1,32 @@
 .form-row {
-	display: table-row;
+   display: table-row;
 }
 
 .contact-info {
-  float: left;
-  padding-right: 10vw;
+   float: left;
+   padding-right: 10vw;
 }
 
 .contact-information-headings {
-	font-weight: bold;
+   font-weight: bold;
 }
 
 .form-button {
-	width: 100%;
-	font-size: 20px;
+   width: 100%;
+   font-size: 20px;
 }
 
 .contact-information {
-	color: #505050;
-	padding-bottom: 5px;
+   color: #505050;
+   padding-bottom: 5px;
 }
 
 .contact-us-checkbox {
-	margin-right: 10px;
+   margin-right: 10px;
 }
 
 .cinema-location {
-	color: #484848;
-	font-weight: bold;
-	font-size: 18px;
+   color: #484848;
+   font-weight: bold;
+   font-size: 18px;
 }
