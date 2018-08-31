@@ -1,0 +1,48 @@
+.parallax {
+  height: 75%;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+#parallax-prices {
+  background-image: url("../Media/Prices Header.jpg");
+}
+
+#parallax-movies {
+  background-image: url("../Media/Movies Header.jpg");
+  height: 100%;
+}
+
+#parallax-contact-us {
+  background-image: url("../Media/Contact Us Header.jpg");
+}
+
+#parallax-booking {
+  background-image: url("../Media/Booking Header.jpg");
+}
+
+.heading {
+  font-size: 12vw;
+  color: white;
+  width: 100%;
+  font-family: 'Lato', sans-serif;
+  margin: 0;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  display: inline-block
+}
+
+body {
+  height: 100%;
+  font-family: 'Lato', sans-serif;
+}
+
+html {
+  height: 75%;
+}
