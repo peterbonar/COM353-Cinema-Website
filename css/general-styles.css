@@ -1,71 +1,71 @@
 .navbar {
-    position: fixed;
-    width: 100vw;
-    top: 0;
-    overflow: hidden;
-    z-index: 9999;
+   position: fixed;
+   width: 100vw;
+   top: 0;
+   overflow: hidden;
+   z-index: 9999;
 }
 
 body {
-    margin-top: 55px;
+   margin-top: 55px;
 }
 
 .footer {
-	position: relative;
-    left: 0;
-    bottom: 0px;
-    width: 100vw;
-    background-color: #343a40;
-    color: white;
-    text-align: center;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    display: block;
-    margin-top: 20px;
+   position: relative;
+   left: 0;
+   bottom: 0px;
+   width: 100vw;
+   background-color: #343a40;
+   color: white;
+   text-align: center;
+   padding-top: 20px;
+   padding-bottom: 20px;
+   display: block;
+   margin-top: 20px;
 }
 
 #footer-table td {
-    width: 100vw;
+   width: 100vw;
 }
 
 .footer-link {
-    color: white;
+   color: white;
 }
 
-td > .fab {
-    padding: 10px;
-    font-size: 30px;
-    width: 50px;
-    text-align: center;
-    text-decoration: none;
-    margin: 2px 2px;
+td>.fab {
+   padding: 10px;
+   font-size: 30px;
+   width: 50px;
+   text-align: center;
+   text-decoration: none;
+   margin: 2px 2px;
 }
 
-td > .fab:hover {
-    color: white;
-    text-decoration: none;
+td>.fab:hover {
+   color: white;
+   text-decoration: none;
 }
 
 .fa-facebook {
-    padding: 10px;
-    background: #3B5998;
-    color: white;
+   padding: 10px;
+   background: #3B5998;
+   color: white;
 }
 
 .fa-twitter {
-    padding: 10px;
-    background: #55ACEE;
-    color: white;
+   padding: 10px;
+   background: #55ACEE;
+   color: white;
 }
 
 .fa-google {
-    padding: 10px;
-    background: #dd4b39;
-    color: white;
+   padding: 10px;
+   background: #dd4b39;
+   color: white;
 }
 
-td > .fa-youtube {
-    padding: 10px;
-    background: #bb0000;
-    color: white;
+td>.fa-youtube {
+   padding: 10px;
+   background: #bb0000;
+   color: white;
 }

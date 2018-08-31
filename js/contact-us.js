@@ -1,5 +1,5 @@
-window.onload = function() {
-   $('#contact-form').submit(function() {
+window.onload = function () {
+   $('#contact-form').submit(function () {
       var contactMethodSelected = $('#preferred-contact-method-checkboxes :checkbox:checked').length;
 
       //If no checkbox has been checked then alert the user and prevent form submission. This will ensure at least one checkbox is checked.
@@ -31,7 +31,7 @@ window.onload = function() {
    $('#characters-remaining').hide().val(charactersLeft + htmlString).css("color", "green");
    $(':input[type="submit"]').prop('disabled', true);
 
-   $('#enquiry').keyup(function() {
+   $('#enquiry').keyup(function () {
       var charactersLeft = fieldLimit - $('#enquiry').val().length;
       $('#characters-remaining').val(charactersLeft + htmlString);
       if ($('#enquiry').val().length == 0) {
@@ -49,7 +49,7 @@ window.onload = function() {
       }
    })
 
-   $('#contact-form *').keyup(function() {
+   $('#contact-form *').keyup(function () {
       var allInputs = $('#contact-form *');
       var counterForEmptyFields = 0;
       for (var i = 0; i < allInputs.length; i++) {
@@ -66,12 +66,12 @@ window.onload = function() {
       }
    });
 
-   $('#phone').change(function(){
-     var phone = $('#phone').val();
-     if(!$.isNumeric(phone) || phone.length != 11){
-       $(':input[type="submit"]').prop('disabled', true);
-       alert('Please enter a valid phone number that is 11 numbers long');
-       $('#phone').focus();
-     }
+   $('#phone').change(function () {
+      var phone = $('#phone').val();
+      if (!$.isNumeric(phone) || phone.length != 11) {
+         $(':input[type="submit"]').prop('disabled', true);
+         alert('Please enter a valid phone number that is 11 numbers long');
+         $('#phone').focus();
+      }
    });
 };
